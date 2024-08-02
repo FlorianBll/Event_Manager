@@ -87,5 +87,28 @@ namespace EventManager
                 button_CreateEvent.Enabled = false;
             }
         }
+
+        private void button_CreateEvent_Click(object sender, EventArgs e)
+        {
+            bool isFieldsNotEmpty = textBox_EventName.TextLength > 0 && textBox_Author.TextLength > 0 && dateTimePicker_Event.Value != null;
+
+            if (isFieldsNotEmpty)
+            {
+                eventName = textBox_EventName.Text;
+                eventAuthor = textBox_Author.Text;
+                eventDate = dateTimePicker_Event.Value;
+
+                if (richTextBox_EventDescription.TextLength > 0)
+                {
+                    eventDes = richTextBox_EventDescription.Text;
+                }
+                else
+                {
+                    eventDes = "";
+                }
+
+                Close();
+            }
+        }
     }
 }

@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace EventManager
 {
-    internal class Event
+    public class Event
     {
         #region variables
+
         private string _eventName;
         private string _eventAuthor;
         private DateTime _eventDate;
@@ -40,5 +41,15 @@ namespace EventManager
         }
 
         #endregion
+
+        public Event(string eventName, string eventAuthor, DateTime eventDate, string eventDes = "")
+        {
+            _eventAuthor = eventName;
+            _eventAuthor = eventAuthor;
+            _eventDate = eventDate;
+            _eventDes = eventDes;
+        }
+
+
     }
 }

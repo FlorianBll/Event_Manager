@@ -119,6 +119,7 @@
             this.button_CreateEvent.TabIndex = 8;
             this.button_CreateEvent.Text = "Create Event";
             this.button_CreateEvent.UseVisualStyleBackColor = true;
+            this.button_CreateEvent.Click += new System.EventHandler(this.button_CreateEvent_Click);
             // 
             // Form_EventEditor
             // 

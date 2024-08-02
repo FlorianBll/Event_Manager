@@ -14,6 +14,8 @@ namespace EventManager
         [STAThread]
         static void Main()
         {
+            Event[] events;
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             // Application.Run(new Form_EventManager());
