@@ -12,6 +12,13 @@ namespace EventManager
 {
     public partial class Form_EventManager : Form
     {
+        // Empty Event instance
+        Event newEvent = new Event();
+
+        // List of events
+        List<Event> events = new List<Event>();
+
+
         public Form_EventManager()
         {
             InitializeComponent();
@@ -19,9 +26,24 @@ namespace EventManager
 
         private void button_CreateEvent_Click(object sender, EventArgs e)
         {
-            Form_EventEditor evntEdit = new Form_EventEditor();
+            Form_EventEditor eventEditor = new Form_EventEditor();
 
-            evntEdit.ShowDialog();
+            eventEditor.ShowDialog(this);
+
+            // Retrieve all data from Event Editor form
+            newEvent.eventName = eventEditor.eventName;
+            newEvent.eventAuthor = eventEditor.eventAuthor;
+            newEvent.eventDate = eventEditor.eventDate;
+            newEvent.eventDes = eventEditor.eventDes;
+
+            eventEditor.Dispose();
+
+            events.Add(newEvent);
+
+            if (events.Count > 0)
+            {
+                Console.WriteLine($"List updated, new size of List : {events.Count}");
+            }
         }
     }
 }

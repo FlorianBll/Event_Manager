@@ -41,15 +41,19 @@ namespace EventManager
         }
 
         #endregion
-
+        public Event()
+        {
+            _eventName = "";
+            _eventAuthor = "";
+            _eventDate = DateTime.Now;
+            _eventDes = "";
+        }
         public Event(string eventName, string eventAuthor, DateTime eventDate, string eventDes = "")
         {
-            _eventAuthor = eventName;
+            _eventName = eventName;
             _eventAuthor = eventAuthor;
             _eventDate = eventDate;
             _eventDes = eventDes;
         }
-
-
     }
 }
