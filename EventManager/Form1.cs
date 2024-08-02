@@ -16,5 +16,12 @@ namespace EventManager
         {
             InitializeComponent();
         }
+
+        private void button_CreateEvent_Click(object sender, EventArgs e)
+        {
+            Form_EventEditor evntEdit = new Form_EventEditor();
+
+            evntEdit.ShowDialog();
+        }
     }
 }

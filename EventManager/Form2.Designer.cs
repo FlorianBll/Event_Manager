@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox_EventName = new System.Windows.Forms.TextBox();
+            this.textBox_Author = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker_Event = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox_EventDescription = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button_CreateEvent = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -48,19 +48,21 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Event Name :";
             // 
-            // textBox1
+            // textBox_EventName
             // 
-            this.textBox1.Location = new System.Drawing.Point(93, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 20);
-            this.textBox1.TabIndex = 1;
+            this.textBox_EventName.Location = new System.Drawing.Point(93, 12);
+            this.textBox_EventName.Name = "textBox_EventName";
+            this.textBox_EventName.Size = new System.Drawing.Size(121, 20);
+            this.textBox_EventName.TabIndex = 1;
+            this.textBox_EventName.TextChanged += new System.EventHandler(this.textBox_EventName_TextChanged);
             // 
-            // textBox2
+            // textBox_Author
             // 
-            this.textBox2.Location = new System.Drawing.Point(93, 41);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(121, 20);
-            this.textBox2.TabIndex = 3;
+            this.textBox_Author.Location = new System.Drawing.Point(93, 41);
+            this.textBox_Author.Name = "textBox_Author";
+            this.textBox_Author.Size = new System.Drawing.Size(121, 20);
+            this.textBox_Author.TabIndex = 3;
+            this.textBox_Author.TextChanged += new System.EventHandler(this.textBox_Author_TextChanged);
             // 
             // label2
             // 
@@ -71,12 +73,12 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Author :";
             // 
-            // dateTimePicker1
+            // dateTimePicker_Event
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(93, 73);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 4;
+            this.dateTimePicker_Event.Location = new System.Drawing.Point(93, 73);
+            this.dateTimePicker_Event.Name = "dateTimePicker_Event";
+            this.dateTimePicker_Event.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker_Event.TabIndex = 4;
             // 
             // label3
             // 
@@ -87,16 +89,16 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Date :";
             // 
-            // richTextBox1
+            // richTextBox_EventDescription
             // 
-            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.richTextBox_EventDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox1.Location = new System.Drawing.Point(93, 99);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(424, 292);
-            this.richTextBox1.TabIndex = 6;
-            this.richTextBox1.Text = "";
+            this.richTextBox_EventDescription.Location = new System.Drawing.Point(93, 99);
+            this.richTextBox_EventDescription.Name = "richTextBox_EventDescription";
+            this.richTextBox_EventDescription.Size = new System.Drawing.Size(424, 292);
+            this.richTextBox_EventDescription.TabIndex = 6;
+            this.richTextBox_EventDescription.Text = "";
             // 
             // label4
             // 
@@ -109,6 +111,7 @@
             // 
             // button_CreateEvent
             // 
+            this.button_CreateEvent.Enabled = false;
             this.button_CreateEvent.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_CreateEvent.Location = new System.Drawing.Point(346, 15);
             this.button_CreateEvent.Name = "button_CreateEvent";
@@ -124,12 +127,12 @@
             this.ClientSize = new System.Drawing.Size(529, 403);
             this.Controls.Add(this.button_CreateEvent);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.richTextBox_EventDescription);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.dateTimePicker_Event);
+            this.Controls.Add(this.textBox_Author);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBox_EventName);
             this.Controls.Add(this.label1);
             this.MinimumSize = new System.Drawing.Size(545, 442);
             this.Name = "Form_EventEditor";
@@ -143,12 +146,12 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox_EventName;
+        private System.Windows.Forms.TextBox textBox_Author;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_Event;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox richTextBox_EventDescription;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button_CreateEvent;
     }

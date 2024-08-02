@@ -28,28 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBox_Events = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button_CreateEvent = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.button_DeleteEvent = new System.Windows.Forms.Button();
             this.textBox_SearchEventName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button_EditEvent = new System.Windows.Forms.Button();
             this.button_SearchEvent = new System.Windows.Forms.Button();
+            this.button_EditEvent = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // listBox1
+            // listBox_Events
             // 
-            this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.listBox_Events.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 140);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(472, 251);
-            this.listBox1.TabIndex = 0;
+            this.listBox_Events.FormattingEnabled = true;
+            this.listBox_Events.Location = new System.Drawing.Point(12, 140);
+            this.listBox_Events.Name = "listBox_Events";
+            this.listBox_Events.Size = new System.Drawing.Size(472, 251);
+            this.listBox_Events.TabIndex = 0;
             // 
             // label1
             // 
@@ -68,16 +68,17 @@
             this.button_CreateEvent.TabIndex = 2;
             this.button_CreateEvent.Text = "Create New Event";
             this.button_CreateEvent.UseVisualStyleBackColor = true;
+            this.button_CreateEvent.Click += new System.EventHandler(this.button_CreateEvent_Click);
             // 
-            // button2
+            // button_DeleteEvent
             // 
-            this.button2.Enabled = false;
-            this.button2.Location = new System.Drawing.Point(15, 70);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(126, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Delete Event";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button_DeleteEvent.Enabled = false;
+            this.button_DeleteEvent.Location = new System.Drawing.Point(15, 70);
+            this.button_DeleteEvent.Name = "button_DeleteEvent";
+            this.button_DeleteEvent.Size = new System.Drawing.Size(126, 23);
+            this.button_DeleteEvent.TabIndex = 3;
+            this.button_DeleteEvent.Text = "Delete Event";
+            this.button_DeleteEvent.UseVisualStyleBackColor = true;
             // 
             // textBox_SearchEventName
             // 
@@ -111,16 +112,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search";
             // 
-            // button_EditEvent
-            // 
-            this.button_EditEvent.Enabled = false;
-            this.button_EditEvent.Location = new System.Drawing.Point(15, 41);
-            this.button_EditEvent.Name = "button_EditEvent";
-            this.button_EditEvent.Size = new System.Drawing.Size(126, 23);
-            this.button_EditEvent.TabIndex = 7;
-            this.button_EditEvent.Text = "Edit Event";
-            this.button_EditEvent.UseVisualStyleBackColor = true;
-            // 
             // button_SearchEvent
             // 
             this.button_SearchEvent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -132,6 +123,16 @@
             this.button_SearchEvent.Text = "OK";
             this.button_SearchEvent.UseVisualStyleBackColor = true;
             // 
+            // button_EditEvent
+            // 
+            this.button_EditEvent.Enabled = false;
+            this.button_EditEvent.Location = new System.Drawing.Point(15, 41);
+            this.button_EditEvent.Name = "button_EditEvent";
+            this.button_EditEvent.Size = new System.Drawing.Size(126, 23);
+            this.button_EditEvent.TabIndex = 7;
+            this.button_EditEvent.Text = "Edit Event";
+            this.button_EditEvent.UseVisualStyleBackColor = true;
+            // 
             // Form_EventManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -139,10 +140,10 @@
             this.ClientSize = new System.Drawing.Size(502, 406);
             this.Controls.Add(this.button_EditEvent);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button_DeleteEvent);
             this.Controls.Add(this.button_CreateEvent);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.listBox_Events);
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(518, 445);
             this.Name = "Form_EventManager";
@@ -157,10 +158,10 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBox_Events;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button_CreateEvent;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button_DeleteEvent;
         private System.Windows.Forms.TextBox textBox_SearchEventName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
