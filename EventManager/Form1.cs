@@ -43,6 +43,18 @@ namespace EventManager
             if (events.Count > 0)
             {
                 Console.WriteLine($"List updated, new size of List : {events.Count}");
+
+                if (listBox_Events.Items.Count <= 0)
+                {
+                    listBox_Events.Items.CopyTo(events.ToArray(), 0);
+                    listBox_Events.Update();
+                }
+                else
+                {
+                    listBox_Events.Items.Clear();
+                    listBox_Events.Items.CopyTo(events.ToArray(), 0);
+                    listBox_Events.Update();
+                }
             }
         }
     }

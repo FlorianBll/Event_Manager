@@ -40,7 +40,7 @@ namespace EventManager
 
         public string eventDes
         {
-            get => eventDes;
+            get => _eventDes;
             set => _eventDes = value;
         }
 
