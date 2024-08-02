@@ -1,0 +1,11 @@
+C:\Users\Florian.Belloc\source\repos\Event_Manager\Event_Manager\EventManager\bin\Debug\EventManager.exe.config
+C:\Users\Florian.Belloc\source\repos\Event_Manager\Event_Manager\EventManager\bin\Debug\EventManager.exe
+C:\Users\Florian.Belloc\source\repos\Event_Manager\Event_Manager\EventManager\bin\Debug\EventManager.pdb
+C:\Users\Florian.Belloc\source\repos\Event_Manager\Event_Manager\EventManager\obj\Debug\EventManager.csproj.AssemblyReference.cache
+C:\Users\Florian.Belloc\source\repos\Event_Manager\Event_Manager\EventManager\obj\Debug\EventManager.Form1.resources
+C:\Users\Florian.Belloc\source\repos\Event_Manager\Event_Manager\EventManager\obj\Debug\EventManager.Properties.Resources.resources
+C:\Users\Florian.Belloc\source\repos\Event_Manager\Event_Manager\EventManager\obj\Debug\EventManager.csproj.GenerateResource.cache
+C:\Users\Florian.Belloc\source\repos\Event_Manager\Event_Manager\EventManager\obj\Debug\EventManager.csproj.CoreCompileInputs.cache
+C:\Users\Florian.Belloc\source\repos\Event_Manager\Event_Manager\EventManager\obj\Debug\EventManager.exe
+C:\Users\Florian.Belloc\source\repos\Event_Manager\Event_Manager\EventManager\obj\Debug\EventManager.pdb
+C:\Users\Florian.Belloc\source\repos\Event_Manager\Event_Manager\EventManager\obj\Debug\EventManager.Form2.resources
