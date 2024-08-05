@@ -21,15 +21,15 @@ namespace EventManager
             get => _eventItem;
             set => _eventItem = value;
         }
-        public Form_EventEditor()
-        {
-            InitializeComponent();
-        }
 
         public string buttonName
         {
             get => _buttonName;
             set => _buttonName = value;
+        }
+        public Form_EventEditor()
+        {
+            InitializeComponent();
         }
 
 

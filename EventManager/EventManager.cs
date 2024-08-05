@@ -16,7 +16,7 @@ namespace EventManager
         // List of events
         List<Event> events = new List<Event>();
         Form_EventEditor editor = new Form_EventEditor();
-
+        bool developerTool = false;
 
         public Form_EventManager()
         {
@@ -41,8 +41,6 @@ namespace EventManager
             {
                 button_EditEvent.Enabled = true;
                 button_DeleteEvent.Enabled = true;
-
-                Console.WriteLine($"Event Description : {events[listBox_Events.SelectedIndex].eventDes}");
             }
             else
             {
@@ -76,6 +74,39 @@ namespace EventManager
                 else
                 {
                     events[listBox_Events.SelectedIndex] = newEvent;
+                }
+            }
+        }
+
+        private void textBox_SearchEventName_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox_SearchEventName.TextLength > 0)
+            {
+                button_SearchEvent.Enabled = true;
+            }
+            else
+            {
+                button_SearchEvent.Enabled = false;
+            }
+        }
+
+        private void button_SearchEvent_Click(object sender, EventArgs e)
+        {
+            if (listBox_Events.Items.IndexOf(textBox_SearchEventName.Text) >= 0)
+            {
+                listBox_Events.SelectedItem = listBox_Events.Items.IndexOf(textBox_SearchEventName.Text);
+            }
+        }
+
+        private void button_DeleteEvent_Click(object sender, EventArgs e)
+        {
+            if (listBox_Events.SelectedIndex >= 0)
+            {
+                if (MessageBox.Show("Are you sure you want to delete this selected event ? This action is irreversible", "Deleting Event", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    events.RemoveAt(listBox_Events.SelectedIndex);
+                    listBox_Events.Items.RemoveAt(listBox_Events.SelectedIndex);                    
+                    listBox_Events.Update();
                 }
             }
         }

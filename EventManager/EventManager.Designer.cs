@@ -37,6 +37,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button_SearchEvent = new System.Windows.Forms.Button();
             this.button_EditEvent = new System.Windows.Forms.Button();
+            this.button_DevMode = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,6 +81,7 @@
             this.button_DeleteEvent.TabIndex = 3;
             this.button_DeleteEvent.Text = "Delete Event";
             this.button_DeleteEvent.UseVisualStyleBackColor = true;
+            this.button_DeleteEvent.Click += new System.EventHandler(this.button_DeleteEvent_Click);
             // 
             // textBox_SearchEventName
             // 
@@ -89,6 +91,7 @@
             this.textBox_SearchEventName.Name = "textBox_SearchEventName";
             this.textBox_SearchEventName.Size = new System.Drawing.Size(151, 20);
             this.textBox_SearchEventName.TabIndex = 4;
+            this.textBox_SearchEventName.TextChanged += new System.EventHandler(this.textBox_SearchEventName_TextChanged);
             // 
             // label2
             // 
@@ -123,6 +126,7 @@
             this.button_SearchEvent.TabIndex = 6;
             this.button_SearchEvent.Text = "OK";
             this.button_SearchEvent.UseVisualStyleBackColor = true;
+            this.button_SearchEvent.Click += new System.EventHandler(this.button_SearchEvent_Click);
             // 
             // button_EditEvent
             // 
@@ -135,12 +139,22 @@
             this.button_EditEvent.UseVisualStyleBackColor = true;
             this.button_EditEvent.Click += new System.EventHandler(this.button_EditEvent_Click);
             // 
+            // button_DevMode
+            // 
+            this.button_DevMode.Location = new System.Drawing.Point(297, 105);
+            this.button_DevMode.Name = "button_DevMode";
+            this.button_DevMode.Size = new System.Drawing.Size(118, 23);
+            this.button_DevMode.TabIndex = 8;
+            this.button_DevMode.Text = "Developer Toolbox";
+            this.button_DevMode.UseVisualStyleBackColor = true;
+            // 
             // Form_EventManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(502, 406);
+            this.Controls.Add(this.button_DevMode);
             this.Controls.Add(this.button_EditEvent);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button_DeleteEvent);
@@ -171,6 +185,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button_SearchEvent;
         private System.Windows.Forms.Button button_EditEvent;
+        private System.Windows.Forms.Button button_DevMode;
     }
 }
 
