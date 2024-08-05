@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Authentication;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,6 +15,7 @@ namespace EventManager
     {
         // List of events
         List<Event> events = new List<Event>();
+        Form_EventEditor editor = new Form_EventEditor();
 
 
         public Form_EventManager()
@@ -23,73 +25,58 @@ namespace EventManager
 
         private void button_CreateEvent_Click(object sender, EventArgs e)
         {
-            Form_EventEditor eventEditor = new Form_EventEditor();
-
-            eventEditor.ShowDialog(this);
-
-            if (eventEditor.eventName != null && eventEditor.eventAuthor != null)
-            {
-                Event newEvent = new Event(eventEditor.eventName, eventEditor.eventAuthor, eventEditor.eventStart, eventEditor.eventEnd, eventEditor.eventDes);
-
-                eventEditor.Dispose();
-
-                events.Add(newEvent);
-
-                if (events.Count > 0)
-                {
-                    Console.WriteLine($"List updated, new size of List : {events.Count}");
-
-                    Console.WriteLine($"Author name : {events[0].eventAuthor}");
-
-                    if (listBox_Events.Items.Count <= 0)
-                    {
-                        listBox_Events.Items.Add(events[0].eventName);
-
-                        listBox_Events.Update();
-                    }
-                    else
-                    {
-                        listBox_Events.Items.Clear();
-
-                        foreach (Event eventItem in events)
-                        {
-                            listBox_Events.Items.Add(eventItem.eventName);
-                        }
-
-                        listBox_Events.Update();
-                    }
-                }
-            }
+            editor.buttonName = "Create Event";
+            editor.ShowDialog(this);
         }
 
         private void button_EditEvent_Click(object sender, EventArgs e)
         {
-            Event eventItem = events[listBox_Events.SelectedIndex];
-
-            Console.WriteLine(eventItem.DisplayEvent());
-
-            Form_EventEditor eventEditor = new Form_EventEditor();
-
-            eventEditor.eventName = eventItem.eventName;
-            eventEditor.eventAuthor = eventItem.eventAuthor;
-            eventEditor.eventStart = eventItem.eventStart;
-            eventEditor.eventEnd = eventItem.eventEnd;
-            eventEditor.eventDes = eventItem.eventDes;
-
-            eventEditor.Show(this);
+            editor.buttonName = "Edit Event";
+            editor.ShowDialog(this);
         }
 
         private void listBox_Events_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listBox_Events.SelectedIndex >= 0 && events[listBox_Events.SelectedIndex].ToString().Length > 0)
+            if (listBox_Events.SelectedIndex >= 0 && events[listBox_Events.SelectedIndex].eventName.Length > 0)
             {
                 button_EditEvent.Enabled = true;
                 button_DeleteEvent.Enabled = true;
+
+                Console.WriteLine($"Event Description : {events[listBox_Events.SelectedIndex].eventDes}");
             }
             else
             {
                 button_EditEvent.Enabled = false;
                 button_DeleteEvent.Enabled = false;
+            }
+        }
+
+        private void Form_EventManager_Activated(object sender, EventArgs e)
+        {
+            Event newEvent = editor.eventItem;
+
+            if (newEvent != null)
+            {
+                if (events.Count <= 0 && newEvent.eventName.Length > 0)
+                {
+                    events.Add(newEvent);
+
+                    if (listBox_Events.Items.Count <= 0)
+                    {
+                        listBox_Events.Items.Add(newEvent.eventName);
+                        listBox_Events.Update();
+                    }
+                    else
+                    {
+                        listBox_Events.Items.Clear();
+                        listBox_Events.Items.Add(newEvent.eventName);
+                        listBox_Events.Update();
+                    }
+                }
+                else
+                {
+                    events[listBox_Events.SelectedIndex] = newEvent;
+                }
             }
         }
     }
