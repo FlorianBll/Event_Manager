@@ -32,11 +32,13 @@
             this.textBox_EventName = new System.Windows.Forms.TextBox();
             this.textBox_Author = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker_Event = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker_StartEvent = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.richTextBox_EventDescription = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button_CreateEvent = new System.Windows.Forms.Button();
+            this.dateTimePicker_EndEvent = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -73,37 +75,37 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Author :";
             // 
-            // dateTimePicker_Event
+            // dateTimePicker_StartEvent
             // 
-            this.dateTimePicker_Event.Location = new System.Drawing.Point(93, 73);
-            this.dateTimePicker_Event.Name = "dateTimePicker_Event";
-            this.dateTimePicker_Event.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker_Event.TabIndex = 4;
+            this.dateTimePicker_StartEvent.Location = new System.Drawing.Point(93, 73);
+            this.dateTimePicker_StartEvent.Name = "dateTimePicker_StartEvent";
+            this.dateTimePicker_StartEvent.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker_StartEvent.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(51, 73);
+            this.label3.Location = new System.Drawing.Point(12, 73);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 13);
+            this.label3.Size = new System.Drawing.Size(75, 13);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Date :";
+            this.label3.Text = "Starting Date :";
             // 
             // richTextBox_EventDescription
             // 
             this.richTextBox_EventDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox_EventDescription.Location = new System.Drawing.Point(93, 99);
+            this.richTextBox_EventDescription.Location = new System.Drawing.Point(93, 135);
             this.richTextBox_EventDescription.Name = "richTextBox_EventDescription";
-            this.richTextBox_EventDescription.Size = new System.Drawing.Size(424, 292);
+            this.richTextBox_EventDescription.Size = new System.Drawing.Size(424, 256);
             this.richTextBox_EventDescription.TabIndex = 6;
             this.richTextBox_EventDescription.Text = "";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(21, 99);
+            this.label4.Location = new System.Drawing.Point(15, 135);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 13);
             this.label4.TabIndex = 7;
@@ -121,16 +123,34 @@
             this.button_CreateEvent.UseVisualStyleBackColor = true;
             this.button_CreateEvent.Click += new System.EventHandler(this.button_CreateEvent_Click);
             // 
+            // dateTimePicker_EndEvent
+            // 
+            this.dateTimePicker_EndEvent.Location = new System.Drawing.Point(93, 99);
+            this.dateTimePicker_EndEvent.Name = "dateTimePicker_EndEvent";
+            this.dateTimePicker_EndEvent.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker_EndEvent.TabIndex = 9;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(15, 99);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(72, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Ending Date :";
+            // 
             // Form_EventEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(529, 403);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.dateTimePicker_EndEvent);
             this.Controls.Add(this.button_CreateEvent);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.richTextBox_EventDescription);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dateTimePicker_Event);
+            this.Controls.Add(this.dateTimePicker_StartEvent);
             this.Controls.Add(this.textBox_Author);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox_EventName);
@@ -150,10 +170,12 @@
         private System.Windows.Forms.TextBox textBox_EventName;
         private System.Windows.Forms.TextBox textBox_Author;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker_Event;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_StartEvent;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RichTextBox richTextBox_EventDescription;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button_CreateEvent;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_EndEvent;
+        private System.Windows.Forms.Label label5;
     }
 }

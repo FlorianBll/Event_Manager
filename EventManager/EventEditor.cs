@@ -17,7 +17,8 @@ namespace EventManager
 
         private string _eventName;
         private string _eventAuthor;
-        private DateTime _eventDate;
+        private DateTime _eventStart;
+        private DateTime _eventEnd;
         private string _eventDes;
 
         public string eventName
@@ -32,10 +33,16 @@ namespace EventManager
             set => _eventAuthor = value;
         }
 
-        public DateTime eventDate
+        public DateTime eventStart
         {
-            get => _eventDate;
-            set => _eventDate = value;
+            get => _eventStart;
+            set => _eventStart = value;
+        }
+
+        public DateTime eventEnd
+        {
+            get => _eventEnd;
+            set => _eventEnd = value;
         }
 
         public string eventDes
@@ -52,7 +59,8 @@ namespace EventManager
 
             eventName = textBox_EventName.Text;
             eventAuthor = textBox_Author.Text;
-            eventDate = dateTimePicker_Event.Value;
+            eventStart = dateTimePicker_StartEvent.Value;
+            eventEnd = dateTimePicker_EndEvent.Value;
             eventDes = richTextBox_EventDescription.Text;
 
 
@@ -90,13 +98,12 @@ namespace EventManager
 
         private void button_CreateEvent_Click(object sender, EventArgs e)
         {
-            bool isFieldsNotEmpty = textBox_EventName.TextLength > 0 && textBox_Author.TextLength > 0 && dateTimePicker_Event.Value != null;
+            bool isFieldsNotEmpty = textBox_EventName.TextLength > 0 && textBox_Author.TextLength > 0 && dateTimePicker_StartEvent.Value != null && dateTimePicker_EndEvent.Value != null;
 
             if (isFieldsNotEmpty)
             {
                 eventName = textBox_EventName.Text;
                 eventAuthor = textBox_Author.Text;
-                eventDate = dateTimePicker_Event.Value;
 
                 if (richTextBox_EventDescription.TextLength > 0)
                 {
@@ -107,7 +114,25 @@ namespace EventManager
                     eventDes = "";
                 }
 
-                Close();
+                DateTime start = dateTimePicker_StartEvent.Value;
+                DateTime end = dateTimePicker_EndEvent.Value;
+
+                TimeSpan interval = end - start;
+
+                bool isEventValid = !(interval.Days < 0);
+
+                if (isEventValid)
+                {
+                    eventStart = dateTimePicker_StartEvent.Value;
+                    eventEnd = dateTimePicker_EndEvent.Value;
+
+                    Close();
+                }
+                else
+                {
+
+                    MessageBox.Show("The ending date can't be an ulterior date", "Date Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

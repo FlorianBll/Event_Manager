@@ -50,6 +50,7 @@
             this.listBox_Events.Name = "listBox_Events";
             this.listBox_Events.Size = new System.Drawing.Size(472, 251);
             this.listBox_Events.TabIndex = 0;
+            this.listBox_Events.SelectedIndexChanged += new System.EventHandler(this.listBox_Events_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -145,7 +146,6 @@
             this.Controls.Add(this.button_CreateEvent);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBox_Events);
-            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(518, 445);
             this.Name = "Form_EventManager";

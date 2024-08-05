@@ -12,9 +12,6 @@ namespace EventManager
 {
     public partial class Form_EventManager : Form
     {
-        // Empty Event instance
-        Event newEvent = new Event();
-
         // List of events
         List<Event> events = new List<Event>();
 
@@ -30,11 +27,7 @@ namespace EventManager
 
             eventEditor.ShowDialog(this);
 
-            // Retrieve all data from Event Editor form
-            newEvent.eventName = eventEditor.eventName;
-            newEvent.eventAuthor = eventEditor.eventAuthor;
-            newEvent.eventDate = eventEditor.eventDate;
-            newEvent.eventDes = eventEditor.eventDes;
+            Event newEvent = new Event(eventEditor.eventName, eventEditor.eventAuthor, eventEditor.eventStart, eventEditor.eventEnd, eventEditor.eventDes);
 
             eventEditor.Dispose();
 
@@ -46,16 +39,27 @@ namespace EventManager
 
                 if (listBox_Events.Items.Count <= 0)
                 {
-                    listBox_Events.Items.CopyTo(events.ToArray(), 0);
+                    listBox_Events.Items.Add(events[0].eventName);
+
                     listBox_Events.Update();
                 }
                 else
                 {
                     listBox_Events.Items.Clear();
-                    listBox_Events.Items.CopyTo(events.ToArray(), 0);
+
+                    foreach (Event eventItem in events)
+                    {
+                        listBox_Events.Items.Add(eventItem.eventName);
+                    }
+
                     listBox_Events.Update();
                 }
             }
+        }
+
+        private void listBox_Events_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Console.WriteLine("User clicked on event");
         }
     }
 }
