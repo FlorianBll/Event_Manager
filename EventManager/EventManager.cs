@@ -27,39 +27,70 @@ namespace EventManager
 
             eventEditor.ShowDialog(this);
 
-            Event newEvent = new Event(eventEditor.eventName, eventEditor.eventAuthor, eventEditor.eventStart, eventEditor.eventEnd, eventEditor.eventDes);
-
-            eventEditor.Dispose();
-
-            events.Add(newEvent);
-
-            if (events.Count > 0)
+            if (eventEditor.eventName != null && eventEditor.eventAuthor != null)
             {
-                Console.WriteLine($"List updated, new size of List : {events.Count}");
+                Event newEvent = new Event(eventEditor.eventName, eventEditor.eventAuthor, eventEditor.eventStart, eventEditor.eventEnd, eventEditor.eventDes);
 
-                if (listBox_Events.Items.Count <= 0)
+                eventEditor.Dispose();
+
+                events.Add(newEvent);
+
+                if (events.Count > 0)
                 {
-                    listBox_Events.Items.Add(events[0].eventName);
+                    Console.WriteLine($"List updated, new size of List : {events.Count}");
 
-                    listBox_Events.Update();
-                }
-                else
-                {
-                    listBox_Events.Items.Clear();
+                    Console.WriteLine($"Author name : {events[0].eventAuthor}");
 
-                    foreach (Event eventItem in events)
+                    if (listBox_Events.Items.Count <= 0)
                     {
-                        listBox_Events.Items.Add(eventItem.eventName);
-                    }
+                        listBox_Events.Items.Add(events[0].eventName);
 
-                    listBox_Events.Update();
+                        listBox_Events.Update();
+                    }
+                    else
+                    {
+                        listBox_Events.Items.Clear();
+
+                        foreach (Event eventItem in events)
+                        {
+                            listBox_Events.Items.Add(eventItem.eventName);
+                        }
+
+                        listBox_Events.Update();
+                    }
                 }
             }
         }
 
+        private void button_EditEvent_Click(object sender, EventArgs e)
+        {
+            Event eventItem = events[listBox_Events.SelectedIndex];
+
+            Console.WriteLine(eventItem.DisplayEvent());
+
+            Form_EventEditor eventEditor = new Form_EventEditor();
+
+            eventEditor.eventName = eventItem.eventName;
+            eventEditor.eventAuthor = eventItem.eventAuthor;
+            eventEditor.eventStart = eventItem.eventStart;
+            eventEditor.eventEnd = eventItem.eventEnd;
+            eventEditor.eventDes = eventItem.eventDes;
+
+            eventEditor.Show(this);
+        }
+
         private void listBox_Events_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Console.WriteLine("User clicked on event");
+            if (listBox_Events.SelectedIndex >= 0 && events[listBox_Events.SelectedIndex].ToString().Length > 0)
+            {
+                button_EditEvent.Enabled = true;
+                button_DeleteEvent.Enabled = true;
+            }
+            else
+            {
+                button_EditEvent.Enabled = false;
+                button_DeleteEvent.Enabled = false;
+            }
         }
     }
 }

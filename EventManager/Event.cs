@@ -75,11 +75,11 @@ namespace EventManager
         {
             if (eventDes.Length > 0)
             {
-                return eventName + ", created by : " + eventAuthor + ". Event starting at : " + eventStart + " and finishing at : " + eventEnd + ". The description is empty.";
+                return eventName + ", created by : " + eventAuthor + ". Event starting at : " + eventStart + " and finishing at : " + eventEnd + " with the description '" + eventDes + "'.";
             }
             else
             {
-                return eventName + ", created by : " + eventAuthor + ". Event starting at : " + eventStart + " and finishing at : " + eventEnd + " with the description '" + eventDes + "'.";
+                return eventName + ", created by : " + eventAuthor + ". Event starting at : " + eventStart + " and finishing at : " + eventEnd + ". The description is empty.";
             }
         }
     }

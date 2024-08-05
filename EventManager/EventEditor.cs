@@ -56,14 +56,24 @@ namespace EventManager
         public Form_EventEditor()
         {
             InitializeComponent();
-
-            eventName = textBox_EventName.Text;
-            eventAuthor = textBox_Author.Text;
-            eventStart = dateTimePicker_StartEvent.Value;
-            eventEnd = dateTimePicker_EndEvent.Value;
-            eventDes = richTextBox_EventDescription.Text;
+        }
 
 
+        private void Form_EventEditor_Load(object sender, EventArgs e)
+        {
+            // Check if an selected event will be edited
+            bool isEventEdited = eventName != null && eventAuthor != null;
+
+            if (isEventEdited)
+            {
+                button_CreateEvent.Text = "Edit Event";
+
+                textBox_EventName.Text = eventName;
+                textBox_Author.Text = eventAuthor;
+                dateTimePicker_StartEvent.Value = eventStart;
+                dateTimePicker_EndEvent.Value = eventEnd;
+                richTextBox_EventDescription.Text = eventDes;
+            }
         }
 
         private void textBox_EventName_TextChanged(object sender, EventArgs e)

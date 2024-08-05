@@ -46,7 +46,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBox_Events.FormattingEnabled = true;
-            this.listBox_Events.Location = new System.Drawing.Point(12, 140);
+            this.listBox_Events.Location = new System.Drawing.Point(15, 143);
             this.listBox_Events.Name = "listBox_Events";
             this.listBox_Events.Size = new System.Drawing.Size(472, 251);
             this.listBox_Events.TabIndex = 0;
@@ -133,6 +133,7 @@
             this.button_EditEvent.TabIndex = 7;
             this.button_EditEvent.Text = "Edit Event";
             this.button_EditEvent.UseVisualStyleBackColor = true;
+            this.button_EditEvent.Click += new System.EventHandler(this.button_EditEvent_Click);
             // 
             // Form_EventManager
             // 
