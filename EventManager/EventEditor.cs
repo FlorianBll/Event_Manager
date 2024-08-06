@@ -36,6 +36,7 @@ namespace EventManager
         private void Form_EventEditor_Load(object sender, EventArgs e)
         {
             button_CreateEvent.Text = buttonName;
+            comboBox_Reminder.SelectedIndex = 0;
 
             if (eventItem != null && buttonName == "Edit Event")
             {

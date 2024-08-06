@@ -8,8 +8,17 @@ using System.Threading.Tasks;
 
 namespace EventManager
 {
+    /// <summary>
+    /// Class representing an Event instance. 
+    /// </summary>
+    /// <remarks>
+    /// This instance of Event containing a Name, an Author, a Date and a Description.
+    /// The description of the event can be empty if unused.
+    /// </remarks>
     public class Event
     {
+        
+        
         #region variables
 
         private string _eventName;
@@ -71,6 +80,12 @@ namespace EventManager
             _eventDes = eventDes;
         }
 
+        /// <summary>
+        /// Show the event details. Can be used as a test if an Event instance is not empty.
+        /// </summary>
+        /// <returns>
+        /// Message with the event details like the event name, author, start stae, end date and event description.
+        /// </returns>
         public string DisplayEvent()
         {
             if (eventDes.Length > 0)
@@ -81,6 +96,19 @@ namespace EventManager
             {
                 return eventName + ", created by : " + eventAuthor + ". Event starting at : " + eventStart + " and finishing at : " + eventEnd + ". The description is empty.";
             }
+        }
+
+        /// <summary>
+        /// Get the duration between two dates.
+        /// </summary>
+        /// <returns>
+        /// The duration between two dates.
+        /// </returns>
+        public int Duration()
+        {
+            TimeSpan duration = eventEnd - eventStart;
+
+            return duration.Hours;
         }
     }
 }

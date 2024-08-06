@@ -16,11 +16,20 @@ namespace EventManager
         // List of events
         List<Event> events = new List<Event>();
         Form_EventEditor editor = new Form_EventEditor();
-        bool developerTool = false;
+        bool isDevModeEnabled = false;
 
         public Form_EventManager()
         {
             InitializeComponent();
+
+            if (isDevModeEnabled)
+            {
+                button_DevMode.Visible = true;
+            }
+            else
+            {
+                button_DevMode.Visible = false;
+            }
         }
 
         private void button_CreateEvent_Click(object sender, EventArgs e)
@@ -109,6 +118,13 @@ namespace EventManager
                     listBox_Events.Update();
                 }
             }
+        }
+
+        private void button_DevMode_Click(object sender, EventArgs e)
+        {
+            Form_DeveloperToolbox devMode = new Form_DeveloperToolbox();
+
+            devMode.ShowDialog();
         }
     }
 }

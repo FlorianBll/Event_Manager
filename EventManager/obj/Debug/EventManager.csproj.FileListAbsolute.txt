@@ -20,3 +20,10 @@ C:\Users\Florian.Belloc\source\repos\Event_Manager\EventManager\obj\Debug\EventM
 C:\Users\Florian.Belloc\source\repos\Event_Manager\EventManager\bin\Debug\EventManager.exe.config
 C:\Users\Florian.Belloc\source\repos\Event_Manager\EventManager\bin\Debug\EventManager.exe
 C:\Users\Florian.Belloc\source\repos\Event_Manager\EventManager\bin\Debug\EventManager.pdb
+C:\Users\Florian.Belloc\source\repos\Event_Manager\EventManager\obj\Debug\EventManager.Form_DeveloperToolbox.resources
+C:\Users\Florian.Belloc\source\repos\Event_Manager\EventManager\bin\Debug\Microsoft.Toolkit.Uwp.Notifications.dll
+C:\Users\Florian.Belloc\source\repos\Event_Manager\EventManager\bin\Debug\System.ValueTuple.dll
+C:\Users\Florian.Belloc\source\repos\Event_Manager\EventManager\bin\Debug\Microsoft.Toolkit.Uwp.Notifications.pdb
+C:\Users\Florian.Belloc\source\repos\Event_Manager\EventManager\obj\Debug\EventMan.E74B3CDA.Up2Date
+C:\Users\Florian.Belloc\source\repos\Event_Manager\EventManager\obj\Debug\EventManager.csproj.SuggestedBindingRedirects.cache
+C:\Users\Florian.Belloc\source\repos\Event_Manager\EventManager\obj\Debug\EventManager.exe.config

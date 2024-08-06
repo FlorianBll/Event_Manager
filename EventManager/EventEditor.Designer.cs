@@ -39,6 +39,8 @@
             this.button_CreateEvent = new System.Windows.Forms.Button();
             this.dateTimePicker_EndEvent = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
+            this.comboBox_Reminder = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -139,11 +141,37 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "Ending Date :";
             // 
+            // comboBox_Reminder
+            // 
+            this.comboBox_Reminder.FormattingEnabled = true;
+            this.comboBox_Reminder.Items.AddRange(new object[] {
+            "5 min",
+            "10 min",
+            "30 min",
+            "1 hour",
+            "2 hour",
+            "1 day"});
+            this.comboBox_Reminder.Location = new System.Drawing.Point(396, 96);
+            this.comboBox_Reminder.Name = "comboBox_Reminder";
+            this.comboBox_Reminder.Size = new System.Drawing.Size(121, 21);
+            this.comboBox_Reminder.TabIndex = 11;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(332, 99);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(58, 13);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Reminder :";
+            // 
             // Form_EventEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(529, 403);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.comboBox_Reminder);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dateTimePicker_EndEvent);
             this.Controls.Add(this.button_CreateEvent);
@@ -178,5 +206,7 @@
         private System.Windows.Forms.Button button_CreateEvent;
         private System.Windows.Forms.DateTimePicker dateTimePicker_EndEvent;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox comboBox_Reminder;
+        private System.Windows.Forms.Label label6;
     }
 }

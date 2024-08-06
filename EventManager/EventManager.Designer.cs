@@ -147,6 +147,8 @@
             this.button_DevMode.TabIndex = 8;
             this.button_DevMode.Text = "Developer Toolbox";
             this.button_DevMode.UseVisualStyleBackColor = true;
+            this.button_DevMode.Visible = false;
+            this.button_DevMode.Click += new System.EventHandler(this.button_DevMode_Click);
             // 
             // Form_EventManager
             // 

@@ -38,8 +38,9 @@
             this.button_NotifPush.Name = "button_NotifPush";
             this.button_NotifPush.Size = new System.Drawing.Size(276, 63);
             this.button_NotifPush.TabIndex = 0;
-            this.button_NotifPush.Text = "Test Notification Push";
+            this.button_NotifPush.Text = "Test Notification";
             this.button_NotifPush.UseVisualStyleBackColor = true;
+            this.button_NotifPush.Click += new System.EventHandler(this.button_NotifPush_Click);
             // 
             // Form_DeveloperToolbox
             // 
