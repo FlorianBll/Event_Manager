@@ -36,17 +36,23 @@ namespace EventManager
         private void Form_EventEditor_Load(object sender, EventArgs e)
         {
             button_CreateEvent.Text = buttonName;
-            comboBox_Reminder.SelectedIndex = 0;
+
+            dateTimePicker_StartEvent.Format = DateTimePickerFormat.Custom;
+            dateTimePicker_StartEvent.CustomFormat = "MM/dd/yyyy HH:mm:ss";
+
+            dateTimePicker_EndEvent.Format = DateTimePickerFormat.Custom;
+            dateTimePicker_EndEvent.CustomFormat = "MM/dd/yyyy HH:mm:ss";
 
             if (eventItem != null && buttonName == "Edit Event")
             {
                 Event currentEvent = eventItem;
 
-                textBox_EventName.Text = eventItem.eventName;
-                textBox_Author.Text = eventItem.eventAuthor;
-                dateTimePicker_StartEvent.Value = eventItem.eventStart;
-                dateTimePicker_EndEvent.Value = eventItem.eventEnd;
-                richTextBox_EventDescription.Text = eventItem.eventDes;
+                textBox_EventName.Text = currentEvent.eventName;
+                textBox_Author.Text = currentEvent.eventAuthor;
+                dateTimePicker_StartEvent.Value = currentEvent.eventStart;
+                dateTimePicker_EndEvent.Value = currentEvent.eventEnd;
+                richTextBox_EventDescription.Text = currentEvent.eventDes;
+                comboBox_Reminder.SelectedIndex = (int)currentEvent.reminderOpt;
             }
             else
             {
@@ -54,7 +60,8 @@ namespace EventManager
                 textBox_Author.Clear();
                 dateTimePicker_StartEvent.Value = DateTime.Now;
                 dateTimePicker_EndEvent.Value = DateTime.Now;
-                richTextBox_EventDescription.Clear();
+                richTextBox_EventDescription.Text = "";
+                comboBox_Reminder.SelectedIndex = 0;
             }
         }
 
@@ -114,14 +121,20 @@ namespace EventManager
                     newEvent.eventStart = dateTimePicker_StartEvent.Value;
                     newEvent.eventEnd = dateTimePicker_EndEvent.Value;
 
-                    eventItem = newEvent;
-
-                    Close();
                 }
                 else
                 {
                     MessageBox.Show("The ending date can't be an ulterior date", "Date Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
+                if (comboBox_Reminder.SelectedIndex >= 0)
+                {
+                    newEvent.reminderOpt = (EventReminder.remindSet)comboBox_Reminder.SelectedIndex;
+                }
+
+                eventItem = newEvent;
+
+                Close();
             }
         }
     }

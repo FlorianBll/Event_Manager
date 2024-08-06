@@ -83,6 +83,7 @@
             this.dateTimePicker_StartEvent.Name = "dateTimePicker_StartEvent";
             this.dateTimePicker_StartEvent.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker_StartEvent.TabIndex = 4;
+            this.dateTimePicker_StartEvent.Value = new System.DateTime(2024, 8, 6, 14, 10, 40, 0);
             // 
             // label3
             // 
@@ -100,14 +101,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox_EventDescription.Location = new System.Drawing.Point(93, 135);
             this.richTextBox_EventDescription.Name = "richTextBox_EventDescription";
-            this.richTextBox_EventDescription.Size = new System.Drawing.Size(424, 256);
+            this.richTextBox_EventDescription.Size = new System.Drawing.Size(455, 294);
             this.richTextBox_EventDescription.TabIndex = 6;
             this.richTextBox_EventDescription.Text = "";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 135);
+            this.label4.Location = new System.Drawing.Point(21, 135);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 13);
             this.label4.TabIndex = 7;
@@ -115,9 +116,10 @@
             // 
             // button_CreateEvent
             // 
+            this.button_CreateEvent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button_CreateEvent.Enabled = false;
             this.button_CreateEvent.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_CreateEvent.Location = new System.Drawing.Point(346, 15);
+            this.button_CreateEvent.Location = new System.Drawing.Point(335, 15);
             this.button_CreateEvent.Name = "button_CreateEvent";
             this.button_CreateEvent.Size = new System.Drawing.Size(118, 46);
             this.button_CreateEvent.TabIndex = 8;
@@ -143,6 +145,7 @@
             // 
             // comboBox_Reminder
             // 
+            this.comboBox_Reminder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox_Reminder.FormattingEnabled = true;
             this.comboBox_Reminder.Items.AddRange(new object[] {
             "5 min",
@@ -151,15 +154,17 @@
             "1 hour",
             "2 hour",
             "1 day"});
-            this.comboBox_Reminder.Location = new System.Drawing.Point(396, 96);
+            this.comboBox_Reminder.Location = new System.Drawing.Point(396, 102);
             this.comboBox_Reminder.Name = "comboBox_Reminder";
-            this.comboBox_Reminder.Size = new System.Drawing.Size(121, 21);
+            this.comboBox_Reminder.Size = new System.Drawing.Size(152, 21);
             this.comboBox_Reminder.TabIndex = 11;
+            this.comboBox_Reminder.Text = "5 min";
             // 
             // label6
             // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(332, 99);
+            this.label6.Location = new System.Drawing.Point(332, 105);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 13);
             this.label6.TabIndex = 12;
@@ -169,7 +174,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(529, 403);
+            this.ClientSize = new System.Drawing.Size(560, 441);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.comboBox_Reminder);
             this.Controls.Add(this.label5);
@@ -183,7 +188,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox_EventName);
             this.Controls.Add(this.label1);
-            this.MinimumSize = new System.Drawing.Size(545, 442);
+            this.MinimumSize = new System.Drawing.Size(576, 480);
             this.Name = "Form_EventEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Event Editor";

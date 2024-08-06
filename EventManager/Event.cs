@@ -26,6 +26,7 @@ namespace EventManager
         private DateTime _eventStart;
         private DateTime _eventEnd;
         private string _eventDes;
+        private EventReminder.remindSet _reminderOpt;
 
         #endregion
 
@@ -61,6 +62,12 @@ namespace EventManager
             set => _eventDes = value;
         }
 
+        public EventReminder.remindSet reminderOpt
+        {
+            get => _reminderOpt;
+            set => _reminderOpt = value;
+        }
+
         #endregion
 
         public Event()
@@ -70,14 +77,16 @@ namespace EventManager
             _eventStart = DateTime.Now;
             _eventEnd = DateTime.Now;
             _eventDes = "";
+            _reminderOpt = 0;
         }
-        public Event(string eventName, string eventAuthor, DateTime eventStart, DateTime eventEnd, string eventDes = "")
+        public Event(string eventName, string eventAuthor, DateTime eventStart, DateTime eventEnd, string eventDes = "", EventReminder.remindSet reminderOpt = 0)
         {
             _eventName = eventName;
             _eventAuthor = eventAuthor;
             _eventStart = eventStart;
             _eventEnd = eventEnd;
             _eventDes = eventDes;
+            _reminderOpt = reminderOpt;
         }
 
         /// <summary>
@@ -96,19 +105,6 @@ namespace EventManager
             {
                 return eventName + ", created by : " + eventAuthor + ". Event starting at : " + eventStart + " and finishing at : " + eventEnd + ". The description is empty.";
             }
-        }
-
-        /// <summary>
-        /// Get the duration between two dates.
-        /// </summary>
-        /// <returns>
-        /// The duration between two dates.
-        /// </returns>
-        public int Duration()
-        {
-            TimeSpan duration = eventEnd - eventStart;
-
-            return duration.Hours;
         }
     }
 }
