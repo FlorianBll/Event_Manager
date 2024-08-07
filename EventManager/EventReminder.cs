@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Timers;
 using Microsoft.Toolkit.Uwp;
 using Microsoft.Toolkit.Uwp.Notifications;
 
@@ -14,6 +16,10 @@ namespace EventManager
     /// </summary>
     public static class EventReminder
     {
+        #region variables
+        private static Event _event;
+        private static System.Timers.Timer _timer;
+
         public enum remindSet
         {
             FIVEMIN = 0,
@@ -24,59 +30,62 @@ namespace EventManager
             ONEDAY = 5,
         }
 
-        public static void Remind(Event e, remindSet rs)
+        #endregion
+
+        /// <summary>
+        /// Enable to attach a remind to an event instance.
+        /// </summary>
+        /// <param name="e">The event instance</param>
+        /// <param name="rs">The remindSet option to choose. (By default, this option is set to 0).</param>
+        
+        public static void Remind(Event e, remindSet rs = 0)
         {
             DateTime now = DateTime.Now;
 
             TimeSpan interval = e.eventStart - now;
 
-            bool isNow = e.eventStart == now;
-
-            ToastContentBuilder toast = new ToastContentBuilder();
-
-            toast.AddHeader("eventName", e.eventName, "");
+            _timer = new System.Timers.Timer();
 
             switch ((int)rs)
             {
                 case 0:
-                    if (isNow && interval.Minutes <= 5)
-                    {
-                        toast.AddText($"{e.eventName} event will start in 5 min !");
-                    }
+                    _timer.Interval = interval.Milliseconds - (5 * 60 * 1000);
                 break;
                 case 1:
-                    if (isNow && interval.Minutes <= 10)
-                    {
-                        toast.AddText($"{e.eventName} event will start in 10 min !");
-                    }
+                    _timer.Interval = interval.Milliseconds - (10 * 60 * 1000);
                 break;
                 case 2:
-                    if (isNow && interval.Minutes <= 30)
-                    {
-                        toast.AddText($"{e.eventName} event will start in 30 min !");
-                    }
+                    _timer.Interval = interval.Milliseconds - (30 * 60 * 1000);
                 break;
                 case 3:
-                    if (isNow && interval.Hours <= 1)
-                    {
-                        toast.AddText($"{e.eventName} event will start in 1 hour !");
-                    }
+                    _timer.Interval = interval.Milliseconds - (60 * 60 * 1000);
                 break;
                 case 4:
-                    if (isNow && interval.Hours < 2)
-                    {
-                        toast.AddText($"{e.eventName} event will start in 2 hours !");
-                    }
+                    _timer.Interval = interval.Milliseconds - (2 * 60 * 60 * 1000);
                 break;
                 case 5:
-                    if (interval.Days <= 1)
-                    {
-                        toast.AddText($"{e.eventName} event will start tomorrow !");
-                    }
+                    _timer.Interval = interval.Milliseconds - (24 * 60 * 60 *  1000);
                 break;
             }
 
+            // Handling the event instance for reusing it in the 'Timer_Elasped' event
+            _event = e;
+
+            _timer.Start();
+
+            _timer.Elapsed += Timer_Elapsed;
+        }
+
+        private static void Timer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            ToastContentBuilder toast = new ToastContentBuilder();
+
+            toast.AddHeader("eventName", _event.eventName, "");
+            toast.AddText(_event.eventDes);
+
             toast.Show();
+
+            _timer.Stop();
         }
     }
 }

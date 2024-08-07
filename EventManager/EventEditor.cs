@@ -134,6 +134,8 @@ namespace EventManager
 
                 eventItem = newEvent;
 
+                EventReminder.Remind(eventItem, eventItem.reminderOpt);
+
                 Close();
             }
         }
