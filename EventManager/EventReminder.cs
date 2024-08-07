@@ -67,18 +67,20 @@ namespace EventManager
                     _timer.Interval = (24 * 60 * 60 * 1000) - interval.Milliseconds;
                 break;
             }
-            
+
+            e.timer = _timer;
+
             // Handling the event instance for reusing it in the 'Timer_Elapsed' event
             _event = e;
 
             // Attach the timer to the event
-            _event.isTimerAttached = true;
+            _event.timer.Enabled = true;
 
-            _timer.Start();
+            e.timer.Start();
 
             Console.WriteLine($"Timer set with {_timer.Interval}ms");
 
-            _timer.Elapsed += Timer_Elapsed;
+            e.timer.Elapsed += Timer_Elapsed;
         }
 
         private static void Timer_Elapsed(object sender, ElapsedEventArgs e)
@@ -98,14 +100,14 @@ namespace EventManager
         /// <param name="e">the event from which the timer is removed</param>
         public static void Remove(Event e)
         {
-            if (e.isTimerAttached)
+            if (e.timer.Enabled)
             {
-                e.isTimerAttached = false;
+                e.timer.Enabled = false;
 
                 Console.WriteLine("The current timer has been removed !");
 
-                _timer.Stop();
-                _timer.Dispose();
+                e.timer.Stop();
+                e.timer.Dispose();
             }
         }
     }

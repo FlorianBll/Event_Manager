@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Florian.Belloc\\source\\repos\\Event_Manager\\EventManager\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CBFF9019-3B36-4381-B753-0B7FAD83E67F}|EventManager.csproj|C:\\Users\\Florian.Belloc\\source\\repos\\Event_Manager\\EventManager\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CBFF9019-3B36-4381-B753-0B7FAD83E67F}|EventManager.csproj|solutionrelative:event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CBFF9019-3B36-4381-B753-0B7FAD83E67F}|EventManager.csproj|C:\\Users\\Florian.Belloc\\source\\repos\\Event_Manager\\EventManager\\eventreminder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CBFF9019-3B36-4381-B753-0B7FAD83E67F}|EventManager.csproj|solutionrelative:eventreminder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CBFF9019-3B36-4381-B753-0B7FAD83E67F}|EventManager.csproj|c:\\users\\florian.belloc\\source\\repos\\event_manager\\eventmanager\\eventreminder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CBFF9019-3B36-4381-B753-0B7FAD83E67F}|EventManager.csproj|solutionrelative:eventreminder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CBFF9019-3B36-4381-B753-0B7FAD83E67F}|EventManager.csproj|c:\\users\\florian.belloc\\source\\repos\\event_manager\\eventmanager\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CBFF9019-3B36-4381-B753-0B7FAD83E67F}|EventManager.csproj|solutionrelative:event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CBFF9019-3B36-4381-B753-0B7FAD83E67F}|EventManager.csproj|c:\\users\\florian.belloc\\source\\repos\\event_manager\\eventmanager\\eventeditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -34,30 +34,30 @@
       "DocumentGroups": [
         {
           "DockedWidth": 216,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "EventReminder.cs",
               "DocumentMoniker": "C:\\Users\\Florian.Belloc\\source\\repos\\Event_Manager\\EventManager\\EventReminder.cs",
               "RelativeDocumentMoniker": "EventReminder.cs",
               "ToolTip": "C:\\Users\\Florian.Belloc\\source\\repos\\Event_Manager\\EventManager\\EventReminder.cs",
               "RelativeToolTip": "EventReminder.cs",
-              "ViewState": "AQIAAEsAAAAAAAAAAAAgwGsAAAAcAAAA",
+              "ViewState": "AQIAAFUAAAAAAAAAAAA6wG0AAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-06T08:26:13.868Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Event.cs",
               "DocumentMoniker": "C:\\Users\\Florian.Belloc\\source\\repos\\Event_Manager\\EventManager\\Event.cs",
               "RelativeDocumentMoniker": "Event.cs",
               "ToolTip": "C:\\Users\\Florian.Belloc\\source\\repos\\Event_Manager\\EventManager\\Event.cs",
               "RelativeToolTip": "Event.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAAGkAAAAVAAAA",
+              "ViewState": "AQIAAFcAAAAAAAAAAAAgwCEAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-02T07:51:20.717Z",
               "EditorCaption": ""
@@ -72,8 +72,7 @@
               "RelativeToolTip": "EventManager.cs",
               "ViewState": "AQIAAFgAAAAAAAAAAAAcwHQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-02T08:10:25.414Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-02T08:10:25.414Z"
             },
             {
               "$type": "Document",
@@ -98,8 +97,8 @@
       "FloatingWindowState": {
         "Id": "96bcad51-2e8a-4502-a97d-a3c31c061c93",
         "Display": 0,
-        "X": 282,
-        "Y": -21,
+        "X": 462,
+        "Y": -22,
         "Width": 714,
         "Height": 784,
         "WindowState": 2
@@ -130,8 +129,7 @@
               "ToolTip": "C:\\Users\\Florian.Belloc\\source\\repos\\Event_Manager\\EventManager\\EventManager.cs [Design]",
               "RelativeToolTip": "EventManager.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-01T09:26:18.044Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-08-01T09:26:18.044Z"
             }
           ]
         }

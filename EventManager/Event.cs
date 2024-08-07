@@ -27,7 +27,7 @@ namespace EventManager
         private DateTime _eventEnd;
         private string _eventDes;
         private EventReminder.remindSet _reminderOpt;
-        private bool _isTimerAttached;
+        private System.Timers.Timer _timer;
 
         #endregion
 
@@ -69,10 +69,10 @@ namespace EventManager
             set => _reminderOpt = value;
         }
 
-        public bool isTimerAttached
+        public System.Timers.Timer timer
         {
-            get => _isTimerAttached;
-            set => _isTimerAttached = value;
+            get => _timer;
+            set => _timer = value;
         }
 
         #endregion
@@ -86,7 +86,7 @@ namespace EventManager
             _eventEnd = DateTime.Now;
             _eventDes = "";
             _reminderOpt = 0;
-            _isTimerAttached = false;
+            _timer.Enabled = false;
         }
         public Event(string eventName, string eventAuthor, DateTime eventStart, DateTime eventEnd, string eventDes = "", EventReminder.remindSet reminderOpt = 0)
         {
@@ -96,7 +96,7 @@ namespace EventManager
             _eventEnd = eventEnd;
             _eventDes = eventDes;
             _reminderOpt = reminderOpt;
-            _isTimerAttached = false;
+            _timer.Enabled = false;
         }
         #endregion
 
