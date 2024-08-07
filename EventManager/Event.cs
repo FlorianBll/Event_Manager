@@ -12,8 +12,8 @@ namespace EventManager
     /// Class representing an Event instance. 
     /// </summary>
     /// <remarks>
-    /// This instance of Event containing a Name, an Author, a Date and a Description.
-    /// The description of the event can be empty if unused.
+    /// This instance of Event containing a Name, an Author, a Date, Description and a reminder option.
+    /// The description and/or the reminder option of the event can be empty if unused.
     /// </remarks>
     public class Event
     {
@@ -27,6 +27,7 @@ namespace EventManager
         private DateTime _eventEnd;
         private string _eventDes;
         private EventReminder.remindSet _reminderOpt;
+        private bool _isTimerAttached;
 
         #endregion
 
@@ -68,8 +69,15 @@ namespace EventManager
             set => _reminderOpt = value;
         }
 
+        public bool isTimerAttached
+        {
+            get => _isTimerAttached;
+            set => _isTimerAttached = value;
+        }
+
         #endregion
 
+        #region constructor
         public Event()
         {
             _eventName = "";
@@ -78,6 +86,7 @@ namespace EventManager
             _eventEnd = DateTime.Now;
             _eventDes = "";
             _reminderOpt = 0;
+            _isTimerAttached = false;
         }
         public Event(string eventName, string eventAuthor, DateTime eventStart, DateTime eventEnd, string eventDes = "", EventReminder.remindSet reminderOpt = 0)
         {
@@ -87,7 +96,9 @@ namespace EventManager
             _eventEnd = eventEnd;
             _eventDes = eventDes;
             _reminderOpt = reminderOpt;
+            _isTimerAttached = false;
         }
+        #endregion
 
         /// <summary>
         /// Show the event details. Can be used as a test if an Event instance is not empty.

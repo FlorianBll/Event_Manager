@@ -49,29 +49,34 @@ namespace EventManager
             switch ((int)rs)
             {
                 case 0:
-                    _timer.Interval = interval.Milliseconds - (5 * 60 * 1000);
+                    _timer.Interval = (5 * 60 * 1000) - interval.Milliseconds;
                 break;
                 case 1:
-                    _timer.Interval = interval.Milliseconds - (10 * 60 * 1000);
+                    _timer.Interval = (10 * 60 * 1000) - interval.Milliseconds;
                 break;
                 case 2:
-                    _timer.Interval = interval.Milliseconds - (30 * 60 * 1000);
+                    _timer.Interval = (30 * 60 * 1000) - interval.Milliseconds;
                 break;
                 case 3:
-                    _timer.Interval = interval.Milliseconds - (60 * 60 * 1000);
+                    _timer.Interval = (60 * 60 * 1000) - interval.Milliseconds;
                 break;
                 case 4:
-                    _timer.Interval = interval.Milliseconds - (2 * 60 * 60 * 1000);
+                    _timer.Interval = (2 * 60 * 60 * 1000) - interval.Milliseconds;
                 break;
                 case 5:
-                    _timer.Interval = interval.Milliseconds - (24 * 60 * 60 *  1000);
+                    _timer.Interval = (24 * 60 * 60 * 1000) - interval.Milliseconds;
                 break;
             }
-
-            // Handling the event instance for reusing it in the 'Timer_Elasped' event
+            
+            // Handling the event instance for reusing it in the 'Timer_Elapsed' event
             _event = e;
 
+            // Attach the timer to the event
+            _event.isTimerAttached = true;
+
             _timer.Start();
+
+            Console.WriteLine($"Timer set with {_timer.Interval}ms");
 
             _timer.Elapsed += Timer_Elapsed;
         }
@@ -86,6 +91,22 @@ namespace EventManager
             toast.Show();
 
             _timer.Stop();
+        }
+        /// <summary>
+        /// Removing the current timer
+        /// </summary>
+        /// <param name="e">the event from which the timer is removed</param>
+        public static void Remove(Event e)
+        {
+            if (e.isTimerAttached)
+            {
+                e.isTimerAttached = false;
+
+                Console.WriteLine("The current timer has been removed !");
+
+                _timer.Stop();
+                _timer.Dispose();
+            }
         }
     }
 }

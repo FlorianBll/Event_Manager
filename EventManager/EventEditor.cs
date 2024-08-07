@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Toolkit.Uwp.Notifications;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -97,46 +98,48 @@ namespace EventManager
             {
                 Event newEvent = new Event();
 
-                newEvent.eventName = textBox_EventName.Text;
-                newEvent.eventAuthor = textBox_Author.Text;
-
-                if (richTextBox_EventDescription.TextLength > 0)
-                {
-                    newEvent.eventDes = richTextBox_EventDescription.Text;
-                }
-                else
-                {
-                    newEvent.eventDes = "";
-                }
-
                 DateTime start = dateTimePicker_StartEvent.Value;
                 DateTime end = dateTimePicker_EndEvent.Value;
 
                 TimeSpan interval = end - start;
 
-                bool isEventValid = !(interval.Days < 0);
+                bool isEventValid = !(interval.Hours < 0);
 
                 if (isEventValid)
                 {
+                    newEvent.eventName = textBox_EventName.Text;
+                    newEvent.eventAuthor = textBox_Author.Text;
+
+                    if (richTextBox_EventDescription.TextLength > 0)
+                    {
+                        newEvent.eventDes = richTextBox_EventDescription.Text;
+                    }
+                    else
+                    {
+                        newEvent.eventDes = "";
+                    }
                     newEvent.eventStart = dateTimePicker_StartEvent.Value;
                     newEvent.eventEnd = dateTimePicker_EndEvent.Value;
 
+                    newEvent.reminderOpt = (EventReminder.remindSet)comboBox_Reminder.SelectedIndex;
+
+                    eventItem = newEvent;
+
+                    EventReminder.Remind(eventItem, eventItem.reminderOpt);
+
+                    ToastContentBuilder toast = new ToastContentBuilder();
+
+                    toast.AddHeader("eventCreation", "Event created", "");
+                    toast.AddText($"Event created with the name '{eventItem.eventName}'");
+
+                    toast.Show();
+
+                    Close();
                 }
                 else
                 {
                     MessageBox.Show("The ending date can't be an ulterior date", "Date Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
-                if (comboBox_Reminder.SelectedIndex >= 0)
-                {
-                    newEvent.reminderOpt = (EventReminder.remindSet)comboBox_Reminder.SelectedIndex;
-                }
-
-                eventItem = newEvent;
-
-                EventReminder.Remind(eventItem, eventItem.reminderOpt);
-
-                Close();
             }
         }
     }

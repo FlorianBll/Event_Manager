@@ -80,7 +80,7 @@ namespace EventManager
                         listBox_Events.Update();
                     }
                 }
-                else
+                else if (listBox_Events.SelectedIndex >= 0)
                 {
                     events[listBox_Events.SelectedIndex] = newEvent;
                 }
@@ -113,6 +113,10 @@ namespace EventManager
             {
                 if (MessageBox.Show("Are you sure you want to delete this selected event ? This action is irreversible", "Deleting Event", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
+                    Event currentEvent = events[listBox_Events.SelectedIndex];
+
+                    EventReminder.Remove(currentEvent);
+
                     events.RemoveAt(listBox_Events.SelectedIndex);
                     listBox_Events.Items.RemoveAt(listBox_Events.SelectedIndex);                    
                     listBox_Events.Update();
