@@ -31,20 +31,23 @@ namespace EventManager
 
         private void button_GetTimers_Click(object sender, EventArgs e)
         {
-            Form_EventManager eventManager = new Form_EventManager();
-            List<Event> events = new List<Event>();
+            Form_EventManager eventManager = this.Parent as Form_EventManager;
+            List<Event> events = eventManager.events;
 
-            events = eventManager.events;
+            Console.WriteLine($"events list count (Developer.cs) = {eventManager.events.Count}");
 
-            foreach(Event eventItm in events)
+            if (events.Count > 0)
             {
-                if (eventItm.timer.Enabled)
+                foreach (Event eventItm in events)
                 {
-                    Console.WriteLine($"Event's '{eventItm.eventName} timer currently running !");
-                }
-                else
-                {
-                    Console.WriteLine("No timer is currently running");
+                    if (eventItm.timer.Enabled)
+                    {
+                        Console.WriteLine($"Event's '{eventItm.eventName} timer currently running !");
+                    }
+                    else
+                    {
+                        Console.WriteLine("No timers is currently running");
+                    }
                 }
             }
         }

@@ -109,6 +109,8 @@ namespace EventManager
                     events[listBox_Events.SelectedIndex] = newEvent;
                 }
             }
+
+            Console.WriteLine($"events list count (EventManager.cs) = {events.Count}");
         }
 
         private void textBox_SearchEventName_TextChanged(object sender, EventArgs e)
@@ -152,7 +154,7 @@ namespace EventManager
         {
             Form_DeveloperToolbox devMode = new Form_DeveloperToolbox();
 
-            devMode.ShowDialog();
+            devMode.ShowDialog(this);
         }
     }
 }
