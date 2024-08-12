@@ -15,20 +15,12 @@ namespace EventManager
     {
         #region variable
 
-        private List<Event> _events = new List<Event>();
         private Form_EventEditor _editor = new Form_EventEditor();
         private bool _isDevModeEnabled = true;
 
         #endregion
 
         #region get/set
-
-        public List<Event> events
-        {
-            get => _events;
-            set => _events = value;
-        }
-
         public Form_EventEditor editor
         {
             get => _editor;
@@ -70,7 +62,7 @@ namespace EventManager
 
         private void listBox_Events_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listBox_Events.SelectedIndex >= 0 && events[listBox_Events.SelectedIndex].eventName.Length > 0)
+            if (listBox_Events.SelectedIndex >= 0 && EventList.events[listBox_Events.SelectedIndex].eventName.Length > 0)
             {
                 button_EditEvent.Enabled = true;
                 button_DeleteEvent.Enabled = true;
@@ -88,9 +80,9 @@ namespace EventManager
 
             if (newEvent != null)
             {
-                if (events.Count <= 0 && newEvent.eventName.Length > 0)
+                if (newEvent.eventName.Length > 0)
                 {
-                    events.Add(newEvent);
+                    EventList.events.Add(newEvent);
 
                     if (listBox_Events.Items.Count <= 0)
                     {
@@ -106,11 +98,9 @@ namespace EventManager
                 }
                 else if (listBox_Events.SelectedIndex >= 0)
                 {
-                    events[listBox_Events.SelectedIndex] = newEvent;
+                    EventList.events[listBox_Events.SelectedIndex] = newEvent;
                 }
             }
-
-            Console.WriteLine($"events list count (EventManager.cs) = {events.Count}");
         }
 
         private void textBox_SearchEventName_TextChanged(object sender, EventArgs e)
@@ -135,16 +125,20 @@ namespace EventManager
 
         private void button_DeleteEvent_Click(object sender, EventArgs e)
         {
+            int index = listBox_Events.SelectedIndex;
+
             if (listBox_Events.SelectedIndex >= 0)
             {
                 if (MessageBox.Show("Are you sure you want to delete this selected event ? This action is irreversible", "Deleting Event", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    Event currentEvent = events[listBox_Events.SelectedIndex];
+                    Console.WriteLine(index);
+
+                    Event currentEvent = EventList.events[index];
 
                     EventReminder.Remove(currentEvent);
 
-                    events.RemoveAt(listBox_Events.SelectedIndex);
-                    listBox_Events.Items.RemoveAt(listBox_Events.SelectedIndex);                    
+                    EventList.events.RemoveAt(index);
+                    listBox_Events.Items.RemoveAt(index);                    
                     listBox_Events.Update();
                 }
             }
@@ -154,7 +148,7 @@ namespace EventManager
         {
             Form_DeveloperToolbox devMode = new Form_DeveloperToolbox();
 
-            devMode.ShowDialog(this);
+            devMode.ShowDialog();
         }
     }
 }

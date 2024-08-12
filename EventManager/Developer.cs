@@ -31,10 +31,9 @@ namespace EventManager
 
         private void button_GetTimers_Click(object sender, EventArgs e)
         {
-            Form_EventManager eventManager = this.Parent as Form_EventManager;
-            List<Event> events = eventManager.events;
+            List<Event> events = EventList.events;
 
-            Console.WriteLine($"events list count (Developer.cs) = {eventManager.events.Count}");
+            Console.WriteLine($"events list count (Developer.cs) = {events.Count}");
 
             if (events.Count > 0)
             {
