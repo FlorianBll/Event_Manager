@@ -34,6 +34,7 @@ namespace EventManager
         }
 
         #endregion
+
         public Form_EventManager()
         {
             InitializeComponent();
@@ -66,6 +67,8 @@ namespace EventManager
             {
                 button_EditEvent.Enabled = true;
                 button_DeleteEvent.Enabled = true;
+
+                editor.eventItem = EventList.events[listBox_Events.SelectedIndex];
             }
             else
             {
@@ -78,7 +81,18 @@ namespace EventManager
         {
             Event newEvent = editor.eventItem;
 
-            if (newEvent != null)
+            bool isAlreadyExist = false;
+
+            foreach (Event eventItm in EventList.events)
+            {
+                if (eventItm.eventName == newEvent.eventName)
+                {
+                    isAlreadyExist = true;
+                    break;
+                }
+            }
+
+            if (newEvent != null && !isAlreadyExist)
             {
                 if (newEvent.eventName.Length > 0)
                 {
@@ -91,7 +105,6 @@ namespace EventManager
                     }
                     else
                     {
-                        listBox_Events.Items.Clear();
                         listBox_Events.Items.Add(newEvent.eventName);
                         listBox_Events.Update();
                     }
@@ -138,7 +151,7 @@ namespace EventManager
                     EventReminder.Remove(currentEvent);
 
                     EventList.events.RemoveAt(index);
-                    listBox_Events.Items.RemoveAt(index);                    
+                    listBox_Events.Items.RemoveAt(index);                
                     listBox_Events.Update();
                 }
             }
