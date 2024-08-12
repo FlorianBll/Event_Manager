@@ -86,7 +86,6 @@ namespace EventManager
             _eventEnd = DateTime.Now;
             _eventDes = "";
             _reminderOpt = 0;
-            _timer.Enabled = false;
         }
         public Event(string eventName, string eventAuthor, DateTime eventStart, DateTime eventEnd, string eventDes = "", EventReminder.remindSet reminderOpt = 0)
         {
@@ -96,7 +95,6 @@ namespace EventManager
             _eventEnd = eventEnd;
             _eventDes = eventDes;
             _reminderOpt = reminderOpt;
-            _timer.Enabled = false;
         }
         #endregion
 

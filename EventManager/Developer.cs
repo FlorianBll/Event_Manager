@@ -28,5 +28,25 @@ namespace EventManager
 
             toast.Show();
         }
+
+        private void button_GetTimers_Click(object sender, EventArgs e)
+        {
+            Form_EventManager eventManager = new Form_EventManager();
+            List<Event> events = new List<Event>();
+
+            events = eventManager.events;
+
+            foreach(Event eventItm in events)
+            {
+                if (eventItm.timer.Enabled)
+                {
+                    Console.WriteLine($"Event's '{eventItm.eventName} timer currently running !");
+                }
+                else
+                {
+                    Console.WriteLine("No timer is currently running");
+                }
+            }
+        }
     }
 }

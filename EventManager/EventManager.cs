@@ -13,11 +13,35 @@ namespace EventManager
 {
     public partial class Form_EventManager : Form
     {
-        // List of events
-        List<Event> events = new List<Event>();
-        Form_EventEditor editor = new Form_EventEditor();
-        bool isDevModeEnabled = false;
+        #region variable
 
+        private List<Event> _events = new List<Event>();
+        private Form_EventEditor _editor = new Form_EventEditor();
+        private bool _isDevModeEnabled = true;
+
+        #endregion
+
+        #region get/set
+
+        public List<Event> events
+        {
+            get => _events;
+            set => _events = value;
+        }
+
+        public Form_EventEditor editor
+        {
+            get => _editor;
+            set => _editor = value;
+        }
+
+        public bool isDevModeEnabled
+        {
+            get => _isDevModeEnabled;
+            set => _isDevModeEnabled = value;
+        }
+
+        #endregion
         public Form_EventManager()
         {
             InitializeComponent();

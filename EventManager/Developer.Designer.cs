@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.button_NotifPush = new System.Windows.Forms.Button();
+            this.button_GetTimers = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button_NotifPush
@@ -42,11 +43,23 @@
             this.button_NotifPush.UseVisualStyleBackColor = true;
             this.button_NotifPush.Click += new System.EventHandler(this.button_NotifPush_Click);
             // 
+            // button_GetTimers
+            // 
+            this.button_GetTimers.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_GetTimers.Location = new System.Drawing.Point(12, 81);
+            this.button_GetTimers.Name = "button_GetTimers";
+            this.button_GetTimers.Size = new System.Drawing.Size(276, 63);
+            this.button_GetTimers.TabIndex = 1;
+            this.button_GetTimers.Text = "Get All Timers Running";
+            this.button_GetTimers.UseVisualStyleBackColor = true;
+            this.button_GetTimers.Click += new System.EventHandler(this.button_GetTimers_Click);
+            // 
             // Form_DeveloperToolbox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(300, 269);
+            this.Controls.Add(this.button_GetTimers);
             this.Controls.Add(this.button_NotifPush);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(316, 308);
@@ -60,5 +73,6 @@
         #endregion
 
         private System.Windows.Forms.Button button_NotifPush;
+        private System.Windows.Forms.Button button_GetTimers;
     }
 }
