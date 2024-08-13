@@ -80,6 +80,9 @@ namespace EventManager
         
         private void Form_EventManager_Activated(object sender, EventArgs e)
         {
+            button_EditEvent.Enabled = false;
+            button_DeleteEvent.Enabled = false;
+
             listBox_Events.Items.Clear();
 
             foreach(Event eventItm in EventList.events)
@@ -118,8 +121,6 @@ namespace EventManager
             {
                 if (MessageBox.Show("Are you sure you want to delete this selected event ? This action is irreversible", "Deleting Event", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    Console.WriteLine(index);
-
                     Event currentEvent = EventList.events[index];
 
                     EventReminder.Remove(currentEvent);

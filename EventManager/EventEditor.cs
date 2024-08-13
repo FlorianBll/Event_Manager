@@ -38,46 +38,68 @@ namespace EventManager
         /// </summary>
         public void CreateEvent()
         {
-            Event newEvent = new Event();
+            bool isEventExist = false;
 
-            DateTime start = dateTimePicker_StartEvent.Value;
-            DateTime end = dateTimePicker_EndEvent.Value;
-
-            TimeSpan interval = end - start;
-
-            bool isEventDateValid = !(interval.Hours < 0);
-
-            if (isEventDateValid)
+            foreach (Event eventItem in EventList.events)
             {
-                newEvent.eventName = textBox_EventName.Text;
-                newEvent.eventAuthor = textBox_Author.Text;
-
-                if (richTextBox_EventDescription.TextLength > 0)
+                if (eventItem.eventName == textBox_EventName.Text)
                 {
-                    newEvent.eventDes = richTextBox_EventDescription.Text;
+                    Console.WriteLine("The event already exist");
+                    isEventExist = true;
                 }
+                else
+                {
+                    isEventExist = false;
+                }
+            }
 
-                newEvent.eventStart = dateTimePicker_StartEvent.Value;
-                newEvent.eventEnd = dateTimePicker_EndEvent.Value;
+            if (!isEventExist)
+            {
+                Event newEvent = new Event();
 
-                newEvent.reminderOpt = (EventReminder.remindSet)comboBox_Reminder.SelectedIndex;
+                DateTime start = dateTimePicker_StartEvent.Value;
+                DateTime end = dateTimePicker_EndEvent.Value;
 
-                EventList.events.Add(newEvent);
+                TimeSpan interval = end - start;
 
-                EventReminder.Remind(newEvent, newEvent.reminderOpt);
+                bool isEventDateValid = !(interval.Hours < 0);
 
-                ToastContentBuilder toast = new ToastContentBuilder();
+                if (isEventDateValid)
+                {
+                    newEvent.eventName = textBox_EventName.Text;
+                    newEvent.eventAuthor = textBox_Author.Text;
 
-                toast.AddHeader("eventCreation", "Event created", "");
-                toast.AddText($"Event created with the name '{newEvent.eventName}'");
+                    if (richTextBox_EventDescription.TextLength > 0)
+                    {
+                        newEvent.eventDes = richTextBox_EventDescription.Text;
+                    }
 
-                toast.Show();
+                    newEvent.eventStart = dateTimePicker_StartEvent.Value;
+                    newEvent.eventEnd = dateTimePicker_EndEvent.Value;
 
-                Close();
+                    newEvent.reminderOpt = (EventReminder.remindSet)comboBox_Reminder.SelectedIndex;
+
+                    EventReminder.Remind(newEvent, newEvent.reminderOpt);
+
+                    ToastContentBuilder toast = new ToastContentBuilder();
+
+                    toast.AddHeader("eventCreation", "Event created", "");
+                    toast.AddText($"Event created with the name '{newEvent.eventName}'");
+
+                    toast.Show();
+
+                    EventList.events.Add(newEvent);
+
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("The ending date can't be an ulterior date", "Date Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                MessageBox.Show("The ending date can't be an ulterior date", "Date Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("An event already exist containing the same name. Please choose an other name", "Event name already exist", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         /// <summary>
@@ -88,21 +110,17 @@ namespace EventManager
         {
             Event e = EventList.events[index];
 
-            bool isEventExist = false;
+            bool isEventAlreadyExist = false;
 
             foreach (Event eventItm in EventList.events)
             {
-                if (e.eventName == eventItm.eventName)
+                if (e.eventName == textBox_EventName.Text && EventList.events.IndexOf(eventItm) != index)
                 {
-                    isEventExist = true;
-                }
-                else
-                {
-                    isEventExist = false;
+                    isEventAlreadyExist = true;
                 }
             }
 
-            if (!isEventExist)
+            if (e != null && !isEventAlreadyExist)
             {
                 e.eventName = textBox_EventName.Text;
                 e.eventName = textBox_Author.Text;
@@ -149,7 +167,7 @@ namespace EventManager
             }
             else
             {
-                MessageBox.Show("An event with this name already exist ! Choose an other one !", "Event name already exist", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("The event is null or already exist", "Event null/Already exist", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         public Form_EventEditor()
@@ -216,37 +234,18 @@ namespace EventManager
 
         private void button_CreateEditEvent_Click(object sender, EventArgs e)
         {
-            bool isEventExist = false;
+            bool isFieldsNotEmpty = textBox_EventName.TextLength > 0 && textBox_Author.TextLength > 0 && dateTimePicker_StartEvent.Value != null && dateTimePicker_EndEvent.Value != null;
 
-            foreach (Event eventItm in EventList.events)
+            if (isFieldsNotEmpty)
             {
-                if (textBox_EventName.Text == eventItm.eventName)
+                if (buttonName == "Create Event")
                 {
-                    isEventExist = true;
+                    CreateEvent();
                 }
                 else
                 {
-                    isEventExist = false;
+                    EditEvent(currentInd);
                 }
-            }
-
-            bool isFieldsNotEmpty = textBox_EventName.TextLength > 0 && textBox_Author.TextLength > 0 && dateTimePicker_StartEvent.Value != null && dateTimePicker_EndEvent.Value != null;
-
-            if (isFieldsNotEmpty && !isEventExist)
-            {
-                CreateEvent();
-            }
-            else
-            {
-                EditEvent(currentInd);
-            }
-        }
-
-        private void Form_EventEditor_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            if (MessageBox.Show("Are you sure you want to exit this form ? The date will not be saved", "Saving data", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-            {
-                Close();
             }
         }
     }

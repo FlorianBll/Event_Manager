@@ -154,7 +154,7 @@
             "1 hour",
             "2 hour",
             "1 day"});
-            this.comboBox_Reminder.Location = new System.Drawing.Point(396, 102);
+            this.comboBox_Reminder.Location = new System.Drawing.Point(396, 96);
             this.comboBox_Reminder.Name = "comboBox_Reminder";
             this.comboBox_Reminder.Size = new System.Drawing.Size(152, 21);
             this.comboBox_Reminder.TabIndex = 11;
@@ -164,7 +164,7 @@
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(332, 105);
+            this.label6.Location = new System.Drawing.Point(332, 99);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 13);
             this.label6.TabIndex = 12;
@@ -192,7 +192,6 @@
             this.Name = "Form_EventEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Event Editor";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_EventEditor_FormClosed);
             this.Load += new System.EventHandler(this.Form_EventEditor_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

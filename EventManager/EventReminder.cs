@@ -102,8 +102,6 @@ namespace EventManager
         {
             if (e.timer.Enabled)
             {
-                e.timer.Enabled = false;
-
                 Console.WriteLine("The current timer has been removed !");
 
                 e.timer.Stop();
