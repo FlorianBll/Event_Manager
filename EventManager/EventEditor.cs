@@ -14,19 +14,143 @@ namespace EventManager
 {
     public partial class Form_EventEditor : Form
     {
-        private Event _eventItem;
+        #region variables
+
+        private int _currentInd;
         private string _buttonName;
 
-        public Event eventItem
-        {
-            get => _eventItem;
-            set => _eventItem = value;
-        }
+        #endregion
 
+        #region get/set
+        public int currentInd
+        {
+            get => _currentInd;
+            set => _currentInd = value;
+        }
         public string buttonName
         {
             get => _buttonName;
             set => _buttonName = value;
+        }
+        #endregion
+        /// <summary>
+        /// Create an event and store it into the event instance of this class
+        /// </summary>
+        public void CreateEvent()
+        {
+            Event newEvent = new Event();
+
+            DateTime start = dateTimePicker_StartEvent.Value;
+            DateTime end = dateTimePicker_EndEvent.Value;
+
+            TimeSpan interval = end - start;
+
+            bool isEventDateValid = !(interval.Hours < 0);
+
+            if (isEventDateValid)
+            {
+                newEvent.eventName = textBox_EventName.Text;
+                newEvent.eventAuthor = textBox_Author.Text;
+
+                if (richTextBox_EventDescription.TextLength > 0)
+                {
+                    newEvent.eventDes = richTextBox_EventDescription.Text;
+                }
+
+                newEvent.eventStart = dateTimePicker_StartEvent.Value;
+                newEvent.eventEnd = dateTimePicker_EndEvent.Value;
+
+                newEvent.reminderOpt = (EventReminder.remindSet)comboBox_Reminder.SelectedIndex;
+
+                EventList.events.Add(newEvent);
+
+                EventReminder.Remind(newEvent, newEvent.reminderOpt);
+
+                ToastContentBuilder toast = new ToastContentBuilder();
+
+                toast.AddHeader("eventCreation", "Event created", "");
+                toast.AddText($"Event created with the name '{newEvent.eventName}'");
+
+                toast.Show();
+
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("The ending date can't be an ulterior date", "Date Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        /// <summary>
+        /// Edit an existing event present on the EventList.
+        /// </summary>
+        /// <param name="index"></param>
+        public void EditEvent(int index)
+        {
+            Event e = EventList.events[index];
+
+            bool isEventExist = false;
+
+            foreach (Event eventItm in EventList.events)
+            {
+                if (e.eventName == eventItm.eventName)
+                {
+                    isEventExist = true;
+                }
+                else
+                {
+                    isEventExist = false;
+                }
+            }
+
+            if (!isEventExist)
+            {
+                e.eventName = textBox_EventName.Text;
+                e.eventName = textBox_Author.Text;
+
+                DateTime start = dateTimePicker_StartEvent.Value;
+                DateTime end = dateTimePicker_EndEvent.Value;
+
+                TimeSpan interval = end - start;
+
+                bool isEventDateValid = !(interval.Hours < 0);
+
+                if (isEventDateValid)
+                {
+                    e.eventName = textBox_EventName.Text;
+                    e.eventAuthor = textBox_Author.Text;
+
+                    if (richTextBox_EventDescription.TextLength > 0)
+                    {
+                        e.eventDes = richTextBox_EventDescription.Text;
+                    }
+
+                    e.eventStart = dateTimePicker_StartEvent.Value;
+                    e.eventEnd = dateTimePicker_EndEvent.Value;
+
+                    e.reminderOpt = (EventReminder.remindSet)comboBox_Reminder.SelectedIndex;
+
+                    EventReminder.Remind(e, e.reminderOpt);
+                }
+                else
+                {
+                    MessageBox.Show("The ending date can't be an ulterior date", "Date Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                EventList.events[index] = e;
+
+                ToastContentBuilder toast = new ToastContentBuilder();
+
+                toast.AddHeader("eventEdition", "Event edited", "");
+                toast.AddText($"Event '{e.eventName}' edited");
+
+                toast.Show();
+
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("An event with this name already exist ! Choose an other one !", "Event name already exist", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
         public Form_EventEditor()
         {
@@ -36,7 +160,7 @@ namespace EventManager
 
         private void Form_EventEditor_Load(object sender, EventArgs e)
         {
-            button_CreateEvent.Text = buttonName;
+            button_CreateEditEvent.Text = buttonName;
 
             dateTimePicker_StartEvent.Format = DateTimePickerFormat.Custom;
             dateTimePicker_StartEvent.CustomFormat = "MM/dd/yyyy HH:mm:ss";
@@ -44,16 +168,16 @@ namespace EventManager
             dateTimePicker_EndEvent.Format = DateTimePickerFormat.Custom;
             dateTimePicker_EndEvent.CustomFormat = "MM/dd/yyyy HH:mm:ss";
 
-            if (eventItem != null && buttonName == "Edit Event")
+            if (currentInd >= 0 && buttonName == "Edit Event")
             {
-                Event currentEvent = eventItem;
+                Event eventItm = EventList.events[currentInd];
 
-                textBox_EventName.Text = currentEvent.eventName;
-                textBox_Author.Text = currentEvent.eventAuthor;
-                dateTimePicker_StartEvent.Value = currentEvent.eventStart;
-                dateTimePicker_EndEvent.Value = currentEvent.eventEnd;
-                richTextBox_EventDescription.Text = currentEvent.eventDes;
-                comboBox_Reminder.SelectedIndex = (int)currentEvent.reminderOpt;
+                textBox_EventName.Text = eventItm.eventName;
+                textBox_Author.Text = eventItm.eventAuthor;
+                dateTimePicker_StartEvent.Value = eventItm.eventStart;
+                dateTimePicker_EndEvent.Value = eventItm.eventEnd;
+                richTextBox_EventDescription.Text = eventItm.eventDes;
+                comboBox_Reminder.SelectedIndex = (int)eventItm.reminderOpt;
             }
             else
             {
@@ -70,11 +194,11 @@ namespace EventManager
         {
             if (textBox_EventName.TextLength > 0 && textBox_Author.TextLength > 0)
             {
-                button_CreateEvent.Enabled = true;
+                button_CreateEditEvent.Enabled = true;
             }
             else
             {
-                button_CreateEvent.Enabled = false; 
+                button_CreateEditEvent.Enabled = false; 
             }
         }
 
@@ -82,64 +206,47 @@ namespace EventManager
         {
             if (textBox_EventName.TextLength > 0 && textBox_Author.TextLength > 0)
             {
-                button_CreateEvent.Enabled = true;
+                button_CreateEditEvent.Enabled = true;
             }
             else
             {
-                button_CreateEvent.Enabled = false;
+                button_CreateEditEvent.Enabled = false;
             }
         }
 
-        private void button_CreateEvent_Click(object sender, EventArgs e)
+        private void button_CreateEditEvent_Click(object sender, EventArgs e)
         {
-            bool isFieldsNotEmpty = textBox_EventName.TextLength > 0 && textBox_Author.TextLength > 0 && dateTimePicker_StartEvent.Value != null && dateTimePicker_EndEvent.Value != null;
+            bool isEventExist = false;
 
-            if (isFieldsNotEmpty)
+            foreach (Event eventItm in EventList.events)
             {
-                Event newEvent = new Event();
-
-                DateTime start = dateTimePicker_StartEvent.Value;
-                DateTime end = dateTimePicker_EndEvent.Value;
-
-                TimeSpan interval = end - start;
-
-                bool isEventValid = !(interval.Hours < 0);
-
-                if (isEventValid)
+                if (textBox_EventName.Text == eventItm.eventName)
                 {
-                    newEvent.eventName = textBox_EventName.Text;
-                    newEvent.eventAuthor = textBox_Author.Text;
-
-                    if (richTextBox_EventDescription.TextLength > 0)
-                    {
-                        newEvent.eventDes = richTextBox_EventDescription.Text;
-                    }
-                    else
-                    {
-                        newEvent.eventDes = "";
-                    }
-                    newEvent.eventStart = dateTimePicker_StartEvent.Value;
-                    newEvent.eventEnd = dateTimePicker_EndEvent.Value;
-
-                    newEvent.reminderOpt = (EventReminder.remindSet)comboBox_Reminder.SelectedIndex;
-
-                    eventItem = newEvent;
-
-                    EventReminder.Remind(eventItem, eventItem.reminderOpt);
-
-                    ToastContentBuilder toast = new ToastContentBuilder();
-
-                    toast.AddHeader("eventCreation", "Event created", "");
-                    toast.AddText($"Event created with the name '{eventItem.eventName}'");
-
-                    toast.Show();
-
-                    Close();
+                    isEventExist = true;
                 }
                 else
                 {
-                    MessageBox.Show("The ending date can't be an ulterior date", "Date Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    isEventExist = false;
                 }
+            }
+
+            bool isFieldsNotEmpty = textBox_EventName.TextLength > 0 && textBox_Author.TextLength > 0 && dateTimePicker_StartEvent.Value != null && dateTimePicker_EndEvent.Value != null;
+
+            if (isFieldsNotEmpty && !isEventExist)
+            {
+                CreateEvent();
+            }
+            else
+            {
+                EditEvent(currentInd);
+            }
+        }
+
+        private void Form_EventEditor_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to exit this form ? The date will not be saved", "Saving data", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                Close();
             }
         }
     }

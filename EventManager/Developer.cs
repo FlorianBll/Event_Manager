@@ -33,8 +33,6 @@ namespace EventManager
         {
             List<Event> events = EventList.events;
 
-            Console.WriteLine($"events list count (Developer.cs) = {events.Count}");
-
             if (events.Count > 0)
             {
                 foreach (Event eventItm in events)

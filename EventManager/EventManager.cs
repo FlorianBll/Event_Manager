@@ -58,6 +58,8 @@ namespace EventManager
         private void button_EditEvent_Click(object sender, EventArgs e)
         {
             editor.buttonName = "Edit Event";
+            editor.currentInd = listBox_Events.SelectedIndex;
+
             editor.ShowDialog(this);
         }
 
@@ -67,8 +69,6 @@ namespace EventManager
             {
                 button_EditEvent.Enabled = true;
                 button_DeleteEvent.Enabled = true;
-
-                editor.eventItem = EventList.events[listBox_Events.SelectedIndex];
             }
             else
             {
@@ -77,43 +77,17 @@ namespace EventManager
             }
         }
 
+        
         private void Form_EventManager_Activated(object sender, EventArgs e)
         {
-            Event newEvent = editor.eventItem;
+            listBox_Events.Items.Clear();
 
-            bool isAlreadyExist = false;
-
-            foreach (Event eventItm in EventList.events)
+            foreach(Event eventItm in EventList.events)
             {
-                if (eventItm.eventName == newEvent.eventName)
-                {
-                    isAlreadyExist = true;
-                    break;
-                }
+                listBox_Events.Items.Add(eventItm.eventName);
             }
 
-            if (newEvent != null && !isAlreadyExist)
-            {
-                if (newEvent.eventName.Length > 0)
-                {
-                    EventList.events.Add(newEvent);
-
-                    if (listBox_Events.Items.Count <= 0)
-                    {
-                        listBox_Events.Items.Add(newEvent.eventName);
-                        listBox_Events.Update();
-                    }
-                    else
-                    {
-                        listBox_Events.Items.Add(newEvent.eventName);
-                        listBox_Events.Update();
-                    }
-                }
-                else if (listBox_Events.SelectedIndex >= 0)
-                {
-                    EventList.events[listBox_Events.SelectedIndex] = newEvent;
-                }
-            }
+            listBox_Events.Update();
         }
 
         private void textBox_SearchEventName_TextChanged(object sender, EventArgs e)

@@ -36,7 +36,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.richTextBox_EventDescription = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.button_CreateEvent = new System.Windows.Forms.Button();
+            this.button_CreateEditEvent = new System.Windows.Forms.Button();
             this.dateTimePicker_EndEvent = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBox_Reminder = new System.Windows.Forms.ComboBox();
@@ -114,18 +114,18 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Description :";
             // 
-            // button_CreateEvent
+            // button_CreateEditEvent
             // 
-            this.button_CreateEvent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_CreateEvent.Enabled = false;
-            this.button_CreateEvent.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_CreateEvent.Location = new System.Drawing.Point(335, 15);
-            this.button_CreateEvent.Name = "button_CreateEvent";
-            this.button_CreateEvent.Size = new System.Drawing.Size(118, 46);
-            this.button_CreateEvent.TabIndex = 8;
-            this.button_CreateEvent.Text = "Create Event";
-            this.button_CreateEvent.UseVisualStyleBackColor = true;
-            this.button_CreateEvent.Click += new System.EventHandler(this.button_CreateEvent_Click);
+            this.button_CreateEditEvent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_CreateEditEvent.Enabled = false;
+            this.button_CreateEditEvent.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_CreateEditEvent.Location = new System.Drawing.Point(335, 15);
+            this.button_CreateEditEvent.Name = "button_CreateEditEvent";
+            this.button_CreateEditEvent.Size = new System.Drawing.Size(118, 46);
+            this.button_CreateEditEvent.TabIndex = 8;
+            this.button_CreateEditEvent.Text = "Create Event";
+            this.button_CreateEditEvent.UseVisualStyleBackColor = true;
+            this.button_CreateEditEvent.Click += new System.EventHandler(this.button_CreateEditEvent_Click);
             // 
             // dateTimePicker_EndEvent
             // 
@@ -179,7 +179,7 @@
             this.Controls.Add(this.comboBox_Reminder);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dateTimePicker_EndEvent);
-            this.Controls.Add(this.button_CreateEvent);
+            this.Controls.Add(this.button_CreateEditEvent);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.richTextBox_EventDescription);
             this.Controls.Add(this.label3);
@@ -192,6 +192,7 @@
             this.Name = "Form_EventEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Event Editor";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_EventEditor_FormClosed);
             this.Load += new System.EventHandler(this.Form_EventEditor_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -208,7 +209,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RichTextBox richTextBox_EventDescription;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button_CreateEvent;
+        private System.Windows.Forms.Button button_CreateEditEvent;
         private System.Windows.Forms.DateTimePicker dateTimePicker_EndEvent;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBox_Reminder;
