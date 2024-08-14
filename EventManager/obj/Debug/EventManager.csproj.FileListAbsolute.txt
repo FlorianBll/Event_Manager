@@ -28,4 +28,4 @@ C:\Users\Florian.Belloc\source\repos\Event_Manager\EventManager\obj\Debug\EventM
 C:\Users\Florian.Belloc\source\repos\Event_Manager\EventManager\obj\Debug\EventManager.csproj.SuggestedBindingRedirects.cache
 C:\Users\Florian.Belloc\source\repos\Event_Manager\EventManager\obj\Debug\EventManager.exe.config
 C:\Users\Florian.Belloc\source\repos\Event_Manager\EventManager\obj\Debug\EventManager.Form_Authentification.resources
-C:\Users\Florian.Belloc\source\repos\Event_Manager\EventManager\obj\Debug\EventManager.Forms.User.Form_CreateEdit_User.resources
+C:\Users\Florian.Belloc\source\repos\Event_Manager\EventManager\obj\Debug\EventManager.Form_UserEditor.resources

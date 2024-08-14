@@ -37,11 +37,11 @@ namespace EventManager
         #region constructor
         public User()
         {
-            firstName = string.Empty;
-            lastName = string.Empty;
-            sector = string.Empty;
-            email = string.Empty;
-            password = string.Empty;
+            firstName = "";
+            lastName = "";
+            sector = "";
+            email = "";
+            password = "";
         }
 
         public User(string firstName, string lastName, string sector, string email, string password)

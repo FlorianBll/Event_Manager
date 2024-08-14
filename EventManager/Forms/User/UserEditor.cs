@@ -11,23 +11,37 @@ using System.Windows.Forms;
 
 namespace EventManager
 {
+    /// <summary>
+    /// Instance of the Windows Form "UserEditor".
+    /// </summary>
     public partial class Form_UserEditor : Form
     {
         #region variable
 
         private string _buttonName;
+        private int _currentInd;
 
         #endregion
 
         #region get/set
 
         public string buttonName { get; set; }
+        public int currentInd { get; set; }
 
         #endregion
 
         public Form_UserEditor()
         {
             InitializeComponent();
+        }
+
+        public User GetUserData()
+        {
+            // Retrieve all data from the user with is specific index in UserList
+        }
+        private void Form_UserEditor_Load(object sender, EventArgs e)
+        {
+            // Fill all the textbox with the current user data.
         }
 
         /// <summary>
@@ -37,7 +51,7 @@ namespace EventManager
         {
             bool isUserExist = false;
 
-            if (UserList.users.Count >= 0)
+            if (UserList.users != null &&  UserList.users.Count >= 0)
             {
                 foreach (User user in UserList.users)
                 {
@@ -62,10 +76,14 @@ namespace EventManager
                 string password = EncryptPassword(textBox_Password.Text);
 
                 UserList.users.Add(new User(firstName, lastName, sector, email, password));
+
+                Close();
             }
         }
-
-        private void enableButton()
+        /// <summary>
+        /// Enable Create/Edit button if all fields are not empty.
+        /// </summary>
+        private void EnableButton()
         {
             bool isAllFieldFilled = textBox_Firstname.TextLength > 0 && textBox_Lastname.TextLength > 0 && textBox_Email.TextLength > 0 && textBox_Password.TextLength > 0 && textBox_PasswordCheck.TextLength > 0;
 
@@ -86,7 +104,7 @@ namespace EventManager
         /// </returns>
         private bool passwordCheck()
         {
-            if (textBox_PasswordCheck.Text != textBox_PasswordCheck.Text)
+            if (textBox_Password.Text != textBox_PasswordCheck.Text)
             {
                 MessageBox.Show("Both passwords entered is not identical. Please try again.", "Not same passwords", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -116,27 +134,27 @@ namespace EventManager
         }
         private void textBox_Firstname_TextChanged(object sender, EventArgs e)
         {
-            enableButton();
+            EnableButton();
         }
 
         private void textBox_Lastname_TextChanged(object sender, EventArgs e)
         {
-            enableButton();
+            EnableButton();
         }
 
         private void textBox_Email_TextChanged(object sender, EventArgs e)
         {
-            enableButton();
+            EnableButton();
         }
 
         private void textBox_Password_TextChanged(object sender, EventArgs e)
         {
-            enableButton();
+            EnableButton();
         }
 
         private void textBox_PasswordCheck_TextChanged(object sender, EventArgs e)
         {
-            enableButton();
+            EnableButton();
         }
 
         private void button_UserCreateEdit_Click(object sender, EventArgs e)
@@ -145,7 +163,7 @@ namespace EventManager
 
             if (isAllFieldFilled && passwordCheck())
             {
-                // Creation of user instance and add it into user list
+                CreateUser();
             }
         }
     }

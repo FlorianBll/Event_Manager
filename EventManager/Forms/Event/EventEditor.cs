@@ -32,7 +32,7 @@ namespace EventManager
         {
             bool isEventExist = false;
 
-            if (EventList.events.Count >= 0)
+            if (EventList.events != null && EventList.events.Count >= 0)
             {
                 foreach (Event eventItem in EventList.events)
                 {
@@ -96,6 +96,11 @@ namespace EventManager
             {
                 MessageBox.Show("An event already exist containing the same name. Please choose an other name", "Event name already exist", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private Event GetEventData()
+        {
+            // Retrieve all data from the event with is specific index in EventList
         }
         /// <summary>
         /// Edit an existing event present on the EventList.
@@ -165,6 +170,23 @@ namespace EventManager
                 MessageBox.Show("The event is null or already exist", "Event null/Already exist", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+        /// <summary>
+        /// Enable Create/Edit button if all fields are not empty.
+        /// </summary>
+        private void EnableButton()
+        {
+            bool isAllFieldFilled = textBox_EventName.TextLength > 0 && textBox_Author.TextLength > 0;
+
+            if (isAllFieldFilled)
+            {
+                button_CreateEditEvent.Enabled = true;
+            }
+            else
+            {
+                button_CreateEditEvent.Enabled = false;
+            }
+        }
+
         public Form_EventEditor()
         {
             InitializeComponent();
@@ -205,26 +227,12 @@ namespace EventManager
 
         private void textBox_EventName_TextChanged(object sender, EventArgs e)
         {
-            if (textBox_EventName.TextLength > 0 && textBox_Author.TextLength > 0)
-            {
-                button_CreateEditEvent.Enabled = true;
-            }
-            else
-            {
-                button_CreateEditEvent.Enabled = false; 
-            }
+            EnableButton();
         }
 
         private void textBox_Author_TextChanged(object sender, EventArgs e)
         {
-            if (textBox_EventName.TextLength > 0 && textBox_Author.TextLength > 0)
-            {
-                button_CreateEditEvent.Enabled = true;
-            }
-            else
-            {
-                button_CreateEditEvent.Enabled = false;
-            }
+            EnableButton();
         }
 
         private void button_CreateEditEvent_Click(object sender, EventArgs e)

@@ -151,6 +151,7 @@
             this.textBox_PasswordCheck.Name = "textBox_PasswordCheck";
             this.textBox_PasswordCheck.Size = new System.Drawing.Size(195, 20);
             this.textBox_PasswordCheck.TabIndex = 5;
+            this.textBox_PasswordCheck.UseSystemPasswordChar = true;
             this.textBox_PasswordCheck.TextChanged += new System.EventHandler(this.textBox_PasswordCheck_TextChanged);
             // 
             // label6
@@ -168,6 +169,7 @@
             this.textBox_Password.Name = "textBox_Password";
             this.textBox_Password.Size = new System.Drawing.Size(235, 20);
             this.textBox_Password.TabIndex = 3;
+            this.textBox_Password.UseSystemPasswordChar = true;
             this.textBox_Password.TextChanged += new System.EventHandler(this.textBox_Password_TextChanged);
             // 
             // label5
@@ -206,6 +208,7 @@
             this.Controls.Add(this.button_UserCreateEdit);
             this.Name = "Form_UserEditor";
             this.Text = "CreateEdit_User";
+            this.Load += new System.EventHandler(this.Form_UserEditor_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

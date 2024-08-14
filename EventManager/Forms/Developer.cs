@@ -13,6 +13,9 @@ using Microsoft.Toolkit.Uwp.Notifications;
 
 namespace EventManager
 {
+    /// <summary>
+    /// Representing a form with developer options.
+    /// </summary>
     public partial class Form_DeveloperToolbox : Form
     {
         public Form_DeveloperToolbox()

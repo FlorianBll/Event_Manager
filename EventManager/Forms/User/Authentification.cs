@@ -1,5 +1,4 @@
-﻿using EventManager.Forms.User;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,6 +10,9 @@ using System.Windows.Forms;
 
 namespace EventManager
 {
+    /// <summary>
+    /// Instance of the Windows Form “Authentification”.
+    /// </summary>
     public partial class Form_Authentification : Form
     {
         public Form_Authentification()
@@ -18,9 +20,14 @@ namespace EventManager
             InitializeComponent();
         }
 
+        public void UpdateList()
+        {
+            // Update the list after retrieving all users in UserList.
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            Form_CreateEdit_User userEdit = new Form_CreateEdit_User();
+            Form_UserEditor userEdit = new Form_UserEditor();
 
             userEdit.ShowDialog();
         }
