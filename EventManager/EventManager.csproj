@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\User\User.cs" />
+    <Compile Include="Class\User\UserList.cs" />
     <Compile Include="Forms\Developer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,11 +77,11 @@
     <Compile Include="Forms\User\Authentification.Designer.cs">
       <DependentUpon>Authentification.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\User\CreateEdit_User.cs">
+    <Compile Include="Forms\User\UserEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\User\CreateEdit_User.Designer.cs">
-      <DependentUpon>CreateEdit_User.cs</DependentUpon>
+    <Compile Include="Forms\User\UserEditor.Designer.cs">
+      <DependentUpon>UserEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -96,8 +97,8 @@
     <EmbeddedResource Include="Forms\Event\EventEditor.resx">
       <DependentUpon>EventEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\User\CreateEdit_User.resx">
-      <DependentUpon>CreateEdit_User.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\User\UserEditor.resx">
+      <DependentUpon>UserEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

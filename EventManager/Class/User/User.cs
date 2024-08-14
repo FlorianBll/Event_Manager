@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EventManager.Class.User
+namespace EventManager
 {
     /// <summary>
     /// Class representing a User instance. 
@@ -12,7 +12,7 @@ namespace EventManager.Class.User
     /// <remarks>
     /// The user is defined by his firstname, lastname, sector (location where his working for), email and password.
     /// </remarks>
-    internal class User
+    public class User
     {
         #region variables
 

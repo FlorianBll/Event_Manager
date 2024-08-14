@@ -26,22 +26,25 @@ namespace EventManager
         public string buttonName { get; set; }
         #endregion
         /// <summary>
-        /// Create an event and store it into the event instance of this class
+        /// Create an event and store it into a list of eventss using EventList class.
         /// </summary>
         public void CreateEvent()
         {
             bool isEventExist = false;
 
-            foreach (Event eventItem in EventList.events)
+            if (EventList.events.Count >= 0)
             {
-                if (eventItem.eventName == textBox_EventName.Text)
+                foreach (Event eventItem in EventList.events)
                 {
-                    Console.WriteLine("The event already exist");
-                    isEventExist = true;
-                }
-                else
-                {
-                    isEventExist = false;
+                    if (eventItem.eventName == textBox_EventName.Text)
+                    {
+                        Console.WriteLine("The event already exist");
+                        isEventExist = true;
+                    }
+                    else
+                    {
+                        isEventExist = false;
+                    }
                 }
             }
 
