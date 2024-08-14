@@ -16,7 +16,6 @@ namespace EventManager
         #region variable
 
         private Form_EventEditor _editor = new Form_EventEditor();
-        private bool _isDevModeEnabled = true;
 
         #endregion
 
@@ -27,25 +26,24 @@ namespace EventManager
             set => _editor = value;
         }
 
-        public bool isDevModeEnabled
-        {
-            get => _isDevModeEnabled;
-            set => _isDevModeEnabled = value;
-        }
-
         #endregion
 
         public Form_EventManager()
         {
             InitializeComponent();
 
-            if (isDevModeEnabled)
+            string[] envArgs = Environment.GetCommandLineArgs();
+
+            if (envArgs.Length > 1)
             {
-                button_DevMode.Visible = true;
-            }
-            else
-            {
-                button_DevMode.Visible = false;
+                if (envArgs[1] == "-devmode")
+                {
+                    button_DevMode.Visible = true;
+                }
+                else
+                {
+                    button_DevMode.Visible = false;
+                }
             }
         }
 
