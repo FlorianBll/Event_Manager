@@ -100,20 +100,20 @@ namespace EventManager
         #endregion
 
         /// <summary>
-        /// Show the event details. Can be used as a test if an Event instance is not empty.
+        /// Show the event details in the console. Can be used as a test if an Event instance is not empty.
         /// </summary>
         /// <returns>
         /// Message with the event details like the event name, author, start stae, end date and event description.
         /// </returns>
-        public string DisplayEvent()
+        public void DisplayEvent()
         {
             if (eventDes.Length > 0)
             {
-                return eventName + ", created by : " + eventAuthor + ". Event starting at : " + eventStart + " and finishing at : " + eventEnd + " with the description '" + eventDes + "'.";
+                Console.WriteLine($"{eventName}, created by : {eventAuthor}. Event starting at : {eventStart} and finishing at : {eventEnd} with the description {eventDes}.");
             }
             else
             {
-                return eventName + ", created by : " + eventAuthor + ". Event starting at : " + eventStart + " and finishing at : " + eventEnd + ". The description is empty.";
+                Console.WriteLine($"{eventName}, created by : {eventAuthor}. Event starting at : {eventStart} and finishing at : {eventEnd}. The description is empty.");
             }
         }
     }

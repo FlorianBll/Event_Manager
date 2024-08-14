@@ -13,7 +13,7 @@ namespace EventManager
 {
     public partial class Form_EventManager : Form
     {
-        #region variable
+        #region variables
 
         private Form_EventEditor _editor = new Form_EventEditor();
 
