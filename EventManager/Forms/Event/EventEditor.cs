@@ -22,16 +22,8 @@ namespace EventManager
         #endregion
 
         #region get/set
-        public int currentInd
-        {
-            get => _currentInd;
-            set => _currentInd = value;
-        }
-        public string buttonName
-        {
-            get => _buttonName;
-            set => _buttonName = value;
-        }
+        public int currentInd { get; set; }
+        public string buttonName { get; set; }
         #endregion
         /// <summary>
         /// Create an event and store it into the event instance of this class

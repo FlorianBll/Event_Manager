@@ -163,6 +163,7 @@
             this.Controls.Add(this.button_CreateEvent);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBox_Events);
+            this.Enabled = false;
             this.MinimumSize = new System.Drawing.Size(518, 445);
             this.Name = "Form_EventManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

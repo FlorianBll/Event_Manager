@@ -48,37 +48,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Developer.cs">
+    <Compile Include="Forms\Developer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Developer.Designer.cs">
+    <Compile Include="Forms\Developer.Designer.cs">
       <DependentUpon>Developer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Event.cs" />
-    <Compile Include="EventList.cs" />
-    <Compile Include="EventManager.cs">
+    <Compile Include="Class\Event\Event.cs" />
+    <Compile Include="Class\Event\EventList.cs" />
+    <Compile Include="Forms\Event\EventManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EventManager.Designer.cs">
+    <Compile Include="Forms\Event\EventManager.Designer.cs">
       <DependentUpon>EventManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="EventEditor.cs">
+    <Compile Include="Forms\Event\EventEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EventEditor.Designer.cs">
+    <Compile Include="Forms\Event\EventEditor.Designer.cs">
       <DependentUpon>EventEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="EventReminder.cs" />
+    <Compile Include="Class\Event\EventReminder.cs" />
+    <Compile Include="Forms\User\Authentification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\User\Authentification.Designer.cs">
+      <DependentUpon>Authentification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\User\CreateEdit_User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\User\CreateEdit_User.Designer.cs">
+      <DependentUpon>CreateEdit_User.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Developer.resx">
+    <EmbeddedResource Include="Forms\User\Authentification.resx">
+      <DependentUpon>Authentification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Developer.resx">
       <DependentUpon>Developer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EventManager.resx">
+    <EmbeddedResource Include="Forms\Event\EventManager.resx">
       <DependentUpon>EventManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EventEditor.resx">
+    <EmbeddedResource Include="Forms\Event\EventEditor.resx">
       <DependentUpon>EventEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\User\CreateEdit_User.resx">
+      <DependentUpon>CreateEdit_User.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -106,6 +124,9 @@
     <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications">
       <Version>7.1.3</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Class\User\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

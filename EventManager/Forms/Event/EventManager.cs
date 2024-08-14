@@ -17,15 +17,14 @@ namespace EventManager
 
         private Form_EventEditor _editor = new Form_EventEditor();
 
+        // Temporary bool var for user connection testing. Replace this with 'User' instance.
+        bool _isUSerConnected;
+
         #endregion
 
         #region get/set
-        public Form_EventEditor editor
-        {
-            get => _editor;
-            set => _editor = value;
-        }
-
+        public Form_EventEditor editor { get; set; }
+        public bool isUserConnected { get; set; } = false;
         #endregion
 
         public Form_EventManager()
