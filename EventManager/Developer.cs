@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -41,11 +42,11 @@ namespace EventManager
                     {
                         Console.WriteLine($"Event's '{eventItm.eventName} timer currently running !");
                     }
-                    else
-                    {
-                        Console.WriteLine("No timers is currently running");
-                    }
                 }
+            }
+            else
+            {
+                Console.WriteLine("No timers is currently running");
             }
         }
     }
