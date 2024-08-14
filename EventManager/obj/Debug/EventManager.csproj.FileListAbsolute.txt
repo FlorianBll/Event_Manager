@@ -27,3 +27,5 @@ C:\Users\Florian.Belloc\source\repos\Event_Manager\EventManager\bin\Debug\Micros
 C:\Users\Florian.Belloc\source\repos\Event_Manager\EventManager\obj\Debug\EventMan.E74B3CDA.Up2Date
 C:\Users\Florian.Belloc\source\repos\Event_Manager\EventManager\obj\Debug\EventManager.csproj.SuggestedBindingRedirects.cache
 C:\Users\Florian.Belloc\source\repos\Event_Manager\EventManager\obj\Debug\EventManager.exe.config
+C:\Users\Florian.Belloc\source\repos\Event_Manager\EventManager\obj\Debug\EventManager.Form_Authentification.resources
+C:\Users\Florian.Belloc\source\repos\Event_Manager\EventManager\obj\Debug\EventManager.Forms.User.Form_CreateEdit_User.resources

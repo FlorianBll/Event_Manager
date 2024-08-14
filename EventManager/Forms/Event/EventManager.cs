@@ -31,6 +31,13 @@ namespace EventManager
         {
             InitializeComponent();
 
+            if (!isUserConnected)
+            {
+                Form_Authentification auth = new Form_Authentification();
+
+                auth.ShowDialog();
+            }
+
             string[] envArgs = Environment.GetCommandLineArgs();
 
             if (envArgs.Length > 1)
