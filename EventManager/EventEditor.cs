@@ -114,7 +114,7 @@ namespace EventManager
 
             foreach (Event eventItm in EventList.events)
             {
-                if (e.eventName == textBox_EventName.Text && EventList.events.IndexOf(eventItm) != index)
+                if (EventList.events.IndexOf(eventItm) != index && eventItm.eventName == textBox_EventName.Text)
                 {
                     isEventAlreadyExist = true;
                 }
