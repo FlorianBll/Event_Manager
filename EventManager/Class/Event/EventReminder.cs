@@ -20,7 +20,7 @@ namespace EventManager
         private static Event _event;
         private static System.Timers.Timer _timer;
 
-        public enum remindSet
+        public enum RemindSet
         {
             FIVEMIN = 0,
             TENMIN = 1,
@@ -38,7 +38,7 @@ namespace EventManager
         /// <param name="e">The event instance</param>
         /// <param name="rs">The remindSet option to choose. (By default, this option is set to 0).</param>
         
-        public static void Remind(Event e, remindSet rs = 0)
+        public static void Remind(Event e, RemindSet rs = 0)
         {
             DateTime now = DateTime.Now;
 

@@ -18,9 +18,9 @@ namespace EventManager
 
         private string _firstName;
         private string _lastName;
-        private string _sector;
         private string _email;
         private string _password;
+        private string _sector;
 
         #endregion
 
@@ -28,9 +28,9 @@ namespace EventManager
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string Sector { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public string Sector { get; set; }
 
         #endregion
 
@@ -39,7 +39,7 @@ namespace EventManager
         {
             FirstName = "";
             LastName = "";
-            Sector = "";
+
             Email = "";
             Password = "";
         }

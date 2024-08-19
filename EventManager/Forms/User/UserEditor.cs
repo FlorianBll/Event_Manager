@@ -34,10 +34,6 @@ namespace EventManager
         {
             InitializeComponent();
         }
-        private void Form_UserEditor_Load(object sender, EventArgs e)
-        {
-            // Fill all the textbox with the current user data.
-        }
 
         /// <summary>
         /// Create a user and store it into a list of users using UserList class.
@@ -79,6 +75,64 @@ namespace EventManager
 
                 Close();
             }
+            else
+            {
+                MessageBox.Show("The user you have entered already exist !", "User already exist", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        /// <summary>
+        /// Get User instance correponding to is index.
+        /// </summary>
+        /// <returns>The user matching to the current index.</returns>
+        private User GetUser()
+        {
+            return UserList.users[CurrentInd];
+        }
+        /// <summary>
+        /// Edit an existing user present on the UserList.
+        /// </summary>
+        private void EditUser()
+        {
+            User u = GetUser();
+
+            bool isUserExist = false;
+
+            foreach (User user in UserList.users)
+            {
+                if (UserList.users.IndexOf(user) != CurrentInd && user.FirstName == textBox_Firstname.Text && user.LastName == textBox_Lastname.Text)
+                {
+                    isUserExist = true;
+                }
+            }
+
+            if (u != null && !isUserExist)
+            {
+                textBox_Firstname.Text = u.FirstName;
+                textBox_Lastname.Text = u.LastName;
+                comboBox_Sector.Text = u.Sector;
+
+                textBox_Email.Text = u.Email;
+
+                UserList.users[CurrentInd] = u;
+
+                Console.WriteLine($"User '{u.FirstName} {u.LastName}' has been edited");
+
+                Close();
+            }
+        }
+        /// <summary>
+        /// Clear all fields.
+        /// </summary>
+        private void EmptyFields()
+        {
+            textBox_Firstname.Text = string.Empty;
+            textBox_Lastname.Text= string.Empty;
+            comboBox_Sector.SelectedIndex = 0;
+
+            textBox_Email.Text = string.Empty;
+
+            textBox_Password.Text = string.Empty;
+            textBox_PasswordCheck.Text = string.Empty;
         }
         /// <summary>
         /// Enable Create/Edit button if all fields are not empty.
@@ -164,6 +218,16 @@ namespace EventManager
             if (isAllFieldFilled && passwordCheck())
             {
                 CreateUser();
+            }
+        }
+
+        private void Form_UserEditor_Load(object sender, EventArgs e)
+        {
+            button_UserCreateEdit.Text = ButtonName;
+
+            if (ButtonName == "Create User")
+            {
+                EmptyFields();
             }
         }
     }

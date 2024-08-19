@@ -72,7 +72,7 @@ namespace EventManager
                     newEvent.eventStart = dateTimePicker_StartEvent.Value;
                     newEvent.eventEnd = dateTimePicker_EndEvent.Value;
 
-                    newEvent.reminderOpt = (EventReminder.remindSet)comboBox_Reminder.SelectedIndex;
+                    newEvent.reminderOpt = (EventReminder.RemindSet)comboBox_Reminder.SelectedIndex;
 
                     EventReminder.Remind(newEvent, newEvent.reminderOpt);
 
@@ -145,7 +145,7 @@ namespace EventManager
                     e.eventStart = dateTimePicker_StartEvent.Value;
                     e.eventEnd = dateTimePicker_EndEvent.Value;
 
-                    e.reminderOpt = (EventReminder.remindSet)comboBox_Reminder.SelectedIndex;
+                    e.reminderOpt = (EventReminder.RemindSet)comboBox_Reminder.SelectedIndex;
 
                     EventReminder.Remind(e, e.reminderOpt);
                 }

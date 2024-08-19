@@ -65,6 +65,7 @@
             this.listBox_ProfileList.Name = "listBox_ProfileList";
             this.listBox_ProfileList.Size = new System.Drawing.Size(401, 173);
             this.listBox_ProfileList.TabIndex = 2;
+            this.listBox_ProfileList.SelectedIndexChanged += new System.EventHandler(this.listBox_ProfileList_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -112,7 +113,7 @@
             this.MinimumSize = new System.Drawing.Size(441, 379);
             this.Name = "Form_Authentification";
             this.Text = "Authentification Panel";
-            this.Load += new System.EventHandler(this.Form_Authentification_Load);
+            this.Activated += new System.EventHandler(this.Form_Authentification_Activated);
             this.ResumeLayout(false);
             this.PerformLayout();
 

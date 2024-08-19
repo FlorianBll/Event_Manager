@@ -27,7 +27,7 @@ namespace EventManager
         private DateTime _eventStart;
         private DateTime _eventEnd;
         private string _eventDes;
-        private EventReminder.remindSet _reminderOpt;
+        private EventReminder.RemindSet _reminderOpt;
         private System.Timers.Timer _timer;
 
         #endregion
@@ -64,7 +64,7 @@ namespace EventManager
             set => _eventDes = value;
         }
 
-        public EventReminder.remindSet reminderOpt
+        public EventReminder.RemindSet reminderOpt
         {
             get => _reminderOpt;
             set => _reminderOpt = value;
@@ -88,7 +88,7 @@ namespace EventManager
             _eventDes = "";
             _reminderOpt = 0;
         }
-        public Event(string eventName, string eventAuthor, DateTime eventStart, DateTime eventEnd, string eventDes = "", EventReminder.remindSet reminderOpt = 0)
+        public Event(string eventName, string eventAuthor, DateTime eventStart, DateTime eventEnd, string eventDes = "", EventReminder.RemindSet reminderOpt = 0)
         {
             _eventName = eventName;
             _eventAuthor = eventAuthor;

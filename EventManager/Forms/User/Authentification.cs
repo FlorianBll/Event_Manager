@@ -24,36 +24,69 @@ namespace EventManager
 
         public void UpdateList()
         {
-            Console.WriteLine($"Number of users = {UserList.users.Count}");
-
             if (UserList.users.Count > 0)
             {
+                listBox_ProfileList.Items.Clear();
+
                 foreach (User user in UserList.users)
                 {
-                    listBox_ProfileList.Items.Add(user.FirstName);
+                    listBox_ProfileList.Items.Add($"{user.FirstName} {user.LastName}");
                 }
 
                 listBox_ProfileList.Update();
             }
         }
 
-        private void Form_Authentification_Load(object sender, EventArgs e)
-        {
-            UpdateList();
-        }
-
         private void button_UserCreate_Click(object sender, EventArgs e)
         {
-            userEditor.ButtonName = "Create Event";
+            userEditor.ButtonName = "Create User";
             userEditor.ShowDialog();
         }
 
         private void button_UserEdit_Click(object sender, EventArgs e)
         {
-            userEditor.ButtonName = "Edit Event";
+            userEditor.ButtonName = "Edit User";
             userEditor.CurrentInd = listBox_ProfileList.SelectedIndex;
 
             userEditor.ShowDialog();
+        }
+
+        private void Form_Authentification_Activated(object sender, EventArgs e)
+        {
+            button_UserDelete.Enabled = false;
+            button_UserEdit.Enabled = false;
+            button_UserConnect.Enabled = false;
+
+            userEditor.FormClosed += UserEditor_FormClosed;
+        }
+
+        private void UserEditor_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (UserList.users.Count > 0)
+            {
+                UpdateList();
+                listBox_ProfileList.Enabled = true;
+            }
+            else
+            {
+                listBox_ProfileList.Enabled = false;
+            }
+        }
+
+        private void listBox_ProfileList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBox_ProfileList.SelectedIndex != -1)
+            {
+                button_UserEdit.Enabled = true;
+                button_UserDelete.Enabled = true;
+                button_UserConnect.Enabled = true;
+            }
+            else
+            {
+                button_UserEdit.Enabled = false;
+                button_UserDelete.Enabled = false;
+                button_UserConnect.Enabled = false;
+            }
         }
     }
 }

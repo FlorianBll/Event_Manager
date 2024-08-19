@@ -206,6 +206,9 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button_UserCreateEdit);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(390, 303);
+            this.MinimumSize = new System.Drawing.Size(390, 303);
             this.Name = "Form_UserEditor";
             this.Text = "CreateEdit_User";
             this.Load += new System.EventHandler(this.Form_UserEditor_Load);
