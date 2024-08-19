@@ -97,10 +97,13 @@ namespace EventManager
                 MessageBox.Show("An event already exist containing the same name. Please choose an other name", "Event name already exist", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
-        private Event GetEventData()
+        /// <summary>
+        /// Get Event instance correponding to is index.
+        /// </summary>
+        /// <returns>The event matching to the current index.</returns>
+        private Event GetEvent()
         {
-            // Retrieve all data from the event with is specific index in EventList
+            return EventList.events[currentInd];
         }
         /// <summary>
         /// Edit an existing event present on the EventList.
@@ -108,7 +111,7 @@ namespace EventManager
         /// <param name="index"></param>
         public void EditEvent(int index)
         {
-            Event e = EventList.events[index];
+            Event e = GetEvent();
 
             bool isEventAlreadyExist = false;
 
@@ -122,11 +125,8 @@ namespace EventManager
 
             if (e != null && !isEventAlreadyExist)
             {
-                e.eventName = textBox_EventName.Text;
-                e.eventName = textBox_Author.Text;
-
-                DateTime start = dateTimePicker_StartEvent.Value;
-                DateTime end = dateTimePicker_EndEvent.Value;
+                DateTime end = e.eventEnd;
+                DateTime start = e.eventStart;
 
                 TimeSpan interval = end - start;
 

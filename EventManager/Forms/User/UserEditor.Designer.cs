@@ -140,7 +140,7 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Location = new System.Drawing.Point(12, 129);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(308, 113);
+            this.groupBox2.Size = new System.Drawing.Size(350, 113);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Authentification";
@@ -149,7 +149,7 @@
             // 
             this.textBox_PasswordCheck.Location = new System.Drawing.Point(107, 75);
             this.textBox_PasswordCheck.Name = "textBox_PasswordCheck";
-            this.textBox_PasswordCheck.Size = new System.Drawing.Size(195, 20);
+            this.textBox_PasswordCheck.Size = new System.Drawing.Size(237, 20);
             this.textBox_PasswordCheck.TabIndex = 5;
             this.textBox_PasswordCheck.UseSystemPasswordChar = true;
             this.textBox_PasswordCheck.TextChanged += new System.EventHandler(this.textBox_PasswordCheck_TextChanged);
@@ -167,7 +167,7 @@
             // 
             this.textBox_Password.Location = new System.Drawing.Point(67, 49);
             this.textBox_Password.Name = "textBox_Password";
-            this.textBox_Password.Size = new System.Drawing.Size(235, 20);
+            this.textBox_Password.Size = new System.Drawing.Size(277, 20);
             this.textBox_Password.TabIndex = 3;
             this.textBox_Password.UseSystemPasswordChar = true;
             this.textBox_Password.TextChanged += new System.EventHandler(this.textBox_Password_TextChanged);
@@ -185,7 +185,7 @@
             // 
             this.textBox_Email.Location = new System.Drawing.Point(67, 23);
             this.textBox_Email.Name = "textBox_Email";
-            this.textBox_Email.Size = new System.Drawing.Size(235, 20);
+            this.textBox_Email.Size = new System.Drawing.Size(277, 20);
             this.textBox_Email.TabIndex = 1;
             this.textBox_Email.TextChanged += new System.EventHandler(this.textBox_Email_TextChanged);
             // 

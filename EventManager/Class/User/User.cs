@@ -26,31 +26,31 @@ namespace EventManager
 
         #region get/set
 
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-        public string sector { get; set; }
-        public string email { get; set; }
-        public string password { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Sector { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
 
         #endregion
 
         #region constructor
         public User()
         {
-            firstName = "";
-            lastName = "";
-            sector = "";
-            email = "";
-            password = "";
+            FirstName = "";
+            LastName = "";
+            Sector = "";
+            Email = "";
+            Password = "";
         }
 
         public User(string firstName, string lastName, string sector, string email, string password)
         {
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.sector = sector;
-            this.email = email;
-            this.password = password;
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.Sector = sector;
+            this.Email = email;
+            this.Password = password;
         }
 
         #endregion
@@ -60,7 +60,7 @@ namespace EventManager
         /// </summary>
         public void UserDisplay()
         {
-            Console.WriteLine($"User firstname : {this.firstName}; Lastname : {this.lastName}; Sector : {this.sector}; Email : {this.email}; PAssword : {this.password}");
+            Console.WriteLine($"User firstname : {this.FirstName}; Lastname : {this.LastName}; Sector : {this.Sector}; Email : {this.Email}; PAssword : {this.Password}");
         }
     }
 }

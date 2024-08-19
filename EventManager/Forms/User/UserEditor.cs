@@ -25,19 +25,14 @@ namespace EventManager
 
         #region get/set
 
-        public string buttonName { get; set; }
-        public int currentInd { get; set; }
+        public string ButtonName { get; set; }
+        public int CurrentInd { get; set; }
 
         #endregion
 
         public Form_UserEditor()
         {
             InitializeComponent();
-        }
-
-        public User GetUserData()
-        {
-            // Retrieve all data from the user with is specific index in UserList
         }
         private void Form_UserEditor_Load(object sender, EventArgs e)
         {
@@ -51,11 +46,11 @@ namespace EventManager
         {
             bool isUserExist = false;
 
-            if (UserList.users != null &&  UserList.users.Count >= 0)
+            if (UserList.users != null &&  UserList.users.Count > 0)
             {
                 foreach (User user in UserList.users)
                 {
-                    if (user.firstName == textBox_Firstname.Text && user.lastName == textBox_Lastname.Text)
+                    if (user.FirstName == textBox_Firstname.Text && user.LastName == textBox_Lastname.Text)
                     {
                         Console.WriteLine("The user already exist");
                         isUserExist = true;
@@ -76,6 +71,11 @@ namespace EventManager
                 string password = EncryptPassword(textBox_Password.Text);
 
                 UserList.users.Add(new User(firstName, lastName, sector, email, password));
+
+                if (UserList.users.Count > 0)
+                {
+                    Console.WriteLine("User added !");
+                }
 
                 Close();
             }

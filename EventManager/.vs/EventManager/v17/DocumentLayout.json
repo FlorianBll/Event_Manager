@@ -3,28 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\Florian.Belloc\\source\\repos\\Event_Manager\\EventManager\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CBFF9019-3B36-4381-B753-0B7FAD83E67F}|EventManager.csproj|c:\\users\\florian.belloc\\source\\repos\\event_manager\\eventmanager\\forms\\user\\usereditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CBFF9019-3B36-4381-B753-0B7FAD83E67F}|EventManager.csproj|solutionrelative:forms\\user\\usereditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CBFF9019-3B36-4381-B753-0B7FAD83E67F}|EventManager.csproj|c:\\users\\florian.belloc\\source\\repos\\event_manager\\eventmanager\\forms\\event\\eventeditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CBFF9019-3B36-4381-B753-0B7FAD83E67F}|EventManager.csproj|solutionrelative:forms\\event\\eventeditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CBFF9019-3B36-4381-B753-0B7FAD83E67F}|EventManager.csproj|C:\\Users\\Florian.Belloc\\source\\repos\\Event_Manager\\EventManager\\forms\\user\\authentification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CBFF9019-3B36-4381-B753-0B7FAD83E67F}|EventManager.csproj|solutionrelative:forms\\user\\authentification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CBFF9019-3B36-4381-B753-0B7FAD83E67F}|EventManager.csproj|c:\\users\\florian.belloc\\source\\repos\\event_manager\\eventmanager\\forms\\user\\usereditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{CBFF9019-3B36-4381-B753-0B7FAD83E67F}|EventManager.csproj|solutionrelative:forms\\user\\usereditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{CBFF9019-3B36-4381-B753-0B7FAD83E67F}|EventManager.csproj|c:\\users\\florian.belloc\\source\\repos\\event_manager\\eventmanager\\forms\\user\\usereditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CBFF9019-3B36-4381-B753-0B7FAD83E67F}|EventManager.csproj|solutionrelative:forms\\user\\usereditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CBFF9019-3B36-4381-B753-0B7FAD83E67F}|EventManager.csproj|c:\\users\\florian.belloc\\source\\repos\\event_manager\\eventmanager\\forms\\user\\authentification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{CBFF9019-3B36-4381-B753-0B7FAD83E67F}|EventManager.csproj|c:\\users\\florian.belloc\\source\\repos\\event_manager\\eventmanager\\forms\\event\\eventmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CBFF9019-3B36-4381-B753-0B7FAD83E67F}|EventManager.csproj|solutionrelative:forms\\event\\eventmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CBFF9019-3B36-4381-B753-0B7FAD83E67F}|EventManager.csproj|C:\\Users\\Florian.Belloc\\source\\repos\\Event_Manager\\EventManager\\forms\\event\\eventeditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CBFF9019-3B36-4381-B753-0B7FAD83E67F}|EventManager.csproj|solutionrelative:forms\\event\\eventeditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CBFF9019-3B36-4381-B753-0B7FAD83E67F}|EventManager.csproj|C:\\Users\\Florian.Belloc\\source\\repos\\Event_Manager\\EventManager\\forms\\user\\authentification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{CBFF9019-3B36-4381-B753-0B7FAD83E67F}|EventManager.csproj|solutionrelative:forms\\user\\authentification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CBFF9019-3B36-4381-B753-0B7FAD83E67F}|EventManager.csproj|C:\\Users\\Florian.Belloc\\source\\repos\\Event_Manager\\EventManager\\class\\user\\userlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CBFF9019-3B36-4381-B753-0B7FAD83E67F}|EventManager.csproj|solutionrelative:class\\user\\userlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CBFF9019-3B36-4381-B753-0B7FAD83E67F}|EventManager.csproj|c:\\users\\florian.belloc\\source\\repos\\event_manager\\eventmanager\\class\\user\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CBFF9019-3B36-4381-B753-0B7FAD83E67F}|EventManager.csproj|solutionrelative:class\\user\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CBFF9019-3B36-4381-B753-0B7FAD83E67F}|EventManager.csproj|c:\\users\\florian.belloc\\source\\repos\\event_manager\\eventmanager\\forms\\user\\usereditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{CBFF9019-3B36-4381-B753-0B7FAD83E67F}|EventManager.csproj|solutionrelative:forms\\user\\usereditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CBFF9019-3B36-4381-B753-0B7FAD83E67F}|EventManager.csproj|C:\\Users\\Florian.Belloc\\source\\repos\\Event_Manager\\EventManager\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,59 +46,72 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\Florian.Belloc\\source\\repos\\Event_Manager\\EventManager\\Class\\User\\User.cs",
+              "RelativeDocumentMoniker": "Class\\User\\User.cs",
+              "ToolTip": "C:\\Users\\Florian.Belloc\\source\\repos\\Event_Manager\\EventManager\\Class\\User\\User.cs",
+              "RelativeToolTip": "Class\\User\\User.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-19T08:57:42.77Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Authentification.cs",
               "DocumentMoniker": "C:\\Users\\Florian.Belloc\\source\\repos\\Event_Manager\\EventManager\\Forms\\User\\Authentification.cs",
               "RelativeDocumentMoniker": "Forms\\User\\Authentification.cs",
               "ToolTip": "C:\\Users\\Florian.Belloc\\source\\repos\\Event_Manager\\EventManager\\Forms\\User\\Authentification.cs",
               "RelativeToolTip": "Forms\\User\\Authentification.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABgAAAA5AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADMAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-14T13:27:25.729Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "UserEditor.cs",
               "DocumentMoniker": "C:\\Users\\Florian.Belloc\\source\\repos\\Event_Manager\\EventManager\\Forms\\User\\UserEditor.cs",
               "RelativeDocumentMoniker": "Forms\\User\\UserEditor.cs",
               "ToolTip": "C:\\Users\\Florian.Belloc\\source\\repos\\Event_Manager\\EventManager\\Forms\\User\\UserEditor.cs",
               "RelativeToolTip": "Forms\\User\\UserEditor.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAACQAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEwAAAA2AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-14T14:36:33.463Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
+              "Title": "EventManager.cs",
+              "DocumentMoniker": "C:\\Users\\Florian.Belloc\\source\\repos\\Event_Manager\\EventManager\\Forms\\Event\\EventManager.cs",
+              "RelativeDocumentMoniker": "Forms\\Event\\EventManager.cs",
+              "ToolTip": "C:\\Users\\Florian.Belloc\\source\\repos\\Event_Manager\\EventManager\\Forms\\Event\\EventManager.cs",
+              "RelativeToolTip": "Forms\\Event\\EventManager.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-19T10:01:14.971Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "EventEditor.cs",
               "DocumentMoniker": "C:\\Users\\Florian.Belloc\\source\\repos\\Event_Manager\\EventManager\\Forms\\Event\\EventEditor.cs",
               "RelativeDocumentMoniker": "Forms\\Event\\EventEditor.cs",
               "ToolTip": "C:\\Users\\Florian.Belloc\\source\\repos\\Event_Manager\\EventManager\\Forms\\Event\\EventEditor.cs",
               "RelativeToolTip": "Forms\\Event\\EventEditor.cs",
-              "ViewState": "AQIAAF0AAAAAAAAAAAAgwGUAAAAJAAAA",
+              "ViewState": "AQIAAJ4AAAAAAAAAAAAAAGcAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-14T14:46:40.24Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UserList.cs",
-              "DocumentMoniker": "C:\\Users\\Florian.Belloc\\source\\repos\\Event_Manager\\EventManager\\Class\\User\\UserList.cs",
-              "RelativeDocumentMoniker": "Class\\User\\UserList.cs",
-              "ToolTip": "C:\\Users\\Florian.Belloc\\source\\repos\\Event_Manager\\EventManager\\Class\\User\\UserList.cs",
-              "RelativeToolTip": "Class\\User\\UserList.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-14T13:42:29.558Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Florian.Belloc\\source\\repos\\Event_Manager\\EventManager\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -102,8 +119,7 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAA4AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-14T09:40:19.075Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-14T09:40:19.075Z"
             }
           ]
         }
@@ -115,16 +131,16 @@
       "FloatingWindowState": {
         "Id": "96bcad51-2e8a-4502-a97d-a3c31c061c93",
         "Display": 0,
-        "X": 455,
-        "Y": -30,
+        "X": 169,
+        "Y": -21,
         "Width": 714,
         "Height": 784,
-        "WindowState": 2
+        "WindowState": 0
       },
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
@@ -140,7 +156,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "UserEditor.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Florian.Belloc\\source\\repos\\Event_Manager\\EventManager\\Forms\\User\\UserEditor.cs",
               "RelativeDocumentMoniker": "Forms\\User\\UserEditor.cs",

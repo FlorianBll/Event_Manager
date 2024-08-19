@@ -33,7 +33,7 @@
             this.listBox_ProfileList = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button_UserDelete = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_UserCreate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button_UserConnect
@@ -55,6 +55,7 @@
             this.button_UserEdit.TabIndex = 1;
             this.button_UserEdit.Text = "Edit Profile";
             this.button_UserEdit.UseVisualStyleBackColor = true;
+            this.button_UserEdit.Click += new System.EventHandler(this.button_UserEdit_Click);
             // 
             // listBox_ProfileList
             // 
@@ -84,22 +85,22 @@
             this.button_UserDelete.Text = "Delete Profile";
             this.button_UserDelete.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // button_UserCreate
             // 
-            this.button1.Location = new System.Drawing.Point(71, 76);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(107, 36);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Create New Profile";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button_UserCreate.Location = new System.Drawing.Point(71, 76);
+            this.button_UserCreate.Name = "button_UserCreate";
+            this.button_UserCreate.Size = new System.Drawing.Size(107, 36);
+            this.button_UserCreate.TabIndex = 5;
+            this.button_UserCreate.Text = "Create New Profile";
+            this.button_UserCreate.UseVisualStyleBackColor = true;
+            this.button_UserCreate.Click += new System.EventHandler(this.button_UserCreate_Click);
             // 
             // Form_Authentification
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(425, 340);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button_UserCreate);
             this.Controls.Add(this.button_UserDelete);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBox_ProfileList);
@@ -111,6 +112,7 @@
             this.MinimumSize = new System.Drawing.Size(441, 379);
             this.Name = "Form_Authentification";
             this.Text = "Authentification Panel";
+            this.Load += new System.EventHandler(this.Form_Authentification_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,6 +125,6 @@
         private System.Windows.Forms.ListBox listBox_ProfileList;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button_UserDelete;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_UserCreate;
     }
 }
