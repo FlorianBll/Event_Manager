@@ -18,9 +18,7 @@ namespace EventManager
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);            
-            Application.Run(new Form_Authentification());
-
-            // Application.Run(new Form_EventManager());
+            Application.Run(new Form_EventManager());
         }
     }
 }

@@ -9,10 +9,12 @@ namespace EventManager
     public static class UserList
     {
         private static List<User> _users = new List<User>();
-        public static List<User> users
+        public static List<User> Users
         {
             get => _users;
             set => _users = value;
         }
+
+        public static bool IsLogged { get; set; } = false;
     }
 }

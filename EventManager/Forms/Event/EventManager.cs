@@ -15,42 +15,16 @@ namespace EventManager
     {
         #region variables
 
-        private Form_EventEditor _editor = new Form_EventEditor();
-
-        // Temporary bool var for user connection testing. Replace this with 'User' instance.
-        bool _isUSerConnected;
+        private Form_EventEditor editor = new Form_EventEditor();
 
         #endregion
 
-        #region get/set
-        public Form_EventEditor editor { get; set; }
-        public bool isUserConnected { get; set; } = false;
-        #endregion
+        public bool UserConnected { get; set; } = false;
 
+        
         public Form_EventManager()
         {
             InitializeComponent();
-
-            if (!isUserConnected)
-            {
-                Form_Authentification auth = new Form_Authentification();
-
-                auth.ShowDialog();
-            }
-
-            string[] envArgs = Environment.GetCommandLineArgs();
-
-            if (envArgs.Length > 1)
-            {
-                if (envArgs[1] == "-devmode")
-                {
-                    button_DevMode.Visible = true;
-                }
-                else
-                {
-                    button_DevMode.Visible = false;
-                }
-            }
         }
 
         private void button_CreateEvent_Click(object sender, EventArgs e)
@@ -84,17 +58,48 @@ namespace EventManager
         
         private void Form_EventManager_Activated(object sender, EventArgs e)
         {
-            button_EditEvent.Enabled = false;
-            button_DeleteEvent.Enabled = false;
+            UserConnected = UserList.IsLogged;
 
-            listBox_Events.Items.Clear();
-
-            foreach(Event eventItm in EventList.events)
+            if (!UserConnected)
             {
-                listBox_Events.Items.Add(eventItm.eventName);
-            }
+                Form_Authentification auth = new Form_Authentification();
 
-            listBox_Events.Update();
+                auth.ShowDialog();
+            }
+            else
+            {
+
+                if (Enabled == false)
+                {
+                    Enabled = true;
+                }
+
+                string[] envArgs = Environment.GetCommandLineArgs();
+
+                if (envArgs.Length > 1)
+                {
+                    if (envArgs[1] == "-devmode")
+                    {
+                        button_DevMode.Visible = true;
+                    }
+                    else
+                    {
+                        button_DevMode.Visible = false;
+                    }
+                }
+
+                button_EditEvent.Enabled = false;
+                button_DeleteEvent.Enabled = false;
+
+                listBox_Events.Items.Clear();
+
+                foreach (Event eventItm in EventList.events)
+                {
+                    listBox_Events.Items.Add(eventItm.eventName);
+                }
+
+                listBox_Events.Update();
+            }
         }
 
         private void textBox_SearchEventName_TextChanged(object sender, EventArgs e)

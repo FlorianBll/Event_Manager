@@ -13,18 +13,7 @@ namespace EventManager
     /// The user is defined by his firstname, lastname, sector (location where his working for), email and password.
     /// </remarks>
     public class User
-    {
-        #region variables
-
-        private string _firstName;
-        private string _lastName;
-        private string _email;
-        private string _rawPassword;
-        private string _encryptedPassword;
-        private string _sector;
-
-        #endregion
-
+    {        
         #region get/set
 
         public string FirstName { get; set; }

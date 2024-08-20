@@ -19,6 +19,7 @@ namespace EventManager
         #region variables
 
         private Form_UserEditor userEditor = new Form_UserEditor();
+        Form_Login login = new Form_Login();
         private int CurrentInd;
 
         #endregion
@@ -28,15 +29,15 @@ namespace EventManager
             InitializeComponent();
         }
         /// <summary>
-        /// Refresh the listbox for showing users
+        /// Refresh the listbox for showing Users
         /// </summary>
         public void UpdateUserList()
         {
-            if (UserList.users.Count > 0)
+            if (UserList.Users.Count > 0)
             {
                 listBox_ProfileList.Items.Clear();
 
-                foreach (User user in UserList.users)
+                foreach (User user in UserList.Users)
                 {
                     listBox_ProfileList.Items.Add($"{user.FirstName} {user.LastName}");
                 }
@@ -68,11 +69,11 @@ namespace EventManager
         {
             if (listBox_ProfileList.SelectedIndex != -1)
             {
-                User user = UserList.users[listBox_ProfileList.SelectedIndex];
+                User user = UserList.Users[listBox_ProfileList.SelectedIndex];
 
                 if (MessageBox.Show($"Are you sure to delete '{user.FirstName} {user.LastName}' profile ?", "User deleted", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    UserList.users.Remove(user);
+                    UserList.Users.Remove(user);
 
                     button_UserConnect.Enabled = false;
                     button_UserEdit.Enabled = false;
@@ -103,11 +104,18 @@ namespace EventManager
                 button_UserDelete.Enabled = true;
                 button_UserConnect.Enabled = true;
 
-                CurrentInd = UserList.users.IndexOf(UserList.users.Last());
+                CurrentInd = UserList.Users.IndexOf(UserList.Users.Last());
 
                 listBox_ProfileList.Enabled = true;
                 listBox_ProfileList.SetSelected(CurrentInd, true);
             }
+
+            login.FormClosed += Login_FormClosed;
+        }
+
+        private void Login_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Close();
         }
 
         private void listBox_ProfileList_SelectedIndexChanged(object sender, EventArgs e)
@@ -124,11 +132,10 @@ namespace EventManager
 
         private void button_UserConnect_Click(object sender, EventArgs e)
         {
-            Form_Login login = new Form_Login();
-
-            User user = UserList.users[CurrentInd];
+            User user = UserList.Users[CurrentInd];
 
             login.UserName = $"{user.FirstName} {user.LastName}";
+            login.UserIndex = CurrentInd;
 
             login.ShowDialog();
         }

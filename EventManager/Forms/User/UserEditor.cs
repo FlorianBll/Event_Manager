@@ -36,15 +36,15 @@ namespace EventManager
         }
 
         /// <summary>
-        /// Create a user and store it into a list of users using UserList class.
+        /// Create a user and store it into a list of Users using UserList class.
         /// </summary>
         private void CreateUser()
         {
             bool isUserExist = false;
 
-            if (UserList.users != null &&  UserList.users.Count > 0)
+            if (UserList.Users != null &&  UserList.Users.Count > 0)
             {
-                foreach (User user in UserList.users)
+                foreach (User user in UserList.Users)
                 {
                     if (user.FirstName == textBox_Firstname.Text && user.LastName == textBox_Lastname.Text)
                     {
@@ -67,9 +67,9 @@ namespace EventManager
                 string rawPasswd = textBox_Password.Text;
                 string encryptPasswd = EncryptPassword(textBox_Password.Text);
 
-                UserList.users.Add(new User(firstName, lastName, sector, email, rawPasswd, encryptPasswd));
+                UserList.Users.Add(new User(firstName, lastName, sector, email, rawPasswd, encryptPasswd));
 
-                if (UserList.users.Count > 0)
+                if (UserList.Users.Count > 0)
                 {
                     Console.WriteLine("User added !");
                 }
@@ -89,7 +89,7 @@ namespace EventManager
         {
             if (CurrentInd != -1)
             {
-                return UserList.users[CurrentInd];
+                return UserList.Users[CurrentInd];
             }
             else
             {
@@ -105,9 +105,9 @@ namespace EventManager
 
             bool isUserAlreadyExist = false;
 
-            foreach (User user in UserList.users)
+            foreach (User user in UserList.Users)
             {
-                if (UserList.users.IndexOf(user) != CurrentInd && user.FirstName == textBox_Firstname.Text && user.LastName == textBox_Lastname.Text)
+                if (UserList.Users.IndexOf(user) != CurrentInd && user.FirstName == textBox_Firstname.Text && user.LastName == textBox_Lastname.Text)
                 {
                     isUserAlreadyExist = true;
                 }
@@ -127,9 +127,9 @@ namespace EventManager
                     u.EncryptedPassword = EncryptPassword(textBox_Password.Text);
                 }
 
-                UserList.users[CurrentInd] = u;
+                UserList.Users[CurrentInd] = u;
 
-                if (UserList.users.IndexOf(u) != -1)
+                if (UserList.Users.IndexOf(u) != -1)
                 {
                     Console.WriteLine($"User '{u.FirstName} {u.LastName}' has been edited");
                 }
