@@ -16,13 +16,21 @@ namespace EventManager
     /// </summary>
     public partial class Form_Authentification : Form
     {
+        #region variables
+
         private Form_UserEditor userEditor = new Form_UserEditor();
+        private int CurrentInd;
+
+        #endregion
+
         public Form_Authentification()
         {
             InitializeComponent();
         }
-
-        public void UpdateList()
+        /// <summary>
+        /// Refresh the listbox for showing users
+        /// </summary>
+        public void UpdateUserList()
         {
             if (UserList.users.Count > 0)
             {
@@ -33,6 +41,11 @@ namespace EventManager
                     listBox_ProfileList.Items.Add($"{user.FirstName} {user.LastName}");
                 }
 
+                listBox_ProfileList.Update();
+            }
+            else
+            {
+                listBox_ProfileList.Items.Clear();
                 listBox_ProfileList.Update();
             }
         }
@@ -51,41 +64,61 @@ namespace EventManager
             userEditor.ShowDialog();
         }
 
-        private void Form_Authentification_Activated(object sender, EventArgs e)
+        private void button_UserDelete_Click(object sender, EventArgs e)
         {
-            button_UserDelete.Enabled = false;
-            button_UserEdit.Enabled = false;
-            button_UserConnect.Enabled = false;
+            if (listBox_ProfileList.SelectedIndex != -1)
+            {
+                User user = UserList.users[listBox_ProfileList.SelectedIndex];
 
-            userEditor.FormClosed += UserEditor_FormClosed;
+                if (MessageBox.Show($"Are you sure to delete '{user.FirstName} {user.LastName}' profile ?", "User deleted", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    UserList.users.Remove(user);
+
+                    button_UserConnect.Enabled = false;
+                    button_UserEdit.Enabled = false;
+                    button_UserDelete.Enabled = false;
+
+                    UpdateUserList();
+                }
+            }
         }
 
-        private void UserEditor_FormClosed(object sender, FormClosedEventArgs e)
+        private void Form_Authentification_Activated(object sender, EventArgs e)
         {
-            if (UserList.users.Count > 0)
+            UpdateUserList();
+
+            if (listBox_ProfileList.Items.Count <= 0)
             {
-                UpdateList();
-                listBox_ProfileList.Enabled = true;
+                CurrentInd = listBox_ProfileList.SelectedIndex;
+
+                button_UserEdit.Enabled = false;
+                button_UserDelete.Enabled = false;
+                button_UserConnect.Enabled = false;
+
+                listBox_ProfileList.Enabled = false;
             }
             else
             {
-                listBox_ProfileList.Enabled = false;
+                button_UserEdit.Enabled = true;
+                button_UserDelete.Enabled = true;
+                button_UserConnect.Enabled = true;
+
+                CurrentInd = UserList.users.IndexOf(UserList.users.Last());
+
+                listBox_ProfileList.Enabled = true;
+                listBox_ProfileList.SetSelected(CurrentInd, true);
             }
         }
 
         private void listBox_ProfileList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listBox_ProfileList.SelectedIndex != -1)
+            if (CurrentInd != -1)
             {
                 button_UserEdit.Enabled = true;
                 button_UserDelete.Enabled = true;
                 button_UserConnect.Enabled = true;
-            }
-            else
-            {
-                button_UserEdit.Enabled = false;
-                button_UserDelete.Enabled = false;
-                button_UserConnect.Enabled = false;
+
+                CurrentInd = listBox_ProfileList.SelectedIndex;
             }
         }
     }

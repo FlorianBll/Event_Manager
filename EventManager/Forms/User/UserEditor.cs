@@ -86,7 +86,14 @@ namespace EventManager
         /// <returns>The user matching to the current index.</returns>
         private User GetUser()
         {
-            return UserList.users[CurrentInd];
+            if (CurrentInd != -1)
+            {
+                return UserList.users[CurrentInd];
+            }
+            else
+            {
+                return null;
+            }
         }
         /// <summary>
         /// Edit an existing user present on the UserList.
@@ -95,27 +102,31 @@ namespace EventManager
         {
             User u = GetUser();
 
-            bool isUserExist = false;
+            bool isUserAlreadyExist = false;
 
             foreach (User user in UserList.users)
             {
                 if (UserList.users.IndexOf(user) != CurrentInd && user.FirstName == textBox_Firstname.Text && user.LastName == textBox_Lastname.Text)
                 {
-                    isUserExist = true;
+                    isUserAlreadyExist = true;
                 }
             }
 
-            if (u != null && !isUserExist)
+            if (u != null && !isUserAlreadyExist)
             {
-                textBox_Firstname.Text = u.FirstName;
-                textBox_Lastname.Text = u.LastName;
-                comboBox_Sector.Text = u.Sector;
+                u.FirstName = textBox_Firstname.Text;
+                u.LastName = textBox_Lastname.Text;
+
+                u.Sector = comboBox_Sector.Items[comboBox_Sector.SelectedIndex].ToString();
 
                 textBox_Email.Text = u.Email;
 
                 UserList.users[CurrentInd] = u;
 
-                Console.WriteLine($"User '{u.FirstName} {u.LastName}' has been edited");
+                if (UserList.users.IndexOf(u) != -1)
+                {
+                    Console.WriteLine($"User '{u.FirstName} {u.LastName}' has been edited");
+                }
 
                 Close();
             }
@@ -133,6 +144,24 @@ namespace EventManager
 
             textBox_Password.Text = string.Empty;
             textBox_PasswordCheck.Text = string.Empty;
+        }
+
+        /// <summary>
+        /// Refill all form's field.
+        /// </summary>
+        private void RetrieveData()
+        {
+            User u = GetUser();
+
+            if (u != null)
+            {
+                textBox_Firstname.Text = u.FirstName;
+                textBox_Lastname.Text = u.LastName;
+                
+                comboBox_Sector.Text = u.Sector;
+
+                textBox_Email.Text = u.Email;
+            }
         }
         /// <summary>
         /// Enable Create/Edit button if all fields are not empty.
@@ -217,7 +246,14 @@ namespace EventManager
 
             if (isAllFieldFilled && passwordCheck())
             {
-                CreateUser();
+                if (ButtonName == "Create User")
+                {
+                    CreateUser();
+                }
+                else
+                {
+                    EditUser();
+                }
             }
         }
 
@@ -228,6 +264,10 @@ namespace EventManager
             if (ButtonName == "Create User")
             {
                 EmptyFields();
+            }
+            else
+            {
+                RetrieveData();
             }
         }
     }

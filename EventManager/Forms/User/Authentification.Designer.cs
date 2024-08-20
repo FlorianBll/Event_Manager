@@ -85,6 +85,7 @@
             this.button_UserDelete.TabIndex = 4;
             this.button_UserDelete.Text = "Delete Profile";
             this.button_UserDelete.UseVisualStyleBackColor = true;
+            this.button_UserDelete.Click += new System.EventHandler(this.button_UserDelete_Click);
             // 
             // button_UserCreate
             // 
