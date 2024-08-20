@@ -121,5 +121,16 @@ namespace EventManager
                 CurrentInd = listBox_ProfileList.SelectedIndex;
             }
         }
+
+        private void button_UserConnect_Click(object sender, EventArgs e)
+        {
+            Form_Login login = new Form_Login();
+
+            User user = UserList.users[CurrentInd];
+
+            login.UserName = $"{user.FirstName} {user.LastName}";
+
+            login.ShowDialog();
+        }
     }
 }

@@ -77,6 +77,12 @@
     <Compile Include="Forms\User\Authentification.Designer.cs">
       <DependentUpon>Authentification.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\User\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\User\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\User\UserEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Event\EventEditor.resx">
       <DependentUpon>EventEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\User\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\User\UserEditor.resx">
       <DependentUpon>UserEditor.cs</DependentUpon>

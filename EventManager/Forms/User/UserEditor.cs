@@ -122,6 +122,11 @@ namespace EventManager
 
                 textBox_Email.Text = u.Email;
 
+                if (u.RawPassword != textBox_Password.Text)
+                {
+                    u.EncryptedPassword = EncryptPassword(textBox_Password.Text);
+                }
+
                 UserList.users[CurrentInd] = u;
 
                 if (UserList.users.IndexOf(u) != -1)

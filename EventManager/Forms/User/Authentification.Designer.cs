@@ -45,6 +45,7 @@
             this.button_UserConnect.TabIndex = 0;
             this.button_UserConnect.Text = "Connect";
             this.button_UserConnect.UseVisualStyleBackColor = true;
+            this.button_UserConnect.Click += new System.EventHandler(this.button_UserConnect_Click);
             // 
             // button_UserEdit
             // 
