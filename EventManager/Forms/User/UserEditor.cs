@@ -64,9 +64,10 @@ namespace EventManager
                 string lastName = textBox_Lastname.Text;
                 string sector = comboBox_Sector.Items[comboBox_Sector.SelectedIndex].ToString();
                 string email = textBox_Email.Text;
-                string password = EncryptPassword(textBox_Password.Text);
+                string rawPasswd = textBox_Password.Text;
+                string encryptPasswd = EncryptPassword(textBox_Password.Text);
 
-                UserList.users.Add(new User(firstName, lastName, sector, email, password));
+                UserList.users.Add(new User(firstName, lastName, sector, email, rawPasswd, encryptPasswd));
 
                 if (UserList.users.Count > 0)
                 {
@@ -161,6 +162,9 @@ namespace EventManager
                 comboBox_Sector.Text = u.Sector;
 
                 textBox_Email.Text = u.Email;
+
+                textBox_Password.Text = u.RawPassword;
+                textBox_PasswordCheck.Text = u.RawPassword;
             }
         }
         /// <summary>

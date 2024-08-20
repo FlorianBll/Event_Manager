@@ -19,7 +19,8 @@ namespace EventManager
         private string _firstName;
         private string _lastName;
         private string _email;
-        private string _password;
+        private string _rawPassword;
+        private string _encryptedPassword;
         private string _sector;
 
         #endregion
@@ -29,7 +30,8 @@ namespace EventManager
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        public string Password { get; set; }
+        public string RawPassword { get; set; }
+        public string EncryptedPassword { get; set; }
         public string Sector { get; set; }
 
         #endregion
@@ -37,20 +39,23 @@ namespace EventManager
         #region constructor
         public User()
         {
-            FirstName = "";
-            LastName = "";
+            FirstName = string.Empty;
+            LastName = string.Empty;
 
-            Email = "";
-            Password = "";
+            Email = string.Empty;
+
+            RawPassword = string.Empty;
+            EncryptedPassword = string.Empty;
         }
 
-        public User(string firstName, string lastName, string sector, string email, string password)
+        public User(string firstName, string lastName, string sector, string email, string rawPassword, string encryptedPassword)
         {
             this.FirstName = firstName;
             this.LastName = lastName;
             this.Sector = sector;
             this.Email = email;
-            this.Password = password;
+            this.RawPassword = rawPassword;
+            this.EncryptedPassword = encryptedPassword;
         }
 
         #endregion
@@ -60,7 +65,7 @@ namespace EventManager
         /// </summary>
         public void UserDisplay()
         {
-            Console.WriteLine($"User firstname : {this.FirstName}; Lastname : {this.LastName}; Sector : {this.Sector}; Email : {this.Email}; PAssword : {this.Password}");
+            Console.WriteLine($"User firstname : {this.FirstName}; Lastname : {this.LastName}; Sector : {this.Sector}; Email : {this.Email}");
         }
     }
 }
