@@ -58,12 +58,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(300, 269);
+            this.ClientSize = new System.Drawing.Size(300, 156);
             this.Controls.Add(this.button_GetTimers);
             this.Controls.Add(this.button_NotifPush);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(316, 308);
-            this.MinimumSize = new System.Drawing.Size(316, 308);
+            this.MaximumSize = new System.Drawing.Size(316, 195);
+            this.MinimumSize = new System.Drawing.Size(316, 195);
             this.Name = "Form_DeveloperToolbox";
             this.Text = "Developer Toolbox";
             this.ResumeLayout(false);

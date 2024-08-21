@@ -19,8 +19,6 @@ namespace EventManager
 
         #endregion
 
-        public bool UserConnected { get; set; } = false;
-
         
         public Form_EventManager()
         {
@@ -30,6 +28,8 @@ namespace EventManager
         private void button_CreateEvent_Click(object sender, EventArgs e)
         {
             editor.buttonName = "Create Event";
+
+            editor.UserName = UserLogged.User.FirstName;
             editor.ShowDialog(this);
         }
 
@@ -60,7 +60,7 @@ namespace EventManager
         {
             Form_Authentification auth = new Form_Authentification();
 
-            UserConnected = UserList.IsLogged;
+            bool UserConnected = UserLogged.User != null;
 
             if (!UserConnected)
             {

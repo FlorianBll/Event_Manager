@@ -14,17 +14,15 @@ namespace EventManager
 {
     public partial class Form_EventEditor : Form
     {
-        #region variables
-
-        private int _currentInd;
-        private string _buttonName;
-
-        #endregion
-
         #region get/set
+
         public int currentInd { get; set; }
         public string buttonName { get; set; }
+
+        public string UserName { get; set; }
+
         #endregion
+
         /// <summary>
         /// Create an event and store it into a list of eventss using EventList class.
         /// </summary>
@@ -217,7 +215,7 @@ namespace EventManager
             else
             {
                 textBox_EventName.Clear();
-                textBox_Author.Clear();
+                textBox_Author.Text = UserName;
                 dateTimePicker_StartEvent.Value = DateTime.Now;
                 dateTimePicker_EndEvent.Value = DateTime.Now;
                 richTextBox_EventDescription.Text = "";

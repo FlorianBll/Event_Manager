@@ -21,12 +21,22 @@ namespace EventManager
         public string UserName { get; set; }
 
         public int UserIndex { get; set; }
+        private User user { get; set; }
 
         #endregion
 
         public Form_Login()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Get the User instance with is specific index.
+        /// </summary>
+        /// <returns>The user instance.</returns>
+        public User GetUser()
+        {
+            return UserList.Users[UserIndex];
         }
 
         private void Form_Login_Load(object sender, EventArgs e)
@@ -76,7 +86,7 @@ namespace EventManager
 
                 string hashedPassword = BitConverter.ToString(hashBytes);
 
-                User user = UserList.Users[UserIndex];
+                user = UserList.Users[UserIndex];
 
                 if (user.EncryptedPassword == hashedPassword)
                 {
@@ -93,7 +103,9 @@ namespace EventManager
         {
             if (IsFieldNotEmpty() && CheckPassword(textBox_Password.Text))
             {
-                UserList.IsLogged = true;
+                UserLogged.User = GetUser();
+
+                Console.WriteLine($"User '{GetUser().FirstName} {GetUser().LastName}' connected !");
 
                 Close();
             }
