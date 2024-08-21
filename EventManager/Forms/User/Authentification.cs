@@ -140,5 +140,12 @@ namespace EventManager
 
             login.ShowDialog();
         }
+
+        private void Form_Authentification_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            XML_Manager.SaveAllData();
+
+            Console.WriteLine("User profile saved.");
+        }
     }
 }

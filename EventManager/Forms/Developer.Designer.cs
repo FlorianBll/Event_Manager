@@ -30,6 +30,7 @@
         {
             this.button_NotifPush = new System.Windows.Forms.Button();
             this.button_GetTimers = new System.Windows.Forms.Button();
+            this.button_XMLConsolePrint = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button_NotifPush
@@ -54,16 +55,26 @@
             this.button_GetTimers.UseVisualStyleBackColor = true;
             this.button_GetTimers.Click += new System.EventHandler(this.button_GetTimers_Click);
             // 
+            // button_XMLConsolePrint
+            // 
+            this.button_XMLConsolePrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_XMLConsolePrint.Location = new System.Drawing.Point(12, 150);
+            this.button_XMLConsolePrint.Name = "button_XMLConsolePrint";
+            this.button_XMLConsolePrint.Size = new System.Drawing.Size(276, 63);
+            this.button_XMLConsolePrint.TabIndex = 2;
+            this.button_XMLConsolePrint.Text = "XML Console Print";
+            this.button_XMLConsolePrint.UseVisualStyleBackColor = true;
+            this.button_XMLConsolePrint.Click += new System.EventHandler(this.button_XMLConsolePrint_Click);
+            // 
             // Form_DeveloperToolbox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(300, 156);
+            this.ClientSize = new System.Drawing.Size(300, 224);
+            this.Controls.Add(this.button_XMLConsolePrint);
             this.Controls.Add(this.button_GetTimers);
             this.Controls.Add(this.button_NotifPush);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(316, 195);
-            this.MinimumSize = new System.Drawing.Size(316, 195);
             this.Name = "Form_DeveloperToolbox";
             this.Text = "Developer Toolbox";
             this.ResumeLayout(false);
@@ -74,5 +85,6 @@
 
         private System.Windows.Forms.Button button_NotifPush;
         private System.Windows.Forms.Button button_GetTimers;
+        private System.Windows.Forms.Button button_XMLConsolePrint;
     }
 }

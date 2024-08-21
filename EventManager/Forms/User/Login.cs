@@ -84,7 +84,7 @@ namespace EventManager
 
                 byte[] hashBytes = sha256.ComputeHash(passwordBytes);
 
-                string hashedPassword = BitConverter.ToString(hashBytes);
+                string hashedPassword = Convert.ToBase64String(hashBytes);
 
                 user = UserList.Users[UserIndex];
 

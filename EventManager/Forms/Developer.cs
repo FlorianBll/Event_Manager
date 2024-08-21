@@ -52,5 +52,10 @@ namespace EventManager
                 Console.WriteLine("No timers is currently running");
             }
         }
+
+        private void button_XMLConsolePrint_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine(XML_Manager.Root);
+        }
     }
 }

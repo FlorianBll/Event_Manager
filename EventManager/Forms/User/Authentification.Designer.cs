@@ -39,7 +39,7 @@
             // button_UserConnect
             // 
             this.button_UserConnect.Enabled = false;
-            this.button_UserConnect.Location = new System.Drawing.Point(71, 34);
+            this.button_UserConnect.Location = new System.Drawing.Point(71, 35);
             this.button_UserConnect.Name = "button_UserConnect";
             this.button_UserConnect.Size = new System.Drawing.Size(269, 36);
             this.button_UserConnect.TabIndex = 0;
@@ -50,7 +50,7 @@
             // button_UserEdit
             // 
             this.button_UserEdit.Enabled = false;
-            this.button_UserEdit.Location = new System.Drawing.Point(184, 76);
+            this.button_UserEdit.Location = new System.Drawing.Point(184, 77);
             this.button_UserEdit.Name = "button_UserEdit";
             this.button_UserEdit.Size = new System.Drawing.Size(70, 36);
             this.button_UserEdit.TabIndex = 1;
@@ -80,7 +80,7 @@
             // button_UserDelete
             // 
             this.button_UserDelete.Enabled = false;
-            this.button_UserDelete.Location = new System.Drawing.Point(260, 76);
+            this.button_UserDelete.Location = new System.Drawing.Point(260, 77);
             this.button_UserDelete.Name = "button_UserDelete";
             this.button_UserDelete.Size = new System.Drawing.Size(80, 36);
             this.button_UserDelete.TabIndex = 4;
@@ -90,7 +90,7 @@
             // 
             // button_UserCreate
             // 
-            this.button_UserCreate.Location = new System.Drawing.Point(71, 76);
+            this.button_UserCreate.Location = new System.Drawing.Point(71, 77);
             this.button_UserCreate.Name = "button_UserCreate";
             this.button_UserCreate.Size = new System.Drawing.Size(107, 36);
             this.button_UserCreate.TabIndex = 5;
@@ -116,6 +116,7 @@
             this.Name = "Form_Authentification";
             this.Text = "Authentification Panel";
             this.Activated += new System.EventHandler(this.Form_Authentification_Activated);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_Authentification_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

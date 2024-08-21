@@ -51,6 +51,7 @@
     <Compile Include="Class\User\UserLogged.cs" />
     <Compile Include="Class\User\User.cs" />
     <Compile Include="Class\User\UserList.cs" />
+    <Compile Include="Class\XML\XML_Manager.cs" />
     <Compile Include="Forms\Developer.cs">
       <SubType>Form</SubType>
     </Compile>
