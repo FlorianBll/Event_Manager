@@ -58,17 +58,16 @@ namespace EventManager
         
         private void Form_EventManager_Activated(object sender, EventArgs e)
         {
+            Form_Authentification auth = new Form_Authentification();
+
             UserConnected = UserList.IsLogged;
 
             if (!UserConnected)
             {
-                Form_Authentification auth = new Form_Authentification();
-
                 auth.ShowDialog();
             }
             else
             {
-
                 if (Enabled == false)
                 {
                     Enabled = true;

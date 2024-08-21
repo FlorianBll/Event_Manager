@@ -112,6 +112,6 @@
         private System.Windows.Forms.TextBox textBox_UserName;
         private System.Windows.Forms.TextBox textBox_Password;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button_Login;
+        public System.Windows.Forms.Button button_Login;
     }
 }

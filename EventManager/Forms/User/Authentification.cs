@@ -16,10 +16,11 @@ namespace EventManager
     /// </summary>
     public partial class Form_Authentification : Form
     {
-        #region variables
+        #region variables/instances
 
         private Form_UserEditor userEditor = new Form_UserEditor();
-        Form_Login login = new Form_Login();
+        public Form_Login login = new Form_Login();
+
         private int CurrentInd;
 
         #endregion
@@ -110,10 +111,10 @@ namespace EventManager
                 listBox_ProfileList.SetSelected(CurrentInd, true);
             }
 
-            login.FormClosed += Login_FormClosed;
+            login.button_Login.Click += Button_Login_Click;
         }
 
-        private void Login_FormClosed(object sender, FormClosedEventArgs e)
+        private void Button_Login_Click(object sender, EventArgs e)
         {
             Close();
         }
