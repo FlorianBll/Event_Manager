@@ -169,7 +169,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Event Manager";
             this.Activated += new System.EventHandler(this.Form_EventManager_Activated);
-            // this.Shown += new System.EventHandler(this.Form_EventManager_Shown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

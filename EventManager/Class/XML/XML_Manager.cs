@@ -70,6 +70,8 @@ namespace EventManager
                 using (FileStream fs = File.Create(Path))
                 {
                     xml.Save(fs);
+
+                    fs.Close();
                 }
             }
         }
@@ -90,7 +92,6 @@ namespace EventManager
                 List<Dictionary<string,string>> userList = new List<Dictionary<string,string>>();
 
                 IEnumerable<XElement> userInfos;
-                Dictionary<string,string> userValues = new Dictionary<string,string>();
 
                 // Variables values stored in User instance and add it UserList
                 string firstName, lastName, sector, email, password = string.Empty;
@@ -98,25 +99,21 @@ namespace EventManager
                 // Fill the dictionary with users values
                 foreach (XElement user in users)
                 {
-                    userInfos = user.Elements("user").Elements();
+                    userInfos = user.Elements("user");
 
                     foreach (XElement userInfo in userInfos)
                     {
-                        userValues.Add(userInfo.Name.ToString(), userInfo.Value);
+                        firstName = userInfo.Element("firstname").Value;
+                        lastName = userInfo.Element("lastname").Value;
+                        sector = userInfo.Element("sector").Value;
+                        email = userInfo.Element("email").Value;
+                        password = userInfo.Element("password").Value;
 
-                        Console.WriteLine($"Key : {userInfo.Name.ToString()}; Value : {userInfo.Value}");
+                        UserList.Users.Add(new User(firstName, lastName, sector, email, password));
                     }
-
-                    userValues.TryGetValue("firstname", out firstName);
-                    userValues.TryGetValue("lastname", out  lastName);
-                    userValues.TryGetValue("sector", out sector);
-                    userValues.TryGetValue("email", out email);
-                    userValues.TryGetValue("password", out password);
-
-                    UserList.Users.Add(new User(firstName, lastName, sector, email, string.Empty, password));
                 }
 
-                Console.WriteLine(userList.Count);
+                Console.WriteLine(UserList.Users.Count);
             }
         }
     }

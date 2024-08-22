@@ -106,8 +106,9 @@ namespace EventManager
                 UserLogged.User = GetUser();
 
                 Console.WriteLine($"User '{GetUser().FirstName} {GetUser().LastName}' connected !");
-
+                
                 Close();
+                Dispose();
             }
             else
             {

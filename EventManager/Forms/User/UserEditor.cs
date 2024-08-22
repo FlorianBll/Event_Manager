@@ -67,7 +67,7 @@ namespace EventManager
                 string rawPasswd = textBox_Password.Text;
                 string encryptPasswd = EncryptPassword(textBox_Password.Text);
 
-                UserList.Users.Add(new User(firstName, lastName, sector, email, rawPasswd, encryptPasswd));
+                UserList.Users.Add(new User(firstName, lastName, sector, email, encryptPasswd));
 
                 if (UserList.Users.Count > 0)
                 {
@@ -122,11 +122,6 @@ namespace EventManager
 
                 textBox_Email.Text = u.Email;
 
-                if (u.RawPassword != textBox_Password.Text)
-                {
-                    u.EncryptedPassword = EncryptPassword(textBox_Password.Text);
-                }
-
                 UserList.Users[CurrentInd] = u;
 
                 if (UserList.Users.IndexOf(u) != -1)
@@ -167,9 +162,6 @@ namespace EventManager
                 comboBox_Sector.Text = u.Sector;
 
                 textBox_Email.Text = u.Email;
-
-                textBox_Password.Text = u.RawPassword;
-                textBox_PasswordCheck.Text = u.RawPassword;
             }
         }
         /// <summary>

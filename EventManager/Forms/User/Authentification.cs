@@ -20,6 +20,7 @@ namespace EventManager
 
         private Form_UserEditor userEditor = new Form_UserEditor();
         public Form_Login login = new Form_Login();
+        public Form_EventManager eventManager = new Form_EventManager();
 
         private int CurrentInd;
 
@@ -34,6 +35,8 @@ namespace EventManager
         /// </summary>
         public void UpdateUserList()
         {
+            Console.WriteLine(UserList.Users.Count);
+
             if (UserList.Users.Count > 0)
             {
                 listBox_ProfileList.Items.Clear();
@@ -87,8 +90,6 @@ namespace EventManager
 
         private void Form_Authentification_Activated(object sender, EventArgs e)
         {
-            UpdateUserList();
-
             if (listBox_ProfileList.Items.Count <= 0)
             {
                 CurrentInd = listBox_ProfileList.SelectedIndex;
@@ -117,6 +118,7 @@ namespace EventManager
         private void Button_Login_Click(object sender, EventArgs e)
         {
             Close();
+            Dispose();
         }
 
         private void listBox_ProfileList_SelectedIndexChanged(object sender, EventArgs e)
@@ -146,13 +148,22 @@ namespace EventManager
             XML_Manager.SaveAllData();
 
             Console.WriteLine("User profile saved.");
+
+            eventManager.Activate();
         }
 
-        private void Form_Authentification_Shown(object sender, EventArgs e)
+        private void Form_Authentification_Load(object sender, EventArgs e)
         {
             Console.WriteLine("Form shown");
 
             XML_Manager.RetrieveAllData();
+
+            UpdateUserList();
+
+            if (UserList.Users.Count > 0)
+            {
+                Enabled = true;
+            }
         }
     }
 }

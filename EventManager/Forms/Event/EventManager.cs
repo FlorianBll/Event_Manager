@@ -16,10 +16,11 @@ namespace EventManager
         #region variables
 
         private Form_EventEditor editor = new Form_EventEditor();
+        private Form_Authentification auth = new Form_Authentification();
 
         #endregion
 
-        
+
         public Form_EventManager()
         {
             InitializeComponent();
@@ -55,7 +56,6 @@ namespace EventManager
             }
         }
 
-        
         private void Form_EventManager_Activated(object sender, EventArgs e)
         {
             Form_Authentification auth = new Form_Authentification();
@@ -64,11 +64,11 @@ namespace EventManager
 
             if (!UserConnected)
             {
-                auth.ShowDialog();
+                auth.Show();
             }
             else
             {
-                if (Enabled == false)
+                if (!Enabled)
                 {
                     Enabled = true;
                 }

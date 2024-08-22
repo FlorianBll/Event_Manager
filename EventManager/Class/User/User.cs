@@ -18,10 +18,9 @@ namespace EventManager
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string Email { get; set; }
-        public string RawPassword { get; set; }
-        public string EncryptedPassword { get; set; }
         public string Sector { get; set; }
+        public string Email { get; set; }
+        public string EncryptedPassword { get; set; }
 
         #endregion
 
@@ -30,20 +29,17 @@ namespace EventManager
         {
             FirstName = string.Empty;
             LastName = string.Empty;
-
+            Sector = string.Empty;
             Email = string.Empty;
-
-            RawPassword = string.Empty;
             EncryptedPassword = string.Empty;
         }
 
-        public User(string firstName, string lastName, string sector, string email, string rawPassword, string encryptedPassword)
+        public User(string firstName, string lastName, string sector, string email, string encryptedPassword)
         {
             this.FirstName = firstName;
             this.LastName = lastName;
             this.Sector = sector;
             this.Email = email;
-            this.RawPassword = rawPassword;
             this.EncryptedPassword = encryptedPassword;
         }
 

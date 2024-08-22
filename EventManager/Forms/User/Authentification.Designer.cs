@@ -62,7 +62,7 @@
             // 
             this.listBox_ProfileList.Enabled = false;
             this.listBox_ProfileList.FormattingEnabled = true;
-            this.listBox_ProfileList.Location = new System.Drawing.Point(12, 153);
+            this.listBox_ProfileList.Location = new System.Drawing.Point(12, 155);
             this.listBox_ProfileList.Name = "listBox_ProfileList";
             this.listBox_ProfileList.Size = new System.Drawing.Size(401, 173);
             this.listBox_ProfileList.TabIndex = 2;
@@ -71,7 +71,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 137);
+            this.label1.Location = new System.Drawing.Point(9, 139);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 13);
             this.label1.TabIndex = 3;
@@ -117,7 +117,7 @@
             this.Text = "Authentification Panel";
             this.Activated += new System.EventHandler(this.Form_Authentification_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_Authentification_FormClosed);
-            this.Shown += new System.EventHandler(this.Form_Authentification_Shown);
+            this.Load += new System.EventHandler(this.Form_Authentification_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
