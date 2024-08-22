@@ -147,5 +147,12 @@ namespace EventManager
 
             Console.WriteLine("User profile saved.");
         }
+
+        private void Form_Authentification_Shown(object sender, EventArgs e)
+        {
+            Console.WriteLine("Form shown");
+
+            XML_Manager.RetrieveAllData();
+        }
     }
 }

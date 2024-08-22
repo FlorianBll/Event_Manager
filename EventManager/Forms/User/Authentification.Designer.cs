@@ -117,6 +117,7 @@
             this.Text = "Authentification Panel";
             this.Activated += new System.EventHandler(this.Form_Authentification_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_Authentification_FormClosed);
+            this.Shown += new System.EventHandler(this.Form_Authentification_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
