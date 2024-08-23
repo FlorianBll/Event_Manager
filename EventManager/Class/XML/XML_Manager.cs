@@ -13,22 +13,9 @@ namespace EventManager
     public static class XML_Manager
     {
         public static XElement Root { get; set; }
-        private static string Path { get; set; } = string.Empty;
 
-        private static String GetPath()
-        {
-            if (File.Exists(Environment.CurrentDirectory + "/data.xml"))
-            {
-                Console.WriteLine("Path exist");
+        private static string Path { get; set; } = Environment.CurrentDirectory + "/data.Xml";
 
-                return Environment.CurrentDirectory + "/data.xml";
-            }
-            else
-            {
-                Console.WriteLine("Path dont exist");
-                return string.Empty;
-            }
-        }
         public static void SaveAllData()
         {
             XElement[] usrContent = new XElement[6];
@@ -61,13 +48,12 @@ namespace EventManager
 
             XDocument xml = new XDocument(Root);
 
-            Path = Environment.CurrentDirectory + "/data.xml";
+            string path = Environment.CurrentDirectory + "/data.xml";
 
-            Console.WriteLine(Path);
-
-            if (!File.Exists(Path))
+            Console.WriteLine(path);
+            if (!File.Exists(path))
             {
-                using (FileStream fs = File.Create(Path))
+                using (FileStream fs = File.Create(path))
                 {
                     xml.Save(fs);
 
@@ -80,9 +66,9 @@ namespace EventManager
         /// </summary>
         public static void RetrieveAllData()
         {
-            Console.WriteLine("Path of the file : " + GetPath());
+            Console.WriteLine("Path of the file : " + Path);
 
-            if (GetPath() != string.Empty)
+            if (Path != string.Empty)
             {
                 // Load the xml file
 
@@ -112,8 +98,6 @@ namespace EventManager
                         UserList.Users.Add(new User(firstName, lastName, sector, email, password));
                     }
                 }
-
-                Console.WriteLine(UserList.Users.Count);
             }
         }
     }

@@ -212,11 +212,11 @@
             this.Name = "Form_UserEditor";
             this.Text = "CreateEdit_User";
             this.Load += new System.EventHandler(this.Form_UserEditor_Load);
-            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(true);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(true);
             this.groupBox2.PerformLayout();
-            this.ResumeLayout(false);
+            this.ResumeLayout(true);
 
         }
 

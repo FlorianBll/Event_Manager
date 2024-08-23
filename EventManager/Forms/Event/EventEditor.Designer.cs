@@ -193,7 +193,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Event Editor";
             this.Load += new System.EventHandler(this.Form_EventEditor_Load);
-            this.ResumeLayout(false);
+            // this.ResumeLayout(false);
             this.PerformLayout();
 
         }

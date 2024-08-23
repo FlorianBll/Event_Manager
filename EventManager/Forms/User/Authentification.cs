@@ -18,12 +18,12 @@ namespace EventManager
     {
         #region variables/instances
 
-        private Form_UserEditor userEditor = new Form_UserEditor();
-        public Form_Login login = new Form_Login();
-        public Form_EventManager eventManager = new Form_EventManager();
+        private Form_UserEditor userEditor;
+        public Form_EventManager eventManager;
 
         private int CurrentInd;
 
+        public Form_Login Login { get; set; }
         #endregion
 
         public Form_Authentification()
@@ -57,12 +57,16 @@ namespace EventManager
 
         private void button_UserCreate_Click(object sender, EventArgs e)
         {
+            userEditor = new Form_UserEditor();
+
             userEditor.ButtonName = "Create User";
             userEditor.ShowDialog();
         }
 
         private void button_UserEdit_Click(object sender, EventArgs e)
         {
+            userEditor = new Form_UserEditor();
+
             userEditor.ButtonName = "Edit User";
             userEditor.CurrentInd = listBox_ProfileList.SelectedIndex;
 
@@ -90,6 +94,8 @@ namespace EventManager
 
         private void Form_Authentification_Activated(object sender, EventArgs e)
         {
+            UpdateUserList();
+
             if (listBox_ProfileList.Items.Count <= 0)
             {
                 CurrentInd = listBox_ProfileList.SelectedIndex;
@@ -111,12 +117,12 @@ namespace EventManager
                 listBox_ProfileList.Enabled = true;
                 listBox_ProfileList.SetSelected(CurrentInd, true);
             }
-
-            login.button_Login.Click += Button_Login_Click;
         }
 
         private void Button_Login_Click(object sender, EventArgs e)
         {
+            Console.WriteLine("Login button clicked");
+
             Close();
             Dispose();
         }
@@ -137,14 +143,29 @@ namespace EventManager
         {
             User user = UserList.Users[CurrentInd];
 
-            login.UserName = $"{user.FirstName} {user.LastName}";
-            login.UserIndex = CurrentInd;
+            if (Login == null)
+            {
+                Login = new Form_Login();
 
-            login.ShowDialog();
+                Login.UserName = $"{user.FirstName} {user.LastName}";
+                Login.UserIndex = CurrentInd;
+
+                Login.Auth = this;
+                Login.ShowDialog();
+            }
+            else
+            {
+                Login.UserName = $"{user.FirstName} {user.LastName}";
+                Login.UserIndex = CurrentInd;
+
+                Login.ShowDialog();
+            }
         }
 
         private void Form_Authentification_FormClosed(object sender, FormClosedEventArgs e)
         {
+            eventManager = new Form_EventManager();
+
             XML_Manager.SaveAllData();
 
             Console.WriteLine("User profile saved.");

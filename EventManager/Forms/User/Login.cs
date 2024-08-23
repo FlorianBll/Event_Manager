@@ -22,6 +22,7 @@ namespace EventManager
 
         public int UserIndex { get; set; }
         private User user { get; set; }
+        public Form_Authentification Auth { get; set; }
 
         #endregion
 
@@ -106,7 +107,10 @@ namespace EventManager
                 UserLogged.User = GetUser();
 
                 Console.WriteLine($"User '{GetUser().FirstName} {GetUser().LastName}' connected !");
-                
+
+                Auth.Close();
+                Auth.Dispose();
+
                 Close();
                 Dispose();
             }
