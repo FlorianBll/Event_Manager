@@ -42,7 +42,7 @@ namespace EventManager
         {
             DateTime now = DateTime.Now;
 
-            TimeSpan interval = e.eventStart - now;
+            TimeSpan interval = e.EventStart - now;
 
             _timer = new System.Timers.Timer();
 
@@ -68,44 +68,44 @@ namespace EventManager
                 break;
             }
 
-            e.timer = _timer;
+            e.Timer = _timer;
 
             // Handling the event instance for reusing it in the 'Timer_Elapsed' event
             _event = e;
 
-            // Attach the timer to the event
-            _event.timer.Enabled = true;
+            // Attach the Timer to the event
+            _event.Timer.Enabled = true;
 
-            e.timer.Start();
+            e.Timer.Start();
 
             Console.WriteLine($"Timer set with {_timer.Interval}ms");
 
-            e.timer.Elapsed += Timer_Elapsed;
+            e.Timer.Elapsed += Timer_Elapsed;
         }
 
         private static void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
             ToastContentBuilder toast = new ToastContentBuilder();
 
-            toast.AddHeader("eventName", _event.eventName, "");
-            toast.AddText(_event.eventDes);
+            toast.AddHeader("eventName", _event.EventName, "");
+            toast.AddText(_event.EventDes);
 
             toast.Show();
 
             _timer.Stop();
         }
         /// <summary>
-        /// Removing the current timer
+        /// Removing the current Timer
         /// </summary>
-        /// <param name="e">the event from which the timer is removed</param>
+        /// <param name="e">the event from which the Timer is removed</param>
         public static void Remove(Event e)
         {
-            if (e.timer.Enabled)
+            if (e.Timer.Enabled)
             {
-                Console.WriteLine("The current timer has been removed !");
+                Console.WriteLine("The current Timer has been removed !");
 
-                e.timer.Stop();
-                e.timer.Dispose();
+                e.Timer.Stop();
+                e.Timer.Dispose();
             }
         }
     }

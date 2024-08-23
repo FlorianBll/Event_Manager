@@ -9,11 +9,6 @@ namespace EventManager
 {
     public static class EventList
     {
-        private static List<Event> _events = new List<Event>();
-        public static List<Event> events
-        {
-            get => _events;
-            set => _events = value;
-        }
+        public static List<Event> Events { get; set; } = new List<Event>();
     }
 }

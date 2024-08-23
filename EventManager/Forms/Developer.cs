@@ -35,21 +35,21 @@ namespace EventManager
 
         private void button_GetTimers_Click(object sender, EventArgs e)
         {
-            List<Event> events = EventList.events;
+            List<Event> Events = EventList.Events;
 
-            if (events.Count > 0)
+            if (Events.Count > 0)
             {
-                foreach (Event eventItm in events)
+                foreach (Event eventItm in Events)
                 {
-                    if (eventItm.timer.Enabled)
+                    if (eventItm.Timer.Enabled)
                     {
-                        Console.WriteLine($"Event's '{eventItm.eventName} timer currently running !");
+                        Console.WriteLine($"Event's '{eventItm.EventName} Timer currently running !");
                     }
                 }
             }
             else
             {
-                Console.WriteLine("No timers is currently running");
+                Console.WriteLine("No Timers is currently running");
             }
         }
 

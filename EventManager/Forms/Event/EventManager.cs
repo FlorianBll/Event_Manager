@@ -44,7 +44,7 @@ namespace EventManager
 
         private void listBox_Events_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listBox_Events.SelectedIndex >= 0 && EventList.events[listBox_Events.SelectedIndex].eventName.Length > 0)
+            if (listBox_Events.SelectedIndex >= 0 && EventList.Events[listBox_Events.SelectedIndex].EventName.Length > 0)
             {
                 button_EditEvent.Enabled = true;
                 button_DeleteEvent.Enabled = true;
@@ -90,14 +90,20 @@ namespace EventManager
                 button_EditEvent.Enabled = false;
                 button_DeleteEvent.Enabled = false;
 
-                listBox_Events.Items.Clear();
-
-                foreach (Event eventItm in EventList.events)
+                if (EventList.Events != null)
                 {
-                    listBox_Events.Items.Add(eventItm.eventName);
-                }
+                    if (EventList.Events.Count > 0)
+                    {
+                        listBox_Events.Items.Clear();
 
-                listBox_Events.Update();
+                        foreach (Event eventItm in EventList.Events)
+                        {
+                            listBox_Events.Items.Add(eventItm.EventName);
+                        }
+
+                        listBox_Events.Update();
+                    }
+                }
             }
         }
 
@@ -115,9 +121,15 @@ namespace EventManager
 
         private void button_SearchEvent_Click(object sender, EventArgs e)
         {
-            if (listBox_Events.Items.IndexOf(textBox_SearchEventName.Text) >= 0)
+            string search = textBox_SearchEventName.Text;
+
+            for (int i = 0; i < UserList.Users.Count; i++)
             {
-                listBox_Events.SelectedItem = listBox_Events.Items.IndexOf(textBox_SearchEventName.Text);
+                if (listBox_Events.Items[i].ToString().Contains(search))
+                {
+                    listBox_Events.SelectedIndex = i;
+                    break;
+                }
             }
         }
 
@@ -129,11 +141,11 @@ namespace EventManager
             {
                 if (MessageBox.Show("Are you sure you want to delete this selected event ? This action is irreversible", "Deleting Event", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    Event currentEvent = EventList.events[index];
+                    Event currentEvent = EventList.Events[index];
 
                     EventReminder.Remove(currentEvent);
 
-                    EventList.events.RemoveAt(index);
+                    EventList.Events.RemoveAt(index);
                     listBox_Events.Items.RemoveAt(index);                
                     listBox_Events.Update();
                 }

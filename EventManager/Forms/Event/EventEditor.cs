@@ -24,17 +24,17 @@ namespace EventManager
         #endregion
 
         /// <summary>
-        /// Create an event and store it into a list of eventss using EventList class.
+        /// Create an event and store it into a list of Eventss using EventList class.
         /// </summary>
         public void CreateEvent()
         {
             bool isEventExist = false;
 
-            if (EventList.events != null && EventList.events.Count >= 0)
+            if (EventList.Events != null && EventList.Events.Count >= 0)
             {
-                foreach (Event eventItem in EventList.events)
+                foreach (Event eventItem in EventList.Events)
                 {
-                    if (eventItem.eventName == textBox_EventName.Text)
+                    if (eventItem.EventName == textBox_EventName.Text)
                     {
                         Console.WriteLine("The event already exist");
                         isEventExist = true;
@@ -59,29 +59,29 @@ namespace EventManager
 
                 if (isEventDateValid)
                 {
-                    newEvent.eventName = textBox_EventName.Text;
-                    newEvent.eventAuthor = textBox_Author.Text;
+                    newEvent.EventName = textBox_EventName.Text;
+                    newEvent.EventAuthor = textBox_Author.Text;
 
                     if (richTextBox_EventDescription.TextLength > 0)
                     {
-                        newEvent.eventDes = richTextBox_EventDescription.Text;
+                        newEvent.EventDes = richTextBox_EventDescription.Text;
                     }
 
-                    newEvent.eventStart = dateTimePicker_StartEvent.Value;
-                    newEvent.eventEnd = dateTimePicker_EndEvent.Value;
+                    newEvent.EventStart = dateTimePicker_StartEvent.Value;
+                    newEvent.EventEnd = dateTimePicker_EndEvent.Value;
 
-                    newEvent.reminderOpt = (EventReminder.RemindSet)comboBox_Reminder.SelectedIndex;
+                    newEvent.ReminderOpt = (EventReminder.RemindSet)comboBox_Reminder.SelectedIndex;
 
-                    EventReminder.Remind(newEvent, newEvent.reminderOpt);
+                    EventReminder.Remind(newEvent, newEvent.ReminderOpt);
 
                     ToastContentBuilder toast = new ToastContentBuilder();
 
                     toast.AddHeader("eventCreation", "Event created", "");
-                    toast.AddText($"Event created with the name '{newEvent.eventName}'");
+                    toast.AddText($"Event created with the name '{newEvent.EventName}'");
 
                     toast.Show();
 
-                    EventList.events.Add(newEvent);
+                    EventList.Events.Add(newEvent);
 
                     Close();
                 }
@@ -101,7 +101,7 @@ namespace EventManager
         /// <returns>The event matching to the current index.</returns>
         private Event GetEvent()
         {
-            return EventList.events[currentInd];
+            return EventList.Events[currentInd];
         }
         /// <summary>
         /// Edit an existing event present on the EventList.
@@ -113,9 +113,9 @@ namespace EventManager
 
             bool isEventAlreadyExist = false;
 
-            foreach (Event eventItm in EventList.events)
+            foreach (Event eventItm in EventList.Events)
             {
-                if (EventList.events.IndexOf(eventItm) != index && eventItm.eventName == textBox_EventName.Text)
+                if (EventList.Events.IndexOf(eventItm) != index && eventItm.EventName == textBox_EventName.Text)
                 {
                     isEventAlreadyExist = true;
                 }
@@ -123,8 +123,8 @@ namespace EventManager
 
             if (e != null && !isEventAlreadyExist)
             {
-                DateTime end = e.eventEnd;
-                DateTime start = e.eventStart;
+                DateTime end = e.EventEnd;
+                DateTime start = e.EventStart;
 
                 TimeSpan interval = end - start;
 
@@ -132,32 +132,32 @@ namespace EventManager
 
                 if (isEventDateValid)
                 {
-                    e.eventName = textBox_EventName.Text;
-                    e.eventAuthor = textBox_Author.Text;
+                    e.EventName = textBox_EventName.Text;
+                    e.EventAuthor = textBox_Author.Text;
 
                     if (richTextBox_EventDescription.TextLength > 0)
                     {
-                        e.eventDes = richTextBox_EventDescription.Text;
+                        e.EventDes = richTextBox_EventDescription.Text;
                     }
 
-                    e.eventStart = dateTimePicker_StartEvent.Value;
-                    e.eventEnd = dateTimePicker_EndEvent.Value;
+                    e.EventStart = dateTimePicker_StartEvent.Value;
+                    e.EventEnd = dateTimePicker_EndEvent.Value;
 
-                    e.reminderOpt = (EventReminder.RemindSet)comboBox_Reminder.SelectedIndex;
+                    e.ReminderOpt = (EventReminder.RemindSet)comboBox_Reminder.SelectedIndex;
 
-                    EventReminder.Remind(e, e.reminderOpt);
+                    EventReminder.Remind(e, e.ReminderOpt);
                 }
                 else
                 {
                     MessageBox.Show("The ending date can't be an ulterior date", "Date Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                EventList.events[index] = e;
+                EventList.Events[index] = e;
 
                 ToastContentBuilder toast = new ToastContentBuilder();
 
                 toast.AddHeader("eventEdition", "Event edited", "");
-                toast.AddText($"Event '{e.eventName}' edited");
+                toast.AddText($"Event '{e.EventName}' edited");
 
                 toast.Show();
 
@@ -203,14 +203,14 @@ namespace EventManager
 
             if (currentInd >= 0 && buttonName == "Edit Event")
             {
-                Event eventItm = EventList.events[currentInd];
+                Event eventItm = EventList.Events[currentInd];
 
-                textBox_EventName.Text = eventItm.eventName;
-                textBox_Author.Text = eventItm.eventAuthor;
-                dateTimePicker_StartEvent.Value = eventItm.eventStart;
-                dateTimePicker_EndEvent.Value = eventItm.eventEnd;
-                richTextBox_EventDescription.Text = eventItm.eventDes;
-                comboBox_Reminder.SelectedIndex = (int)eventItm.reminderOpt;
+                textBox_EventName.Text = eventItm.EventName;
+                textBox_Author.Text = eventItm.EventAuthor;
+                dateTimePicker_StartEvent.Value = eventItm.EventStart;
+                dateTimePicker_EndEvent.Value = eventItm.EventEnd;
+                richTextBox_EventDescription.Text = eventItm.EventDes;
+                comboBox_Reminder.SelectedIndex = (int)eventItm.ReminderOpt;
             }
             else
             {
