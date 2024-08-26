@@ -119,9 +119,9 @@ namespace EventManager
 
         private void button_SearchEvent_Click(object sender, EventArgs e)
         {
-            string search = textBox_SearchEventName.Text;
+            string search = textBox_SearchEventName.Text.ToLower();
 
-            for (int i = 0; i < UserList.Users.Count; i++)
+            for (int i = 0; i < EventList.Events.Count; i++)
             {
                 if (listBox_Events.Items[i].ToString().Contains(search))
                 {

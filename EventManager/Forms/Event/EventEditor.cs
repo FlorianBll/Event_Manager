@@ -59,12 +59,12 @@ namespace EventManager
 
                 if (isEventDateValid)
                 {
-                    newEvent.EventName = textBox_EventName.Text;
-                    newEvent.EventAuthor = textBox_Author.Text;
+                    newEvent.EventName = textBox_EventName.Text.ToLower();
+                    newEvent.EventAuthor = textBox_Author.Text.ToLower();
 
                     if (richTextBox_EventDescription.TextLength > 0)
                     {
-                        newEvent.EventDes = richTextBox_EventDescription.Text;
+                        newEvent.EventDes = richTextBox_EventDescription.Text.ToLower();
                     }
 
                     newEvent.EventStart = dateTimePicker_StartEvent.Value;
@@ -132,10 +132,10 @@ namespace EventManager
 
                 if (isEventDateValid)
                 {
-                    e.EventName = textBox_EventName.Text;
-                    e.EventAuthor = textBox_Author.Text;
+                    e.EventName = textBox_EventName.Text.ToLower();
+                    e.EventAuthor = textBox_Author.Text.ToLower();
 
-                    e.EventDes = richTextBox_EventDescription.Text;
+                    e.EventDes = richTextBox_EventDescription.Text.ToLower();
 
                     e.EventStart = dateTimePicker_StartEvent.Value;
                     e.EventEnd = dateTimePicker_EndEvent.Value;
