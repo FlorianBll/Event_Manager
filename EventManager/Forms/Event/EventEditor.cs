@@ -55,7 +55,9 @@ namespace EventManager
 
                 TimeSpan interval = end - start;
 
-                bool isEventDateValid = !(interval.Hours < 0);
+                Console.WriteLine($"Interval in hours = {interval.Hours}; Interval in days = {interval.Days}");
+
+                bool isEventDateValid = interval.Hours > 0 && interval.Days > 0;
 
                 if (isEventDateValid)
                 {
@@ -128,7 +130,9 @@ namespace EventManager
 
                 TimeSpan interval = end - start;
 
-                bool isEventDateValid = !(interval.Hours < 0);
+                Console.WriteLine($"Interval in hours = {interval.Hours}; Interval in days = {interval.Days}");
+
+                bool isEventDateValid = interval.Hours > 0 && interval.Days > 0;
 
                 if (isEventDateValid)
                 {
