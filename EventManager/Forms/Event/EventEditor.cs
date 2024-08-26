@@ -135,10 +135,7 @@ namespace EventManager
                     e.EventName = textBox_EventName.Text;
                     e.EventAuthor = textBox_Author.Text;
 
-                    if (richTextBox_EventDescription.TextLength > 0)
-                    {
-                        e.EventDes = richTextBox_EventDescription.Text;
-                    }
+                    e.EventDes = richTextBox_EventDescription.Text;
 
                     e.EventStart = dateTimePicker_StartEvent.Value;
                     e.EventEnd = dateTimePicker_EndEvent.Value;

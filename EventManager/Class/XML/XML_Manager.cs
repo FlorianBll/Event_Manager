@@ -100,6 +100,8 @@ namespace EventManager
             }
             else
             {
+                File.WriteAllText(path, string.Empty);
+
                 using (FileStream fs = File.OpenWrite(path))
                 {
                     xml.Save(fs);
@@ -163,7 +165,7 @@ namespace EventManager
                         start = DateTime.Parse(eventInfo.Element("start").Value);
                         end = DateTime.Parse(eventInfo.Element("end").Value);
                         des = eventInfo.Element("description").Value;
-                        reminder = (EventReminder.RemindSet)Enum.Parse(typeof(EventReminder.RemindSet), eventInfo.Element("reminder_opt").Value);
+                        reminder = (EventReminder.RemindSet) Enum.Parse(typeof(EventReminder.RemindSet), eventInfo.Element("reminder_opt").Value);
 
                         EventList.Events.Add(new Event(name, author, start, end, des, reminder));
                     }
