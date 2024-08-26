@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
@@ -58,21 +59,20 @@ namespace EventManager
                 {
                     eventItm = EventList.Events[i];
 
-                    if (eventItm.EventDes.Length > 0)
+                    Console.WriteLine(eventItm.EventDes);
+
+                    evntContent = new XElement[7]
                     {
-                        evntContent = new XElement[6]
-                        {
                             new XElement("index", i),
                             new XElement("name", eventItm.EventName),
                             new XElement("author", eventItm.EventAuthor),
                             new XElement("start", eventItm.EventStart.ToString()),
                             new XElement("end", eventItm.EventEnd.ToString()),
                             new XElement("description", eventItm.EventDes),
-                            // new XElement("reminder opt", eventItm.ReminderOpt)
-                        };
+                            new XElement("reminder_opt", eventItm.ReminderOpt.ToString())
+                    };
 
-                        events.Add(new XElement("event", evntContent));
-                    }
+                    events.Add(new XElement("event", evntContent));
                 }
             }
 
@@ -92,6 +92,15 @@ namespace EventManager
             if (!File.Exists(path))
             {
                 using (FileStream fs = File.Create(path))
+                {
+                    xml.Save(fs);
+
+                    fs.Close();
+                }
+            }
+            else
+            {
+                using (FileStream fs = File.OpenWrite(path))
                 {
                     xml.Save(fs);
 
@@ -135,7 +144,7 @@ namespace EventManager
                 }
 
                 // Retrieving events data
-                /*
+                
                 IEnumerable<XElement> events = xml.Element("root").Elements("events");
                 IEnumerable<XElement> eventInfos;
 
@@ -151,10 +160,15 @@ namespace EventManager
                     {
                         name = eventInfo.Element("name").Value;
                         author = eventInfo.Element("author").Value;
-                        start =
+                        start = DateTime.Parse(eventInfo.Element("start").Value);
+                        end = DateTime.Parse(eventInfo.Element("end").Value);
+                        des = eventInfo.Element("description").Value;
+                        reminder = (EventReminder.RemindSet)Enum.Parse(typeof(EventReminder.RemindSet), eventInfo.Element("reminder_opt").Value);
+
+                        EventList.Events.Add(new Event(name, author, start, end, des, reminder));
                     }
                 }
-                */
+                
             }
         }
     }

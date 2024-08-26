@@ -10,5 +10,15 @@
       <password>n4bQgYhMfWWaL+qgxVrQFaO/TxsrC4Is0V1sFbDwCgg=</password>
     </user>
   </users>
-  <events />
+  <events>
+    <event>
+      <index>0</index>
+      <name>lorem ipsum</name>
+      <author>florian</author>
+      <start>26/08/2024 14:28:08</start>
+      <end>26/08/2024 14:28:08</end>
+      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id ornare ex. Cras consequat justo ut odio molestie, ut mattis enim feugiat. Morbi in maximus risus, eget porttitor quam. Praesent non pulvinar massa, eget porta leo. Curabitur ut volutpat lorem, in faucibus risus. Cras sit amet dictum tortor, non volutpat purus. Aliquam suscipit nisl leo, vel consequat mauris molestie eget.</description>
+      <reminder_opt>TWOHOUR</reminder_opt>
+    </event>
+  </events>
 </root>
