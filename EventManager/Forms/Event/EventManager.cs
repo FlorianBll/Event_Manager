@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Authentication;
 using System.Text;
@@ -58,15 +59,15 @@ namespace EventManager
 
         private void Form_EventManager_Activated(object sender, EventArgs e)
         {
-            Form_Authentification auth = new Form_Authentification();
-
             bool UserConnected = UserLogged.User != null;
 
-            if (!UserConnected)
+            if (!UserConnected && !auth.Created)
             {
+                auth = new Form_Authentification();
                 auth.Show();
             }
-            else
+
+            else if (UserConnected)
             {
                 if (!Enabled)
                 {
@@ -90,19 +91,16 @@ namespace EventManager
                 button_EditEvent.Enabled = false;
                 button_DeleteEvent.Enabled = false;
 
-                if (EventList.Events != null)
+                if (EventList.Events != null && EventList.Events.Count > 0)
                 {
-                    if (EventList.Events.Count > 0)
+                    listBox_Events.Items.Clear();
+
+                    foreach (Event eventItm in EventList.Events)
                     {
-                        listBox_Events.Items.Clear();
-
-                        foreach (Event eventItm in EventList.Events)
-                        {
-                            listBox_Events.Items.Add(eventItm.EventName);
-                        }
-
-                        listBox_Events.Update();
+                        listBox_Events.Items.Add(eventItm.EventName);
                     }
+
+                    listBox_Events.Update();
                 }
             }
         }
@@ -157,6 +155,18 @@ namespace EventManager
             Form_DeveloperToolbox devMode = new Form_DeveloperToolbox();
 
             devMode.ShowDialog();
+        }
+
+        private void Form_EventManager_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            XML_Manager.SaveAllData();
+
+            string path = Environment.CurrentDirectory + "/data.xml";
+
+            if (File.Exists(path))
+            {
+                Console.WriteLine("All data saved !");
+            }
         }
     }
 }

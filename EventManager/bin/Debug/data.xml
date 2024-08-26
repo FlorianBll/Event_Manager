@@ -9,13 +9,6 @@
       <email>florian.belloc@dsi-ap.com</email>
       <password>n4bQgYhMfWWaL+qgxVrQFaO/TxsrC4Is0V1sFbDwCgg=</password>
     </user>
-    <user>
-      <index>1</index>
-      <firstname>jean</firstname>
-      <lastname>michel</lastname>
-      <sector>Brombach</sector>
-      <email>jean.michel@dsi-ap.com</email>
-      <password>YDA64iuZiGG847KPM+7BvnWKITyGyTwHbb6fVYwRx1I=</password>
-    </user>
   </users>
+  <events />
 </root>

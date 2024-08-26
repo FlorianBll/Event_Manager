@@ -18,9 +18,10 @@ namespace EventManager
 
         public static void SaveAllData()
         {
-            XElement[] usrContent = new XElement[6];
-
+            // Saving users
             User user = new User();
+
+            XElement[] usrContent;
 
             List<XElement> users = new List<XElement>();
 
@@ -44,7 +45,44 @@ namespace EventManager
                 }
             }
 
-            Root = new XElement("root", new XElement("users", users.ToArray()));
+            // Saving events
+            Event eventItm = new Event();
+
+            XElement[] evntContent;
+
+            List<XElement> events = new List<XElement>();
+
+            if (EventList.Events.Count > 0)
+            {
+                for (int i = 0; i < EventList.Events.Count; i++)
+                {
+                    eventItm = EventList.Events[i];
+
+                    if (eventItm.EventDes.Length > 0)
+                    {
+                        evntContent = new XElement[6]
+                        {
+                            new XElement("index", i),
+                            new XElement("name", eventItm.EventName),
+                            new XElement("author", eventItm.EventAuthor),
+                            new XElement("start", eventItm.EventStart.ToString()),
+                            new XElement("end", eventItm.EventEnd.ToString()),
+                            new XElement("description", eventItm.EventDes),
+                            // new XElement("reminder opt", eventItm.ReminderOpt)
+                        };
+
+                        events.Add(new XElement("event", evntContent));
+                    }
+                }
+            }
+
+            XElement[] contents = new XElement[2]
+            {
+                new XElement("users", users.ToArray()),
+                new XElement("events", events.ToArray())
+            };
+
+            Root = new XElement("root", contents);
 
             XDocument xml = new XDocument(Root);
 
@@ -68,21 +106,18 @@ namespace EventManager
         {
             Console.WriteLine("Path of the file : " + Path);
 
-            if (Path != string.Empty)
+            if (File.Exists(Path))
             {
                 // Load the xml file
 
                 XDocument xml = XDocument.Load("data.xml");
 
+                // Retrieving users data
                 IEnumerable<XElement> users = xml.Element("root").Elements("users");
-                List<Dictionary<string,string>> userList = new List<Dictionary<string,string>>();
-
                 IEnumerable<XElement> userInfos;
 
-                // Variables values stored in User instance and add it UserList
                 string firstName, lastName, sector, email, password = string.Empty;
-
-                // Fill the dictionary with users values
+                
                 foreach (XElement user in users)
                 {
                     userInfos = user.Elements("user");
@@ -98,6 +133,28 @@ namespace EventManager
                         UserList.Users.Add(new User(firstName, lastName, sector, email, password));
                     }
                 }
+
+                // Retrieving events data
+                /*
+                IEnumerable<XElement> events = xml.Element("root").Elements("events");
+                IEnumerable<XElement> eventInfos;
+
+                string name, author, des;
+                DateTime start, end;
+                EventReminder.RemindSet reminder;
+                
+                foreach (XElement eventItm in events)
+                {
+                    eventInfos = eventItm.Elements("event");
+
+                    foreach (XElement eventInfo in  eventInfos)
+                    {
+                        name = eventInfo.Element("name").Value;
+                        author = eventInfo.Element("author").Value;
+                        start =
+                    }
+                }
+                */
             }
         }
     }

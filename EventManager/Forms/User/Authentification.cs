@@ -162,22 +162,14 @@ namespace EventManager
             }
         }
 
-        private void Form_Authentification_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            eventManager = new Form_EventManager();
-
-            XML_Manager.SaveAllData();
-
-            Console.WriteLine("User profile saved.");
-
-            eventManager.Activate();
-        }
-
         private void Form_Authentification_Load(object sender, EventArgs e)
         {
             Console.WriteLine("Form shown");
 
-            XML_Manager.RetrieveAllData();
+            if (UserList.Users.Count == 0)
+            {
+                XML_Manager.RetrieveAllData();
+            }
 
             UpdateUserList();
 
@@ -185,6 +177,11 @@ namespace EventManager
             {
                 Enabled = true;
             }
+        }
+
+        private void Form_Authentification_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Dispose();
         }
     }
 }
