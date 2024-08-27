@@ -181,6 +181,7 @@ namespace EventManager
 
         private void Form_Authentification_FormClosed(object sender, FormClosedEventArgs e)
         {
+            eventManager.Activate();
             Dispose();
         }
     }

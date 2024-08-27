@@ -5,8 +5,8 @@
       <index>0</index>
       <firstname>florian</firstname>
       <lastname>belloc</lastname>
-      <sector>Cepiere</sector>
-      <email>florian.belloc@dsi-ap.com</email>
+      <sector>Toulouse</sector>
+      <email>florian.belloc@gmail.com</email>
       <password>n4bQgYhMfWWaL+qgxVrQFaO/TxsrC4Is0V1sFbDwCgg=</password>
     </user>
   </users>
@@ -15,8 +15,8 @@
       <index>0</index>
       <name>test</name>
       <author>florian</author>
-      <start>27/08/2024 10:00:00</start>
-      <end>27/08/2024 12:00:00</end>
+      <start>27/08/2024 15:49:58</start>
+      <end>27/08/2024 16:00:00</end>
       <description></description>
       <reminder_opt>ONEHOUR</reminder_opt>
     </event>
@@ -24,10 +24,11 @@
       <index>1</index>
       <name>lorem ipsum</name>
       <author>florian</author>
-      <start>12/08/2024 10:00:00</start>
-      <end>12/08/2024 14:00:00</end>
-      <description></description>
-      <reminder_opt>HALFHOUR</reminder_opt>
+      <start>27/08/2024 15:50:18</start>
+      <end>29/08/2024 15:50:18</end>
+      <description>lorem ipsum dolor sit amet, consectetur adipiscing elit. aenean sed mi eros. duis porttitor leo quis quam blandit, a maximus sapien molestie. ut ac elit arcu. donec interdum molestie turpis laoreet facilisis. aenean in erat vel mi viverra porta. mauris vel malesuada sapien. sed consequat eget elit vel ultricies. maecenas sit amet nulla feugiat, eleifend nunc at, volutpat est. ut purus tortor, mattis sed turpis a, dapibus semper massa. sed ipsum odio, ornare sed odio et, mattis iaculis magna. aenean congue elit velit, id bibendum libero tincidunt quis. proin orci tortor, tincidunt eget aliquam vel, malesuada non lacus. vestibulum aliquet volutpat nisl, at malesuada neque vulputate id. aenean fermentum a leo quis dignissim. donec at semper magna, a pulvinar leo. fusce non consequat lorem.
+</description>
+      <reminder_opt>FIVEMIN</reminder_opt>
     </event>
   </events>
 </root>

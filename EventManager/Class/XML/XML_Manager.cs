@@ -96,6 +96,8 @@ namespace EventManager
                     xml.Save(fs);
 
                     fs.Close();
+
+                    Console.WriteLine("All data saved !");
                 }
             }
             else
@@ -107,6 +109,8 @@ namespace EventManager
                     xml.Save(fs);
 
                     fs.Close();
+
+                    Console.WriteLine("All data saved !");
                 }
             }
         }
@@ -170,7 +174,11 @@ namespace EventManager
                         EventList.Events.Add(new Event(name, author, start, end, des, reminder));
                     }
                 }
-                
+
+                if (UserList.Users.Count > 0 && EventList.Events.Count > 0)
+                {
+                    Console.WriteLine("All data retrieved !");
+                }
             }
         }
     }

@@ -64,6 +64,7 @@ namespace EventManager
             if (!UserConnected && !auth.Created)
             {
                 auth = new Form_Authentification();
+                auth.eventManager = this;
                 auth.Show();
             }
 

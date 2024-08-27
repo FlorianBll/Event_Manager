@@ -120,7 +120,9 @@ namespace EventManager
 
                 u.Sector = comboBox_Sector.Items[comboBox_Sector.SelectedIndex].ToString();
 
-                textBox_Email.Text = u.Email;
+                u.Email = textBox_Email.Text;
+
+                u.EncryptedPassword = EncryptPassword(textBox_Password.Text);
 
                 UserList.Users[CurrentInd] = u;
 

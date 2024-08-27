@@ -117,6 +117,8 @@ namespace EventManager
             else
             {
                 MessageBox.Show("You have entered the wrong password. Please try again !", "Wrong password typed", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+
+                textBox_Password.Clear();
             }
         }
     }

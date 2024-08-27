@@ -94,14 +94,22 @@
             // 
             this.comboBox_Sector.FormattingEnabled = true;
             this.comboBox_Sector.Items.AddRange(new object[] {
-            "Cepiere",
-            "Brombach",
-            "Blagnac"});
+            "Toulouse",
+            "Bordeaux",
+            "Marseille",
+            "Nice",
+            "Lyon",
+            "Dijon",
+            "Tours",
+            "Rennes",
+            "Paris",
+            "Lille",
+            "Orléans"});
             this.comboBox_Sector.Location = new System.Drawing.Point(67, 73);
             this.comboBox_Sector.Name = "comboBox_Sector";
             this.comboBox_Sector.Size = new System.Drawing.Size(100, 21);
             this.comboBox_Sector.TabIndex = 5;
-            this.comboBox_Sector.Text = "Cepiere";
+            this.comboBox_Sector.Text = "Toulouse";
             // 
             // button_UserCreateEdit
             // 
@@ -212,11 +220,11 @@
             this.Name = "Form_UserEditor";
             this.Text = "CreateEdit_User";
             this.Load += new System.EventHandler(this.Form_UserEditor_Load);
-            this.groupBox1.ResumeLayout(true);
+            this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(true);
+            this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.ResumeLayout(true);
+            this.ResumeLayout(false);
 
         }
 
