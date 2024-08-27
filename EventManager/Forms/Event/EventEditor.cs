@@ -55,11 +55,7 @@ namespace EventManager
 
                 TimeSpan interval = end - start;
 
-                Console.WriteLine($"Interval in hours = {interval.Hours}; Interval in days = {interval.Days}");
-
-                bool isEventDateValid = interval.Hours > 0 && interval.Days > 0;
-
-                if (isEventDateValid)
+                if ((interval.Hours >= 0 && interval.Days > 0) || (interval.Days == 0 && interval.TotalMilliseconds > 0))
                 {
                     newEvent.EventName = textBox_EventName.Text.ToLower();
                     newEvent.EventAuthor = textBox_Author.Text.ToLower();
@@ -125,16 +121,14 @@ namespace EventManager
 
             if (e != null && !isEventAlreadyExist)
             {
-                DateTime end = e.EventEnd;
-                DateTime start = e.EventStart;
+                DateTime end = dateTimePicker_EndEvent.Value;
+                DateTime start = dateTimePicker_StartEvent.Value;
 
                 TimeSpan interval = end - start;
 
-                Console.WriteLine($"Interval in hours = {interval.Hours}; Interval in days = {interval.Days}");
+                Console.WriteLine($"Interval in hours = {interval.Hours}; Interval in milliseconds (total) = {interval.TotalMilliseconds}");
 
-                bool isEventDateValid = interval.Hours > 0 && interval.Days > 0;
-
-                if (isEventDateValid)
+                if ((interval.Hours >= 0 && interval.Days > 0) || (interval.Days == 0 && interval.TotalMilliseconds > 0))
                 {
                     e.EventName = textBox_EventName.Text.ToLower();
                     e.EventAuthor = textBox_Author.Text.ToLower();
@@ -150,7 +144,7 @@ namespace EventManager
                 }
                 else
                 {
-                    MessageBox.Show("The ending date can't be an ulterior date", "Date Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("The ending date can't be an ulterior date or the same as the start", "Date Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 EventList.Events[index] = e;

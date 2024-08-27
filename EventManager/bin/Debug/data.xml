@@ -10,5 +10,24 @@
       <password>n4bQgYhMfWWaL+qgxVrQFaO/TxsrC4Is0V1sFbDwCgg=</password>
     </user>
   </users>
-  <events />
+  <events>
+    <event>
+      <index>0</index>
+      <name>test</name>
+      <author>florian</author>
+      <start>27/08/2024 10:00:00</start>
+      <end>27/08/2024 12:00:00</end>
+      <description></description>
+      <reminder_opt>ONEHOUR</reminder_opt>
+    </event>
+    <event>
+      <index>1</index>
+      <name>lorem ipsum</name>
+      <author>florian</author>
+      <start>12/08/2024 10:00:00</start>
+      <end>12/08/2024 14:00:00</end>
+      <description></description>
+      <reminder_opt>HALFHOUR</reminder_opt>
+    </event>
+  </events>
 </root>
